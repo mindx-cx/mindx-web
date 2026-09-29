@@ -36,7 +36,7 @@ export const brainPlans = [
   },
 ] as const;
 
-export const ANNUAL_DISCOUNT = 0.15; // [confirm]
+export const ANNUAL_DISCOUNT = 0.15; // 
 
 export const workerPrices = [
   { worker: 'MindX Resolve', price: '$0.90 per resolved conversation', when: 'Resolve completes the request', status: 'Live' },
