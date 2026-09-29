@@ -1,0 +1,30 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# build output
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts.bak
+
+# tests
+/coverage
+/test-results/
+/playwright-report/
+
+# env files (keep .env.example)
+.env
+.env*.local
+
+# portable Node used for local preview on machines with an older system Node
+/.tools/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+pnpm-debug.log*
+.vercel

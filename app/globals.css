@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-body-m text-ink-950 antialiased md:text-body;
+  }
+
+  /* Focus ring for every interactive element (A5 button states). */
+  :focus-visible {
+    outline: 3px solid theme('colors.blue.500');
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: theme('colors.mint.400');
+    color: theme('colors.navy.950');
+  }
+
+  /* Announcement bar dismissal is applied before paint to avoid a layout jump. */
+  html[data-ann-dismissed] [data-announcement] {
+    display: none;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-4 md:px-6;
+  }
+
+  /* Type scale (A5): mobile size first, desktop from md up. */
+  .t-display {
+    @apply font-display text-display-m font-bold tracking-tight md:text-display;
+  }
+  .t-h1 {
+    @apply font-display text-h1-m font-bold tracking-tight md:text-h1;
+  }
+  .t-h2 {
+    @apply font-display text-h2-m font-bold tracking-tight md:text-h2;
+  }
+  .t-h3 {
+    @apply text-h3-m font-semibold md:text-h3;
+  }
+  .t-body-l {
+    @apply text-body-l-m md:text-body-l;
+  }
+  .t-eyebrow {
+    @apply text-eyebrow font-bold uppercase;
+  }
+  .t-stat {
+    @apply font-display text-stat-m font-bold tracking-tight md:text-stat;
+  }
+
+  /* Long-form legal text carried over from the current site (LegalPage). */
+  .legal {
+    @apply text-ink-950;
+  }
+  .legal .toc {
+    @apply mb-12 rounded-card border border-gray-200 bg-gray-50 p-6;
+  }
+  .legal .toc h3 {
+    @apply t-eyebrow mb-3 text-ink-700;
+  }
+  .legal .toc ol {
+    @apply grid gap-x-8 gap-y-1 text-small sm:grid-cols-2;
+  }
+  .legal .doc-section {
+    @apply scroll-mt-28 border-t border-gray-200 py-8;
+  }
+  .legal h2 {
+    @apply t-h3 mb-4;
+  }
+  .legal h3 {
+    @apply mb-2 mt-6 font-semibold;
+  }
+  .legal p {
+    @apply mb-4 text-ink-700;
+  }
+  .legal ul,
+  .legal .doc-section ol {
+    @apply mb-4 list-disc space-y-1 pl-6 text-ink-700;
+  }
+  .legal .doc-section ol {
+    @apply list-decimal;
+  }
+  .legal a {
+    @apply break-words text-blue-600 underline underline-offset-2;
+  }
+  .legal strong {
+    @apply font-semibold text-ink-950;
+  }
+  .legal table {
+    @apply mb-4 block w-full overflow-x-auto text-small;
+  }
+  .legal th,
+  .legal td {
+    @apply border border-gray-200 px-3 py-2 text-left align-top;
+  }
+}
+
+/* Data flowing along diagram connectors (ArchitectureDiagram). */
+@keyframes mx-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+.mx-flow {
+  stroke-dasharray: 6 14;
+  animation: mx-flow 1.2s linear infinite;
+}
+.mx-flow-slow {
+  stroke-dasharray: 6 10;
+  animation: mx-flow 2.4s linear infinite;
+}
+
+/* Scroll reveal (A5: subtle fade-up). Only hides content when JS is running
+   and the visitor hasn't asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  html.js [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
