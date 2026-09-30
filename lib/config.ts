@@ -1,8 +1,14 @@
 // Public runtime settings (spec A4). NEXT_PUBLIC_* values are inlined at build time.
+//
+// `||`, not `??`: a GitHub Actions expression for a repository variable that
+// has not been set arrives as an empty string rather than as undefined, and ??
+// keeps the empty string. That built fine locally, where the variable is simply
+// absent, and failed in CI with "TypeError: Invalid URL, input: ''" the moment
+// metadataBase tried to parse it.
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://themindx.ai';
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://themindx.ai';
 
-export const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://app.themindx.ai';
+export const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://app.themindx.ai';
 
 /** Highlight [placeholders] in preview builds. */
 export const showPlaceholders = process.env.NEXT_PUBLIC_SHOW_PLACEHOLDERS === 'true';
@@ -18,4 +24,4 @@ export const launchMode: 'waitlist' | 'live' = process.env.NEXT_PUBLIC_LAUNCH_MO
 export const isWaitlist = launchMode === 'waitlist';
 
 /** Cloudflare Turnstile site key; the widget only renders when this is set. */
-export const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+export const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
