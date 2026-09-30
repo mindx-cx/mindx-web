@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { WaitlistSignup } from '@/components/forms/WaitlistSignup';
+import { HubSpotEmbed } from '@/components/forms/HubSpotEmbed';
 import { waitlistPage as copy } from '@/content/waitlist';
 
 /**
@@ -28,7 +28,7 @@ export function WaitlistPanel() {
           {copy.demoNote}
         </p>
       )}
-      <WaitlistSignup intent={intent} />
+      <HubSpotEmbed form="waitlist" />
     </>
   );
 }

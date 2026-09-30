@@ -1,4 +1,4 @@
-import { WaitlistForm } from '@/components/forms/WaitlistForm';
+import { HubSpotEmbed } from '@/components/forms/HubSpotEmbed';
 import { Hero } from '@/components/sections/Hero';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { WorkerTile } from '@/components/ui/WorkerTile';
@@ -32,7 +32,7 @@ export default function GrowPage() {
               </div>
             </div>
             <div className="mt-6">
-              <WaitlistForm worker="grow" labels={growWaitlist} />
+              <HubSpotEmbed form="waitlist" />
             </div>
           </div>
         </div>

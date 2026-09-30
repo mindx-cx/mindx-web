@@ -11,8 +11,9 @@
 export type HubSpotFormKey =
   "waitlist" | "designPartner" | "newsletter" | "integrationRequest";
 
-const PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID || "247553422";
+export const HUBSPOT_PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID || "247553422";
 // The portal lives in HubSpot's NA2 data center (embed code: data-region="na2").
+export const HUBSPOT_REGION = "na2";
 const API_BASE =
   process.env.NEXT_PUBLIC_HUBSPOT_FORMS_API_BASE ||
   "https://api-na2.hsforms.com";
@@ -38,6 +39,8 @@ const FORM_IDS: Record<HubSpotFormKey, string> = {
   integrationRequest:
     process.env.NEXT_PUBLIC_HUBSPOT_FORM_INTEGRATION || NEWSLETTER,
 };
+
+export const hubspotFormId = (form: HubSpotFormKey) => FORM_IDS[form];
 
 /**
  * Our field -> HubSpot field internal name, per form. A field the form does not
@@ -108,7 +111,7 @@ export async function submitHubSpotForm(
   let res: Response;
   try {
     res = await fetch(
-      `${API_BASE}/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_IDS[form]}`,
+      `${API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${FORM_IDS[form]}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
