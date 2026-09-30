@@ -7,8 +7,8 @@ import { email as emailSchema, shopDomain as shopDomainSchema } from '@/componen
 import { messages, type MessageKey } from '@/content/messages';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
-import { readAttribution } from '@/lib/utm';
-import { readTurnstileToken, resetTurnstile, Turnstile } from './Turnstile';
+import { submitHubSpotForm } from '@/lib/hubspotForms';
+import { resetTurnstile, Turnstile } from './Turnstile';
 
 type WaitlistFormProps = {
   worker: 'convert' | 'grow';
@@ -48,21 +48,9 @@ export function WaitlistForm({ worker, labels }: WaitlistFormProps) {
 
     setStatus('loading');
     try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          step: 1,
-          email: email.trim(),
-          shopDomain,
-          worker,
-          website: honeypot,
-          turnstileToken: formRef.current ? readTurnstileToken(formRef.current) : undefined,
-          ...readAttribution(),
-        }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: MessageKey };
-      if (!res.ok || !data.ok) throw new Error(data.error ?? 'serverError');
+      // The honeypot is a hidden field only a bot fills in. Show the success
+      // state without submitting, so a bot learns nothing from the difference.
+      if (!honeypot) await submitHubSpotForm('waitlist', { email: email.trim(), shopDomain });
       track('waitlist_join', { worker });
       setStatus('success');
     } catch (err) {

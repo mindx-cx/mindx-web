@@ -9,9 +9,9 @@ import { messages, type MessageKey } from '@/content/messages';
 import { helpdeskOptions, ordersOptions } from '@/content/waitlist';
 import { track } from '@/lib/analytics';
 import { appUrl } from '@/lib/config';
-import { readAttribution } from '@/lib/utm';
+import { splitName, submitHubSpotForm } from '@/lib/hubspotForms';
 import { Field, Honeypot, SelectInput, TextArea, TextInput } from './fields';
-import { readTurnstileToken, resetTurnstile, Turnstile } from './Turnstile';
+import { resetTurnstile, Turnstile } from './Turnstile';
 
 type LeadType = 'brain_scan' | 'demo' | 'design_partner';
 type Values = Record<'name' | 'email' | 'shopDomain' | 'ordersPerMonth' | 'conversationsPerMonth' | 'helpdesk' | 'topProblem', string>;
@@ -70,18 +70,13 @@ export function LeadForm({ type }: { type: LeadType }) {
     setErrors({});
     setStatus('loading');
     try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...data,
-          website: honeypot,
-          turnstileToken: formRef.current ? readTurnstileToken(formRef.current) : undefined,
-          ...readAttribution(),
-        }),
-      });
-      const body = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: MessageKey };
-      if (!res.ok || !body.ok) throw new Error(body.error ?? 'serverError');
+      // The honeypot is a hidden field only a bot fills in. Carry on to the
+      // success path without submitting, so a bot learns nothing from the
+      // difference between a real submission and a rejected one.
+      if (!honeypot) {
+        const { name, ...lead } = data as Record<string, string | undefined>;
+        await submitHubSpotForm('designPartner', { ...lead, ...splitName(name) });
+      }
 
       if (type === 'brain_scan') {
         track('brain_scan_form_submit', { helpdesk: values.helpdesk || undefined });

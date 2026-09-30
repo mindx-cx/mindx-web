@@ -1,0 +1,54 @@
+# Apache rules for the static export, served by Hostinger.
+#
+# Everything in public/ is copied into out/, so this file ends up at the site
+# root. It replaces the redirects() block that used to live in
+# next.config.mjs -- static export has no server to run that.
+
+RewriteEngine On
+
+# --- Legacy URLs -------------------------------------------------------------
+# The old themindx.ai site, and the Shopify App Store listing, link to these.
+Redirect 301 /index.html /
+Redirect 301 /privacy-policy.html /privacy/
+Redirect 301 /terms-of-service.html /terms/
+
+# --- Waitlist mode -----------------------------------------------------------
+# While the site is in waitlist mode, shared links to the Brain Scan and demo
+# pages land on the waitlist instead. 302, not 301, so browsers do not cache
+# them past launch. DELETE THESE TWO LINES when NEXT_PUBLIC_LAUNCH_MODE=live,
+# or the real pages stay unreachable.
+Redirect 302 /brain-scan /waitlist/
+Redirect 302 /demo /waitlist/?intent=demo
+
+# --- Clean URLs --------------------------------------------------------------
+# trailingSlash: true means each route is a directory holding index.html, so
+# Apache finds them on its own. This only adds the missing slash.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+# --- 404 ---------------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# --- Caching -----------------------------------------------------------------
+# Next fingerprints everything under /_next/static, so those are safe to cache
+# forever. HTML must not be, or a deploy takes a day to reach anyone.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

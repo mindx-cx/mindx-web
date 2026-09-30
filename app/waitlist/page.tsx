@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { WaitlistSignup } from '@/components/forms/WaitlistSignup';
+import { WaitlistPanel } from '@/components/forms/WaitlistPanel';
 import { CheckList } from '@/components/sections/CheckList';
 import { Countdown } from '@/components/sections/Countdown';
 import { HeroBackdrop } from '@/components/sections/Hero';
@@ -13,13 +13,11 @@ export const metadata: Metadata = pageMetadata({
   description: `Join the first Shopify brands to hire MindX AI workers. Free early access, no credit card. Opens ${launch.dateLabel}.`,
 });
 
-type PageProps = { searchParams: Promise<Record<string, string | string[] | undefined>> };
-
 // Waitlist / early access (decision 29 Sep 2026). Every main CTA lands here
-// while NEXT_PUBLIC_LAUNCH_MODE is "waitlist"; ?intent=demo comes from "Book a demo".
-export default async function WaitlistPage({ searchParams }: PageProps) {
-  const params = await searchParams;
-  const intent = params.intent === 'demo' ? 'demo' : undefined;
+// while NEXT_PUBLIC_LAUNCH_MODE is "waitlist"; ?intent=demo comes from "Book a
+// demo" and is read in the browser by WaitlistPanel, because a static export
+// has no request to read searchParams from.
+export default function WaitlistPage() {
   const launchDate = new Date(launch.isoDate).toLocaleDateString('en-US', {
     weekday: 'long',
     month: 'long',
@@ -50,12 +48,7 @@ export default async function WaitlistPage({ searchParams }: PageProps) {
           </div>
 
           <div className="relative mt-10 rounded-card bg-white p-5 text-ink-950 shadow-mock md:p-7">
-            {intent === 'demo' && (
-              <p className="mb-5 rounded-btn bg-blue-50 px-4 py-3 text-left text-small font-medium text-info-strong">
-                {copy.demoNote}
-              </p>
-            )}
-            <WaitlistSignup intent={intent} />
+            <WaitlistPanel />
             <div className="mt-6 border-t border-gray-200 pt-5 text-left">
               <div className="mb-4 flex gap-2" aria-hidden="true">
                 <WorkerTile worker="brain" size="sm" />

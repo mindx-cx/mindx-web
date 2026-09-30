@@ -1,11 +1,11 @@
 'use client';
 
 import { useId, useRef, useState, type FormEvent } from 'react';
-import { readTurnstileToken, resetTurnstile, Turnstile } from '@/components/forms/Turnstile';
+import { resetTurnstile, Turnstile } from '@/components/forms/Turnstile';
 import { Button } from '@/components/ui/Button';
 import { messages, type MessageKey } from '@/content/messages';
 import { footer } from '@/content/site';
-import { readAttribution } from '@/lib/utm';
+import { submitHubSpotForm } from '@/lib/hubspotForms';
 
 type Status = 'idle' | 'loading' | 'success';
 
@@ -31,17 +31,7 @@ export function NewsletterForm() {
     setError('');
     setStatus('loading');
     try {
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: value,
-          turnstileToken: formRef.current ? readTurnstileToken(formRef.current) : undefined,
-          ...readAttribution(),
-        }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: MessageKey };
-      if (!res.ok || !data.ok) throw new Error(data.error ?? 'serverError');
+      await submitHubSpotForm('newsletter', { email: value });
       setStatus('success');
     } catch (err) {
       setStatus('idle');

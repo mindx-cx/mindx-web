@@ -1,0 +1,71 @@
+name: Build site
+
+# Hostinger's Git deployment clones a branch and serves the files in it; it
+# does not run Node, so it cannot build a Next.js app. This builds the static
+# export here and force-pushes the contents of out/ to the `deploy` branch,
+# whose root is the site. Point Hostinger at `deploy`, never at `main`.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run typecheck
+
+      - run: npm run build
+        env:
+          # Set these as repository variables (Settings -> Secrets and
+          # variables -> Actions -> Variables) to override the defaults
+          # compiled into the source. Only NEXT_PUBLIC_ values reach the
+          # browser bundle, which is the only place they are read now.
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_APP_URL: ${{ vars.NEXT_PUBLIC_APP_URL }}
+          NEXT_PUBLIC_LAUNCH_MODE: ${{ vars.NEXT_PUBLIC_LAUNCH_MODE }}
+          NEXT_PUBLIC_SHOW_PLACEHOLDERS: ${{ vars.NEXT_PUBLIC_SHOW_PLACEHOLDERS }}
+          NEXT_PUBLIC_HUBSPOT_PORTAL_ID: ${{ vars.NEXT_PUBLIC_HUBSPOT_PORTAL_ID }}
+          NEXT_PUBLIC_HUBSPOT_FORMS_API_BASE: ${{ vars.NEXT_PUBLIC_HUBSPOT_FORMS_API_BASE }}
+          NEXT_PUBLIC_HUBSPOT_FORM_WAITLIST: ${{ vars.NEXT_PUBLIC_HUBSPOT_FORM_WAITLIST }}
+          NEXT_PUBLIC_HUBSPOT_FORM_DESIGN_PARTNER: ${{ vars.NEXT_PUBLIC_HUBSPOT_FORM_DESIGN_PARTNER }}
+          NEXT_PUBLIC_HUBSPOT_FORM_NEWSLETTER: ${{ vars.NEXT_PUBLIC_HUBSPOT_FORM_NEWSLETTER }}
+          NEXT_PUBLIC_HUBSPOT_FORM_INTEGRATION: ${{ vars.NEXT_PUBLIC_HUBSPOT_FORM_INTEGRATION }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ vars.NEXT_PUBLIC_POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
+          NEXT_PUBLIC_CAL_LINK: ${{ vars.NEXT_PUBLIC_CAL_LINK }}
+
+      - name: Check the build produced a site
+        run: |
+          test -f out/index.html || { echo "out/index.html missing"; exit 1; }
+          test -f out/.htaccess || { echo "out/.htaccess missing - public/.htaccess did not ship"; exit 1; }
+
+      - name: Publish out/ to the deploy branch
+        run: |
+          cd out
+          git init -q -b deploy
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Build ${GITHUB_SHA::7} from main"
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

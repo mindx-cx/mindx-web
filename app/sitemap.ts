@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { isWaitlist, siteUrl } from '@/lib/config';
 
+// Static export renders this at build time rather than on request.
+export const dynamic = 'force-static';
+
 // Spec C3, plus /waitlist. /brain-scan and /demo are left out while they
 // redirect to the waitlist.
 const routes = [

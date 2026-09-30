@@ -4,7 +4,7 @@ import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from 'rea
 import { CircleCheck, Search } from 'lucide-react';
 import { Field, Honeypot, TextInput } from '@/components/forms/fields';
 import { email as emailSchema, integrationRequestSchema } from '@/components/forms/schemas';
-import { readTurnstileToken, resetTurnstile, Turnstile } from '@/components/forms/Turnstile';
+import { resetTurnstile, Turnstile } from '@/components/forms/Turnstile';
 import { Button } from '@/components/ui/Button';
 import { Chip, type ChipTone } from '@/components/ui/Chip';
 import { fieldLabels, integrationRequest as req } from '@/content/forms';
@@ -19,7 +19,7 @@ import {
 import { messages, type MessageKey } from '@/content/messages';
 import { ctas } from '@/content/site';
 import { track } from '@/lib/analytics';
-import { readAttribution } from '@/lib/utm';
+import { submitHubSpotForm } from '@/lib/hubspotForms';
 
 const statusTone: Record<Status, ChipTone> = { live: 'live', beta: 'beta', soon: 'soon', later: 'neutral' };
 const statusOrder: Status[] = ['live', 'beta', 'soon', 'later'];
@@ -209,18 +209,14 @@ function RequestForm({
     setErrors({});
     setState('loading');
     try {
-      const res = await fetch('/api/integration-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...data,
-          website: honeypot,
-          turnstileToken: formRef.current ? readTurnstileToken(formRef.current) : undefined,
-          ...readAttribution(),
-        }),
-      });
-      const body = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: MessageKey };
-      if (!res.ok || !body.ok) throw new Error(body.error ?? 'serverError');
+      // Hidden field only a bot fills in: report success without submitting.
+      //
+      // Only the email is sent. There is no HubSpot form for integration
+      // requests yet, so these land in the newsletter form and the requested
+      // tool is dropped -- it has no field to go in. Create a form for them in
+      // HubSpot and point NEXT_PUBLIC_HUBSPOT_FORM_INTEGRATION at it to keep
+      // the tool. The analytics event below records it either way.
+      if (!honeypot) await submitHubSpotForm('integrationRequest', { email: data.email });
       track('integration_request', { tool });
       setState('success');
     } catch (err) {

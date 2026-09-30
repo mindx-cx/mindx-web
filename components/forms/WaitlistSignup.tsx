@@ -10,21 +10,26 @@ import { ctas } from '@/content/site';
 import { helpdeskOptions, ordersOptions, waitlistForm as copy } from '@/content/waitlist';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
-import { readAttribution } from '@/lib/utm';
-import { readTurnstileToken, resetTurnstile, Turnstile } from './Turnstile';
+import { splitName, submitHubSpotForm } from '@/lib/hubspotForms';
+import { resetTurnstile, Turnstile } from './Turnstile';
 
 type Step = 'signup' | 'details' | 'done';
 type Errors = Partial<Record<'email' | 'store' | 'form', string>>;
 
+/**
+ * Both steps submit to the same HubSpot form, keyed on email: HubSpot merges
+ * the second submission into the contact created by the first. That replaces
+ * the signed token the route handler used to hand out, which only existed to
+ * stop someone posting step 2 for an email they had not just entered.
+ */
 async function post(payload: Record<string, unknown>): Promise<{ token?: string }> {
-  const res = await fetch('/api/waitlist', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  });
-  const data = (await res.json().catch(() => ({}))) as { ok?: boolean; token?: string; error?: MessageKey };
-  if (!res.ok || !data.ok) throw new Error(data.error && data.error in messages ? data.error : 'serverError');
-  return data;
+  const { website, step, token, name, ...rest } = payload as Record<string, string | boolean | undefined>;
+  void step;
+  void token;
+  // Hidden field only a bot fills in: report success without submitting.
+  if (website) return {};
+  await submitHubSpotForm('waitlist', { ...rest, ...splitName(name as string | undefined) });
+  return {};
 }
 
 const errorMessage = (err: unknown) =>
@@ -82,8 +87,6 @@ export function WaitlistSignup({ intent }: { intent?: 'demo' }) {
         worker: 'mindx',
         intent,
         website: honeypot,
-        turnstileToken: formRef.current ? readTurnstileToken(formRef.current) : undefined,
-        ...readAttribution(),
       });
       setToken(data.token);
       setShopDomain(domain);
