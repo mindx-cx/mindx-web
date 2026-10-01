@@ -9,10 +9,18 @@
 
 export type GoogleFormKey = "waitlist" | "designPartner" | "newsletter";
 
+// The defaults are the published forms in mindx.digitalmarketing@gmail.com; a
+// NEXT_PUBLIC_GOOGLE_FORM_* setting overrides them. The waitlist form has no
+// default yet: it needs its published "viewform" link (Send -> link), not the
+// private /edit address.
 const RAW: Record<GoogleFormKey, string | undefined> = {
   waitlist: process.env.NEXT_PUBLIC_GOOGLE_FORM_WAITLIST,
-  designPartner: process.env.NEXT_PUBLIC_GOOGLE_FORM_DESIGN_PARTNER,
-  newsletter: process.env.NEXT_PUBLIC_GOOGLE_FORM_NEWSLETTER,
+  designPartner:
+    process.env.NEXT_PUBLIC_GOOGLE_FORM_DESIGN_PARTNER ||
+    "https://docs.google.com/forms/d/e/1FAIpQLSemsCYb3Q1WKU6ONOMXlNrwc1gS5j8Hs9Dd86Rr3BJWg6HzxA/viewform",
+  newsletter:
+    process.env.NEXT_PUBLIC_GOOGLE_FORM_NEWSLETTER ||
+    "https://docs.google.com/forms/d/e/1FAIpQLSekq5csmYKlhB678WfMENugnXmhw-2IjAJtno0SrBgcPOtNbg/viewform",
 };
 
 /** Embed height in px per form: Google Forms cannot size an iframe to its content. */
