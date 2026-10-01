@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { HubSpotEmbed } from '@/components/forms/HubSpotEmbed';
+import { GoogleFormEmbed } from '@/components/forms/GoogleFormEmbed';
 import { waitlistPage as copy } from '@/content/waitlist';
 
 /**
@@ -28,7 +28,7 @@ export function WaitlistPanel() {
           {copy.demoNote}
         </p>
       )}
-      <HubSpotEmbed form="waitlist" />
+      <GoogleFormEmbed form="waitlist" />
     </>
   );
 }
