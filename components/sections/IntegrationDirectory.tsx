@@ -19,7 +19,7 @@ import {
 import { messages, type MessageKey } from '@/content/messages';
 import { ctas } from '@/content/site';
 import { track } from '@/lib/analytics';
-import { submitHubSpotForm } from '@/lib/hubspotForms';
+import { submitGoogleForm } from '@/lib/googleForms';
 
 const statusTone: Record<Status, ChipTone> = { live: 'live', beta: 'beta', soon: 'soon', later: 'neutral' };
 const statusOrder: Status[] = ['live', 'beta', 'soon', 'later'];
@@ -211,12 +211,10 @@ function RequestForm({
     try {
       // Hidden field only a bot fills in: report success without submitting.
       //
-      // Only the email is sent. There is no HubSpot form for integration
-      // requests yet, so these land in the newsletter form and the requested
-      // tool is dropped -- it has no field to go in. Create a form for them in
-      // HubSpot and point NEXT_PUBLIC_HUBSPOT_FORM_INTEGRATION at it to keep
-      // the tool. The analytics event below records it either way.
-      if (!honeypot) await submitHubSpotForm('integrationRequest', { email: data.email });
+      // Only the email is sent. There is no integration-request form, so these
+      // land in the newsletter Google Form and the requested tool is dropped --
+      // it has no question to go in. The analytics event below records it.
+      if (!honeypot) await submitGoogleForm('integrationRequest', { email: data.email });
       track('integration_request', { tool });
       setState('success');
     } catch (err) {

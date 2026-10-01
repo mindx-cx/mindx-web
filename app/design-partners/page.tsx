@@ -1,4 +1,4 @@
-import { GoogleFormEmbed } from '@/components/forms/GoogleFormEmbed';
+import { LeadForm } from '@/components/forms/LeadForm';
 import { CheckList } from '@/components/sections/CheckList';
 import { Hero } from '@/components/sections/Hero';
 import { StepList } from '@/components/sections/StepList';
@@ -51,7 +51,7 @@ export default function DesignPartnersPage() {
         <div className="mx-auto max-w-3xl">
           <SectionHeader title={copy.formTitle} body={copy.formNote} />
           <div className="mt-8 rounded-card border border-gray-200 bg-white p-6 shadow-mock md:p-8">
-            <GoogleFormEmbed form="designPartner" />
+            <LeadForm type="design_partner" />
           </div>
         </div>
       </Section>

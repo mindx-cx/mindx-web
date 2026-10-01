@@ -9,7 +9,7 @@ import { messages, type MessageKey } from '@/content/messages';
 import { helpdeskOptions, ordersOptions } from '@/content/waitlist';
 import { track } from '@/lib/analytics';
 import { appUrl } from '@/lib/config';
-import { splitName, submitHubSpotForm } from '@/lib/hubspotForms';
+import { splitName, submitGoogleForm } from '@/lib/googleForms';
 import { Field, Honeypot, SelectInput, TextArea, TextInput } from './fields';
 import { resetTurnstile, Turnstile } from './Turnstile';
 
@@ -75,7 +75,7 @@ export function LeadForm({ type }: { type: LeadType }) {
       // difference between a real submission and a rejected one.
       if (!honeypot) {
         const { name, ...lead } = data as Record<string, string | undefined>;
-        await submitHubSpotForm('designPartner', { ...lead, ...splitName(name) });
+        await submitGoogleForm('designPartner', { ...lead, ...splitName(name) });
       }
 
       if (type === 'brain_scan') {

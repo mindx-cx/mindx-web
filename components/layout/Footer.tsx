@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { footer, isLive, site } from '@/content/site';
 import { CookieSettingsLink } from './CookieSettingsLink';
 import { Logo } from './Logo';
-import { GoogleFormEmbed } from '@/components/forms/GoogleFormEmbed';
+import { NewsletterForm } from './NewsletterForm';
 
 const linkClass = 'rounded-sm text-small text-gray-300 transition-colors hover:text-white';
 
@@ -16,7 +16,7 @@ export function Footer() {
             <Logo />
             <p className="mt-4 max-w-sm text-small text-gray-300">{site.tagline}</p>
             <div className="mt-8">
-              <GoogleFormEmbed form="newsletter" />
+              <NewsletterForm />
             </div>
           </div>
 

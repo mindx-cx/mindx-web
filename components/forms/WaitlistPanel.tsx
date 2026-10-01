@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { GoogleFormEmbed } from '@/components/forms/GoogleFormEmbed';
+import { WaitlistSignup } from '@/components/forms/WaitlistSignup';
 import { waitlistPage as copy } from '@/content/waitlist';
 
 /**
@@ -28,7 +28,7 @@ export function WaitlistPanel() {
           {copy.demoNote}
         </p>
       )}
-      <GoogleFormEmbed form="waitlist" />
+      <WaitlistSignup intent={intent} />
     </>
   );
 }

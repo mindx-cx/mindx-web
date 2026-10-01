@@ -1,4 +1,4 @@
-import { GoogleFormEmbed } from '@/components/forms/GoogleFormEmbed';
+import { WaitlistForm } from '@/components/forms/WaitlistForm';
 import { Hero } from '@/components/sections/Hero';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { WorkerTile } from '@/components/ui/WorkerTile';
@@ -32,7 +32,7 @@ export default function GrowPage() {
               </div>
             </div>
             <div className="mt-6">
-              <GoogleFormEmbed form="waitlist" />
+              <WaitlistForm worker="grow" labels={growWaitlist} />
             </div>
           </div>
         </div>
