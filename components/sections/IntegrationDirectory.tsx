@@ -137,20 +137,12 @@ export function IntegrationDirectory() {
                   <Chip tone={statusTone[i.status]}>{statusLabels[i.status]}</Chip>
                 </div>
                 <p className="mt-4 flex-1 text-small text-ink-700">{i.oneLine}</p>
-                {(i.reads || i.changes) && (
-                  <dl className="mt-4 space-y-1 rounded-btn bg-gray-50 p-3 text-xs">
-                    {i.reads && (
-                      <div>
-                        <dt className="inline font-semibold text-ink-950">{cardLabels.reads}: </dt>
-                        <dd className="inline text-ink-700">{i.reads}</dd>
-                      </div>
-                    )}
-                    {i.changes && (
-                      <div>
-                        <dt className="inline font-semibold text-ink-950">{cardLabels.changes}: </dt>
-                        <dd className="inline text-ink-700">{i.changes}</dd>
-                      </div>
-                    )}
+                {i.reads && (
+                  <dl className="mt-4 rounded-btn bg-gray-50 p-3 text-xs">
+                    <div>
+                      <dt className="inline font-semibold text-ink-950">{cardLabels.reads}: </dt>
+                      <dd className="inline text-ink-700">{i.reads}</dd>
+                    </div>
                   </dl>
                 )}
                 {connectable ? (

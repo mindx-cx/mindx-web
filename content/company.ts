@@ -18,7 +18,7 @@ export const about = {
     { title: 'Autonomy is earned.', body: 'Workers start supervised and earn more freedom with evidence.' },
     { title: 'Merchant profit is our success.', body: 'We measure dollars kept, not messages sent.' },
   ],
-  cta: { label: 'Become a design partner', href: '/design-partners' },
+  cta: { label: 'Become a design partner', href: '/signup' },
 } as const;
 
 export const designPartners = {

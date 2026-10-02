@@ -25,13 +25,9 @@ Redirect 301 /index.html /
 Redirect 301 /privacy-policy.html /privacy/
 Redirect 301 /terms-of-service.html /terms/
 
-# --- Waitlist mode -----------------------------------------------------------
-# While the site is in waitlist mode, shared links to the Brain Scan and demo
-# pages land on the waitlist instead. 302, not 301, so browsers do not cache
-# them past launch. DELETE THESE TWO LINES when NEXT_PUBLIC_LAUNCH_MODE=live,
-# or the real pages stay unreachable.
-Redirect 302 /brain-scan /waitlist/
-Redirect 302 /demo /waitlist/?intent=demo
+# --- Removed pages -----------------------------------------------------------
+Redirect 301 /brain-scan /signup/
+Redirect 301 /waitlist /signup/
 
 # --- Clean URLs --------------------------------------------------------------
 # trailingSlash: true means each route is a directory holding index.html, so

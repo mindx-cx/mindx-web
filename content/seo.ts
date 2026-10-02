@@ -40,7 +40,7 @@ export const seo = {
     description: 'Win-back and retention you only pay for when it beats a holdout group. Join the waitlist.',
   },
   brainScan: {
-    path: '/brain-scan',
+    path: '/signup',
     title: 'Free Brain Scan — What Your Support Inbox Costs',
     description:
       'Connect Shopify and your helpdesk. See your top ticket reasons, their cost and root causes in about 10 minutes. Free and read-only.',
@@ -68,7 +68,7 @@ export const seo = {
     description: "We're building the brain every ecommerce business will run on. Here's why we started MindX AI.",
   },
   designPartners: {
-    path: '/design-partners',
+    path: '/signup',
     title: 'MindX Design Partner Program for Shopify Brands',
     description: 'Prove one measurable support outcome in 30 days with founding pricing locked for 12 months.',
   },

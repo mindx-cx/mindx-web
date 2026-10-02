@@ -20,6 +20,8 @@ type HeroProps = {
   visual?: ReactNode;
   /** display = home (60/64 px); page = inner-page H1 (48/56 px, A5). */
   size?: 'display' | 'page';
+  /** Center all content horizontally (no visual column). */
+  centered?: boolean;
 };
 
 /** Faint grid that fades out toward the edges, plus a soft blue glow. Parent must be relative. */
@@ -55,6 +57,7 @@ export function Hero({
   trustLine,
   visual,
   size = 'display',
+  centered = false,
 }: HeroProps) {
   const rotating = titleLead && titleRotatingPrefix && titleRotating?.length;
 
@@ -70,11 +73,12 @@ export function Hero({
       <div className="container-x relative">
         <div
           className={cn(
-            'grid items-start gap-12 lg:gap-14',
-            visual ? 'lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]' : 'max-w-text',
+            centered
+              ? 'mx-auto flex max-w-3xl flex-col items-center text-center'
+              : cn('grid items-start gap-12 lg:gap-14', visual ? 'lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]' : 'max-w-text'),
           )}
         >
-          <div className="lg:pt-4">
+          <div className={cn(centered ? 'flex flex-col items-center' : 'lg:pt-4')}>
             <p className="t-eyebrow inline-flex items-center gap-2 rounded-pill border border-white/15 bg-white/[.06] px-3 py-1 text-mint-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-pill bg-mint-400" aria-hidden="true" />
               {eyebrow}
@@ -95,8 +99,8 @@ export function Hero({
                 title
               )}
             </h1>
-            <p className="t-body-l mt-6 max-w-[560px] text-blue-50">{subtitle}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <p className={cn('t-body-l mt-6 text-blue-50', centered ? 'max-w-xl' : 'max-w-[560px]')}>{subtitle}</p>
+            <div className={cn('mt-8 flex flex-col gap-3 sm:flex-row', centered && 'justify-center')}>
               <Button href={primaryCta.href}>{primaryCta.label}</Button>
               {secondaryCta && (
                 <Button href={secondaryCta.href} variant="secondary">
@@ -106,7 +110,7 @@ export function Hero({
             </div>
             {trustLine && <p className="mt-4 text-small text-gray-300">{trustLine}</p>}
           </div>
-          {visual}
+          {!centered && visual}
         </div>
       </div>
     </section>

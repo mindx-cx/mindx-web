@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/Button';
 import { brainHero } from '@/content/brainHome';
+import { hero } from '@/content/home';
 import { ctas } from '@/content/site';
 
 // The labels live in the hero's left and right gutters, vertically spread, so
@@ -49,16 +50,16 @@ export function BrainHero() {
           <h1 className="t-display text-fg">
             {/* The sentence screen readers and search engines get is whole; the
                 split into two coloured lines is presentational only. */}
-            <span className="sr-only">{brainHero.title}</span>
+            <span className="sr-only">{hero.title}</span>
             <span aria-hidden="true" className="block">
-              {brainHero.titleLead}
+              {hero.titleLead}
             </span>
             <span aria-hidden="true" className="block text-brand">
-              {brainHero.titleAccent}
+              {hero.titleRotatingPrefix} {hero.titleRotating[0]}
             </span>
           </h1>
 
-          <p className="t-body-l mx-auto mt-6 max-w-[560px] text-muted-fg">{brainHero.subtitle}</p>
+          <p className="t-body-l mx-auto mt-6 max-w-[560px] text-muted-fg">{hero.subtitle}</p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href={ctas.brainScan.href} variant="brand" arrow={false}>
@@ -74,7 +75,7 @@ export function BrainHero() {
             </Button>
           </div>
 
-          <p className="mt-4 text-small text-subtle-fg">{brainHero.trustLine}</p>
+          <p className="mt-4 text-small text-subtle-fg">{hero.trustLine}</p>
         </div>
 
         {/* Below lg the labels become a plain wrapped row: same information,

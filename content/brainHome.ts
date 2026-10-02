@@ -7,16 +7,11 @@
 // answer the four objections. Copy is ours.
 
 export const brainHero = {
-  // The accessible headline is the whole sentence; the visual splits it over
-  // two lines with the second half in brand colour.
-  title: 'The AI-Native Ecommerce Brain Built for Shopify.',
-  titleLead: 'The AI-Native Ecommerce Brain',
-  titleAccent: 'Built for Shopify.',
-  subtitle:
-    'MindX connects to your store, learns how it actually runs, and tells you what needs your attention today — before you go looking.',
-  trustLine: 'Cancel anytime. No ONE question asked.',
+  // Headline, subtitle and trust line come from content/home.ts -- they are
+  // Rajesh's words and that file owns them. What lives here is only what the
+  // prototype's hero adds: the entity ring.
   /**
-   * The systems a store's context is scattered across. They orbit the MX mark
+   * The systems a store's context is scattered across. They frame the MX mark
    * in the hero: the picture is "all of this, in one place", made before the
    * visitor has read a word.
    */
@@ -47,35 +42,6 @@ export const buildsItself = {
     'How many orders are still waiting to ship?',
     'What is coming back, and why?',
     'Which repeat customers have stopped buying?',
-  ],
-} as const;
-
-export const keepsTrack = {
-  title: 'It keeps track of what matters.',
-  body: 'MindX watches the numbers every day and surfaces only the few that moved enough to be worth your time.',
-  // Illustrative, not a customer's real figures -- the caption says so on the
-  // page. Making up a merchant's numbers and presenting them as measured would
-  // be a claim we cannot stand behind.
-  caption: 'Example of a first scan. Your own numbers come from your store.',
-  cards: [
-    {
-      kind: 'revenue',
-      title: 'Sales are down 18% this month',
-      body: 'Revenue fell from $42,100 to $34,500 against the previous 30 days. Most of the gap is in one channel.',
-      meta: 'Measured · last 30 days',
-    },
-    {
-      kind: 'fulfilment',
-      title: '47 orders have not shipped',
-      body: 'They have been paid and unfulfilled for more than 5 days. The oldest is 19 days old.',
-      meta: 'Measured · last 60 days',
-    },
-    {
-      kind: 'product',
-      title: 'Alpine Jacket is down 31%',
-      body: 'It sold 58 units last month and 40 this month, while the rest of the catalogue held steady.',
-      meta: 'Measured · last 30 days',
-    },
   ],
 } as const;
 

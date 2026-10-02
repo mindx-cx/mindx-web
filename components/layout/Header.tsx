@@ -27,9 +27,6 @@ export function Header() {
         <Logo />
 
         <nav aria-label="Main" className="hidden items-center lg:flex">
-          <Link href="/brain" className={navLinkClass}>
-            How it works
-          </Link>
           {mainNav.filter(isLive).map((link) => (
             <Link key={link.href} href={link.href} className={navLinkClass}>
               {link.label}

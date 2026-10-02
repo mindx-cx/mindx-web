@@ -6,29 +6,44 @@ import { KnowsYourStore } from '@/components/brain/KnowsYourStore';
 import { ProblemCards } from '@/components/brain/ProblemCards';
 import { CTABand } from '@/components/layout/CTABand';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
+import { StepList } from '@/components/sections/StepList';
 import { Section, SectionHeader } from '@/components/ui/Section';
-import { brainCta, brainFaq, brainFaqTitle } from '@/content/brainHome';
+import { brainFaq, brainFaqTitle } from '@/content/brainHome';
+import { brainExplanation, homeCta, productLoop } from '@/content/home';
 
 /**
  * Home, prototype v3 (2 Oct 2026).
  *
- * The order is the argument: show the brain, show it answering, show it finding
- * something on its own, show the merchant still holding the pen, then answer
- * the four objections. The old worker-led page (Resolve / Convert / Grow, the
- * savings calculator, the outcome ledger) sold seats; this one sells the thing
- * that actually works today.
+ * The order is the argument: show the brain, say what it is for, show it
+ * finding something on its own, show the loop that follows, show the merchant
+ * still holding the pen, then answer the objections.
  *
- * Those components are still in the repo and still used by /workers and
- * /pricing, so nothing is deleted here -- the home page simply stops being the
- * place that story is told.
+ * Layout and design tokens are the prototype's; the words are the ones Rajesh
+ * wrote in content/home.ts, which stays the single owner of them. The old
+ * worker-led page (Resolve / Convert / Grow, the savings calculator, the
+ * outcome ledger) is gone from here -- those components still serve /workers,
+ * so nothing is deleted.
  */
 export default function HomePage() {
   return (
     <>
       <BrainHero />
       <IntegrationStrip />
-      <BuildsItself />
+
+      <Section theme="cream" reveal>
+        <SectionHeader title={brainExplanation.title} body={brainExplanation.body} />
+      </Section>
+
       <ProblemCards />
+
+      <Section theme="cream" reveal>
+        <SectionHeader title={productLoop.title} />
+        <div className="mt-12">
+          <StepList steps={productLoop.steps} />
+        </div>
+      </Section>
+
+      <BuildsItself />
       <DraftCard />
 
       <Section theme="cream" id="faq" reveal>
@@ -39,7 +54,7 @@ export default function HomePage() {
       </Section>
 
       <KnowsYourStore />
-      <CTABand heading={brainCta.heading} body={brainCta.body} />
+      <CTABand heading={homeCta.heading} body={homeCta.body} />
     </>
   );
 }

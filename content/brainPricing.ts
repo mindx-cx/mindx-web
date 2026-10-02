@@ -29,7 +29,7 @@ export const plans: readonly Plan[] = [
     price: '$0',
     cadence: 'per month, forever',
     for: 'Merchants who want to see what the Brain finds.',
-    cta: { label: 'Get your free Brain Scan', href: '/brain-scan' },
+    cta: { label: 'Get My Free Brain Scan', href: '/signup' },
     featured: false,
     note: 'No credit card.',
     includes: [
@@ -47,7 +47,7 @@ export const plans: readonly Plan[] = [
     price: '$19',
     cadence: 'per month',
     for: 'Merchants who want MindX working on the business every day.',
-    cta: { label: 'Start with MindX Pro', href: '/brain-scan?plan=pro' },
+    cta: { label: 'Start with MindX Pro', href: '/signup?plan=pro' },
     featured: true,
     includes: [
       'Everything in Free',

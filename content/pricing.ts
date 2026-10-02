@@ -75,7 +75,7 @@ export const foundingOffer = {
   body: 'The first [25] US Shopify brands get the Growth plan at [$199/month] locked for 12 months, weekly calls with our founders and first access to MindX Grow. Outcome fees apply.',
   // CHANGED: the spec offers "first access to MindX Convert"; Convert is live, so Grow is the next worker.
   button: 'Apply to be a design partner',
-  href: '/design-partners',
+  href: '/signup',
 } as const;
 
 // B6.6

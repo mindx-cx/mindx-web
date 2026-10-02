@@ -12,12 +12,12 @@ const routes = [
   '/workers/resolve',
   '/workers/convert',
   '/workers/grow',
-  ...(isWaitlist ? ['/waitlist'] : ['/brain-scan', '/demo']),
+  '/signup',
+  ...(isWaitlist ? ['/waitlist'] : ['/demo']),
   '/pricing',
   '/trust',
   '/integrations',
   '/about',
-  '/design-partners',
   '/faq',
   '/terms',
   '/privacy',
@@ -31,6 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}${r}`,
     lastModified: new Date(),
     changeFrequency: r === '' ? 'weekly' : 'monthly',
-    priority: r === '' ? 1 : ['/brain-scan', '/waitlist', '/pricing'].includes(r) ? 0.9 : 0.7,
+    priority: r === '' ? 1 : ['/signup', '/waitlist', '/pricing'].includes(r) ? 0.9 : 0.7,
   }));
 }
