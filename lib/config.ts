@@ -6,9 +6,22 @@
 // absent, and failed in CI with "TypeError: Invalid URL, input: ''" the moment
 // metadataBase tried to parse it.
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://themindx.ai';
+// themindx.com is the canonical home now: one domain, marketing at the root
+// and the product at /app. This feeds canonical URLs and OpenGraph images, so
+// leaving it on .ai pointed every share preview and every search result at the
+// old site.
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://themindx.com';
 
-export const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://app.themindx.ai';
+// Relative, because the product now lives at /app on this same domain.
+//
+// It used to be an absolute https://app.themindx.ai, which sent anyone
+// clicking "Log in" on themindx.com to a different environment's front end --
+// it then built a Google auth URL on themindx.ai and 404ed. One domain means
+// one origin, and a relative path cannot point at the wrong one.
+//
+// Still overridable: a preview deployment on another host sets
+// NEXT_PUBLIC_APP_URL to an absolute URL.
+export const appUrl = process.env.NEXT_PUBLIC_APP_URL || '/app';
 
 /** Highlight [placeholders] in preview builds. */
 export const showPlaceholders = process.env.NEXT_PUBLIC_SHOW_PLACEHOLDERS === 'true';
