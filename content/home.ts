@@ -4,21 +4,14 @@
 import type { WorkerId } from './site';
 
 export const hero = {
-  eyebrow: 'MindX AI · The Ecommerce Brain for Shopify',
-  // The full spec headline stays the accessible H1; the ending rotates visually.
-  title: 'Your whole store, in one brain. AI workers that do the work.',
-  titleLead: 'Your whole store, in one brain.',
-  titleRotatingPrefix: 'AI workers that',
-  // ADDED: rotating endings, each backed by a live worker capability. The last
-  // one is the spec's own ending and is shown when motion is reduced.
-  titleRotating: ['resolve returns.', 'answer every shopper.', 'prevent late-delivery tickets.', 'do the work.'],
-  subtitle:
-    "MindX connects Shopify, your helpdesk, shipping and returns. Then MindX Resolve answers customers and takes the action (returns, exchanges, cancellations, order edits, refunds) inside your rules. You pay only when it's resolved.",
-  // CHANGED: the hero's second button is "Book a demo" (ctas.demo); the spec's
-  // "Watch a 2-minute demo" needs a video that doesn't exist yet.
-  trustLine: 'Free scan in minutes. Read-only access. No credit card.',
-  // CHANGED: shown in waitlist mode (early access).
-  trustLineWaitlist: 'Free early access. No credit card.',
+  eyebrow: 'MindX AI · The Ecommerce Brain',
+  title: "Your Shopify store has problems you can't see. MindX finds them.",
+  titleLead: "Your Shopify store has problems you can't see.",
+  titleRotatingPrefix: 'MindX',
+  titleRotating: ['finds them.'],
+  subtitle: 'Connect your Shopify store. MindX scans your business and shows you the 3 things worth your attention right now.',
+  trustLine: 'Read-only access · No customer messages · No credit card',
+  trustLineWaitlist: 'Read-only access · No customer messages · No credit card',
 } as const;
 
 export type DemoStep =
@@ -368,7 +361,84 @@ export const homeFaq = [
   },
 ];
 
+export const brainScanDemo = {
+  title: 'MindX found 3 things worth looking at.',
+  intro: 'We scanned your store and prioritized what deserves your attention first.',
+  findings: [
+    {
+      category: 'Revenue',
+      problem: 'Sales dropped 18% this week',
+      evidence: 'Compared with the previous 30 days.',
+      impact: '$4,200 below trend',
+    },
+    {
+      category: 'Fulfilment',
+      problem: '47 orders are still undelivered',
+      evidence: '12 are beyond the expected delivery window.',
+      impact: 'Rising support volume likely',
+    },
+    {
+      category: 'Product',
+      problem: 'Alpine Jacket sales are falling',
+      evidence: 'Units sold down 31% over the last 14 days.',
+      impact: '$1,800 at-risk revenue',
+    },
+  ] as const,
+  disclaimer: "Illustrative. Numbers shown are sample data, not your store's data.",
+  smallPrint: 'Read-only access. We never message your customers during a scan.',
+} as const;
+
+export const brainExplanation = {
+  title: 'Shopify shows the data. MindX finds what matters.',
+  body: 'Your store generates thousands of signals across orders, customers, products, fulfillment and more. MindX connects the dots and brings the things worth your attention to the surface.',
+} as const;
+
+export const productLoop = {
+  title: 'Find. Understand. Decide. Act.',
+  steps: [
+    {
+      title: 'Find',
+      body: 'MindX finds what deserves your attention.',
+    },
+    {
+      title: 'Understand',
+      body: 'Ask what happened and why.',
+    },
+    {
+      title: 'Decide',
+      body: 'Choose what should happen next.',
+    },
+    {
+      title: 'Act',
+      body: 'Turn the decision into action.',
+    },
+  ],
+} as const;
+
 export const homeCta = {
-  heading: 'Give your team the operating power of a billion-dollar brand',
-  body: "Start with a free Brain Scan. Hire MindX Resolve when you're ready.",
+  heading: 'See what MindX finds in your store.',
+  body: 'Connect your Shopify store and get your first Brain Scan.',
+} as const;
+
+export const trustSection = {
+  title: 'You stay in control.',
+  items: [
+    {
+      heading: 'Read-only Shopify access',
+      body: 'MindX reads your store data. It never writes orders or messages your customers.',
+    },
+    {
+      heading: 'You approve every action',
+      body: 'AI Workers do nothing without your go-ahead.',
+    },
+    {
+      heading: 'Your data stays yours',
+      body: 'We never sell or share your store data with third parties.',
+    },
+    {
+      heading: 'Cancel any time',
+      body: 'No lock-in, no minimum commitment.',
+    },
+  ],
+  link: null,
 } as const;

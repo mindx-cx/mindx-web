@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Inter_Tight } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { AnalyticsProvider } from '@/components/layout/AnalyticsProvider';
 import { AttributionCapture } from '@/components/layout/AttributionCapture';
 import { CookieBanner } from '@/components/layout/CookieBanner';
@@ -58,7 +57,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Skip to content
         </a>
         <JsonLd data={organizationLd} />
-        <AnnouncementBar />
         <Header />
         <main id="main">{children}</main>
         <Footer />

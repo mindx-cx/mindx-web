@@ -77,7 +77,7 @@ export function Header() {
         <Logo />
 
         <nav aria-label="Main" className="hidden items-center lg:flex">
-          <NavDropdown label="Product" items={productNav} />
+          {productNav.filter(isLive).length > 0 && <NavDropdown label="Product" items={productNav} />}
           {mainNav.filter(isLive).map((link) => (
             <Link key={link.href} href={link.href} className={navLinkClass}>
               {link.label}

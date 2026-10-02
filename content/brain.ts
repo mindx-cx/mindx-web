@@ -1,96 +1,75 @@
-// MindX Brain page copy (spec B3). Changes are marked CHANGED / ADDED.
+// MindX Brain page copy — rebuilt around Brain-first positioning.
 
 export const brainHero = {
   eyebrow: 'MindX Brain',
-  title: 'The brain your business never had',
+  title: 'The Ecommerce Brain for your Shopify store.',
   subtitle:
-    'MindX Brain connects every tool you run, from Shopify to your helpdesk, carriers and returns, into one live model of your business. It knows what happened, why, and what should happen next.',
+    "MindX connects the tools you already use and builds a living understanding of your business — what happened, what's changing, and what needs attention.",
   secondaryCta: { label: 'See how it works', href: '#how-it-works' },
 } as const;
 
-export const brainHow = {
-  title: 'Every tool feeds one Brain, and every Worker acts through it',
-  body: 'Your tools each hold one slice of the truth. MindX Brain joins them: every order, customer, shipment, conversation and policy becomes one connected picture. Workers read from it before they act, and write their results back, so the Brain gets sharper with every job.',
+export const brainConnect = {
+  title: 'Your apps have the data. MindX connects the dots.',
+  body: 'Your business is spread across Shopify, customer service, shipping, returns, marketing and other tools. MindX connects the context so you can understand what is happening across your business.',
+  sources: ['Shopify', 'Customer Service', 'Shipping', 'Returns', 'Marketing'],
+  output: 'One understanding of your business',
 } as const;
 
 export const brainUnderstands = {
-  // ADDED: B3.3 is a table with no heading.
-  title: 'What the Brain understands',
-  rows: [
-    { area: 'Your store', knows: 'Your goals, policies and what you allow MindX to do' },
-    { area: 'Customers', knows: 'Who they are, what they bought, how valuable they are' },
-    { area: 'Products', knows: 'Stock, variants, reviews and which items cause problems' },
-    { area: 'Orders', knows: 'What was bought, paid, promised and delivered' },
-    { area: 'Service', knows: 'Why customers contact you and how it was resolved' },
-    { area: 'Operations', knows: 'Late shipments, carrier issues and exceptions' },
-    { area: 'Money', knows: 'Revenue, refunds, discounts and what each action saved' },
+  title: 'One Brain. Your whole business.',
+  areas: [
+    { title: 'Customers', body: 'Who bought, returned, contacted and came back.' },
+    { title: 'Products', body: "What's selling, slowing down or causing problems." },
+    { title: 'Orders', body: "What's happening from purchase to delivery." },
+    { title: 'Revenue', body: "What's changing and where the movement comes from." },
+    { title: 'Operations', body: 'Shipping, fulfillment, returns and exceptions.' },
+    { title: 'Customer Service', body: 'What customers are asking and why.' },
+    { title: 'Your Store', body: 'Your goals, policies and business rules.' },
   ],
 } as const;
 
-export const brainModes = {
-  // ADDED: B3.4 section title.
-  title: 'Three ways to use it',
-  modes: [
-    {
-      name: 'Ask',
-      body: 'Ask anything in plain English. You get the answer, the evidence and a suggested fix.',
-      example: 'Why did refunds go up last week?',
-    },
-    {
-      name: 'Work',
-      body: 'Give MindX a goal. It plans the work and routes it to the right Worker.',
-      example: 'Cut where-is-my-order tickets by 20% this month.',
-    },
-    {
-      name: 'Configure',
-      body: 'Set the rules. MindX follows them every time.',
-      example: 'Refund orders under $50 automatically when the item is unopened.',
-    },
-  ],
-} as const;
-
-export const brainQuestions = {
-  title: 'Questions the Brain answers',
-  questions: [
+export const brainAsk = {
+  title: 'Ask a question. Get an answer grounded in your business.',
+  body: 'Ask MindX questions in plain English. It connects the relevant data, explains what happened, and shows you the evidence.',
+  example: {
+    question: 'Why did sales fall last week?',
+    answer:
+      'Revenue fell 14% compared with the previous week. The main driver was a drop in Alpine Jacket sales — units sold down 31% after a supplier batch change. Refunds on that product also increased during the same period.',
+    evidence: ['Shopify Orders', 'Product data', 'Returns'],
+  },
+  otherQuestions: [
     'What changed in my business this week, and why?',
-    'Which products create the most support tickets?',
+    'Which products are causing the most returns?',
     'Which customers are at risk after a bad delivery?',
     'Which carrier or region is causing late orders?',
-    'What should my team work on today?',
-    'What did MindX do yesterday, and what happened afterward?',
   ],
 } as const;
 
-export const brainLedger = {
-  title: 'Every action, and what it achieved',
-  body: 'MindX records the goal, the evidence, the rule that allowed the action and the result it produced. You can trace any change back to why it happened.',
-  example: [
-    { label: 'Goal', value: 'Reduce late-delivery tickets' },
-    { label: 'Baseline', value: '1,200 a week' },
-    { label: 'Action', value: 'Proactive delay notices' },
-    { label: 'Result', value: '940 a week' },
+export const brainMemory = {
+  title: 'MindX remembers the context behind your business.',
+  body: "Your business isn't just numbers. MindX can build context around your policies, goals, customers, products, orders and decisions so answers become relevant to your business.",
+  contexts: [
+    'Business goals',
+    'Policies',
+    'Customers',
+    'Products',
+    'Orders',
+    'Decisions',
+    'History',
   ],
-  placeholder: '[Replace with a real merchant result before launch.]',
 } as const;
 
-export const brainIsNot = {
-  // ADDED: B3.8 heading.
-  title: 'What MindX Brain is not',
-  nots: [
-    'Not another Shopify admin.',
-    'Not a dashboard that only reports the past.',
-    'Not a chatbot.',
-    'Not a pile of disconnected AI agents.',
+export const brainLoop = {
+  title: 'Find. Understand. Decide. Act.',
+  steps: [
+    { title: 'Find', body: 'MindX finds what deserves your attention.' },
+    { title: 'Understand', body: 'Ask what happened and why.' },
+    { title: 'Decide', body: 'Choose what should happen next.' },
+    { title: 'Act', body: 'Turn the decision into action.' },
   ],
-  is: 'It is the layer that understands your business and makes your AI Workers safe and useful.',
-} as const;
-
-export const brainAiTools = {
-  title: 'Use MindX Brain inside Claude and ChatGPT',
-  body: 'MindX Brain will be callable from the AI assistants your team already uses, with the same permissions and audit trail.',
-  status: '[Launch status: coming soon.]',
 } as const;
 
 export const brainCta = {
-  heading: 'See your business through its Brain',
+  heading: 'See what MindX finds in your Shopify store.',
+  body: 'Read-only during your scan · No customer messages',
 } as const;

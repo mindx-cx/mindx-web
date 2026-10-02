@@ -20,7 +20,8 @@ export const site = {
   // Company name shown on the site (founder decision 29 Sep 2026).
   // [The privacy policy and terms still name "MindX Digital Softwares Inc."; legal to confirm the registered entity.]
   legalName: 'MindX AI',
-  tagline: 'One brain. Every tool. AI workers that pay for themselves.',
+  tagline: 'The Ecommerce Brain for Shopify merchants.',
+  taglineSecondary: 'Find. Understand. Decide. Act.',
   oneLiner:
     'MindX is the Ecommerce Brain for Shopify merchants. It connects your business, understands what is happening, and powers AI Workers that do the work.',
   contactEmail: 'founders@themindx.com',
@@ -31,8 +32,8 @@ export const site = {
 // "Book a demo", opens the waitlist.
 export const ctas = {
   brainScan: isWaitlist
-    ? { label: 'Get early access', href: '/waitlist' }
-    : { label: 'Get your free Brain Scan', href: '/brain-scan' },
+    ? { label: 'Get My Free Brain Scan', href: '/signup' }
+    : { label: 'Get My Free Brain Scan', href: '/signup' },
   demo: { label: 'Book a demo', href: isWaitlist ? '/waitlist?intent=demo' : '/demo' },
   login: { label: 'Log in', href: `${appUrl}/signin` },
   waitlist: 'Join the waitlist',
@@ -40,40 +41,21 @@ export const ctas = {
 } as const;
 
 export const announcement = {
-  // Change the id when the text changes so dismissed visitors see the new message.
-  id: 'founding-2026',
-  text: 'Founding merchant program: 25 US Shopify brands, pricing locked for 12 months.',
+  id: 'founding-2026-v2',
+  text: 'Founding Merchant Program — 25 US Shopify brands.',
   linkLabel: 'Apply →',
   href: '/design-partners',
 } as const;
 
-export const productNav: NavLink[] = [
-  { label: 'MindX Brain', href: '/brain', description: 'One live model of your whole store', worker: 'brain' },
-  {
-    label: 'MindX Resolve',
-    href: '/workers/resolve',
-    description: 'AI customer service that finishes the job',
-    worker: 'resolve',
-  },
-  // Convert is live (decision 28 Sep 2026); the spec's "(coming 2027)" is removed.
-  {
-    label: 'MindX Convert',
-    href: '/workers/convert',
-    description: 'AI sales worker that turns questions into sales',
-    worker: 'convert',
-  },
-  { label: 'MindX Grow', href: '/workers/grow', description: 'AI marketing worker (coming later)', worker: 'grow' },
-];
+export const productNav: NavLink[] = [];
 
 export const mainNav: NavLink[] = [
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Brain', href: '/brain' },
   { label: 'Integrations', href: '/integrations' },
-  { label: 'Trust', href: '/trust' },
 ];
 
 export const companyNav: NavLink[] = [
   { label: 'About', href: '/about' },
-  { label: 'Design Partners', href: '/design-partners' },
 ];
 
 export const footer = {
@@ -82,11 +64,6 @@ export const footer = {
       title: 'Product',
       links: [
         { label: 'MindX Brain', href: '/brain' },
-        { label: 'MindX Resolve', href: '/workers/resolve' },
-        { label: 'MindX Convert', href: '/workers/convert' },
-        { label: 'MindX Grow', href: '/workers/grow' },
-        { label: 'Free Brain Scan', href: '/brain-scan' },
-        { label: 'Pricing', href: '/pricing' },
         { label: 'Integrations', href: '/integrations' },
       ],
     },
@@ -94,17 +71,8 @@ export const footer = {
       title: 'Company',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Design Partners', href: '/design-partners' },
         { label: 'Contact', href: '/demo' },
-      ],
-    },
-    {
-      title: 'Resources',
-      links: [
         { label: 'FAQ', href: '/faq' },
-        { label: 'Trust & security', href: '/trust' },
-        { label: 'Blog', href: '/blog', live: false },
-        { label: 'Help center', href: '/help', live: false },
       ],
     },
     {
@@ -112,9 +80,6 @@ export const footer = {
       links: [
         { label: 'Terms of Service', href: '/terms' },
         { label: 'Privacy Policy', href: '/privacy' },
-        { label: 'Data Processing Agreement', href: '/dpa' },
-        { label: 'Subprocessors', href: '/subprocessors' },
-        { label: 'Acceptable Use', href: '/acceptable-use' },
         { label: 'Cookie settings', href: '#', action: 'cookie-settings' },
       ],
     },
@@ -124,7 +89,7 @@ export const footer = {
     placeholder: 'you@yourstore.com',
     button: 'Subscribe',
   },
-  copyright: '© 2026 MindX AI. All rights reserved.',
+  copyright: '© 2026 MindX Digital Softwares Inc. All rights reserved.',
 } as const;
 
 // Default CTA band (B10.4 heading, B2.12 body).
