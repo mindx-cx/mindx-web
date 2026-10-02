@@ -6,6 +6,19 @@
 
 RewriteEngine On
 
+# --- The product lives on AWS ------------------------------------------------
+# themindx.com now points at the AWS box, where /app serves the product and
+# this marketing site serves everything else. Hostinger still answers for
+# anyone whose DNS has not caught up, and it has no /app -- so a merchant who
+# clicked "Log in" got this site's 404 and no way forward.
+#
+# This bounces them to the one hostname that resolves to AWS everywhere.
+# 302, not 301: once DNS has settled this rule should stop firing, and a
+# permanent redirect would be cached in browsers long after it was removed.
+RewriteCond %{REQUEST_URI} ^/app(/|$)
+RewriteRule ^app(/.*)?$ https://app.themindx.com/app$1 [R=302,L]
+
+
 # --- Legacy URLs -------------------------------------------------------------
 # The old themindx.ai site, and the Shopify App Store listing, link to these.
 Redirect 301 /index.html /
