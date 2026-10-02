@@ -100,7 +100,7 @@ export default function BrainPage() {
           <div className="relative max-w-2xl">
             {/* Question bubble */}
             <div className="inline-block rounded-card border border-white/10 bg-white/10 px-5 py-3">
-              <p className="text-sm text-white">"{brainAsk.example.question}"</p>
+              <p className="text-sm text-white">&ldquo;{brainAsk.example.question}&rdquo;</p>
             </div>
             {/* Answer */}
             <div className="mt-5 rounded-card border border-white/10 bg-white/5 p-5">
@@ -124,7 +124,7 @@ export default function BrainPage() {
             <ul className="mt-3 grid gap-2 sm:grid-cols-2">
               {brainAsk.otherQuestions.map((q) => (
                 <li key={q} className="text-sm text-gray-400">
-                  "{q}"
+                  &ldquo;{q}&rdquo;
                 </li>
               ))}
             </ul>
