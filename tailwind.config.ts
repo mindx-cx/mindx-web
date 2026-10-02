@@ -16,6 +16,31 @@ const config: Config = {
       transparent: 'transparent',
       current: 'currentColor',
       white: '#FFFFFF',
+
+      // --- Prototype v3 tokens (2 Oct 2026) ---------------------------------
+      // A three-colour system: one brand colour paired with a dark and a light
+      // of the same temperature. The point is the shared surfaces -- `chrome`
+      // is the website nav AND the product top bar, `cream` is the website body
+      // AND the product sidebar -- so signing in feels like staying put rather
+      // than arriving somewhere else. Values converted from youspot.com's
+      // lab() originals, orange rotated to blue.
+      chrome: '#0C1A3A', // nav, product top bar, CTA band, footer
+      cream: '#F0F5FB', // page background, product sidebar and main
+      brand: { DEFAULT: '#0062FF', dark: '#004FCC' }, // logo dot, CTAs, active states
+      line: '#D8E4F0', // borders and dividers
+      fg: '#131419', // body text
+      surface: '#E4EDF8', // avatar tiles, chips, inset fills
+      'muted-bg': '#D5E2F0', // muted fills on cream
+      'muted-fg': '#6B7A94', // secondary text
+      'subtle-fg': '#9AAABF', // tertiary text, placeholder
+      // Meaning, not decoration: one colour per kind of problem, so a merchant
+      // learns the colour once and reads the card without reading the label.
+      signal: {
+        revenue: '#DC2626',
+        fulfilment: '#D97706',
+        product: '#0062FF',
+        live: '#16A34A',
+      },
       // Text on light backgrounds: navy-tinted, not black (Atlassian-style).
       ink: {
         950: '#0F1A3A', // text
@@ -67,7 +92,7 @@ const config: Config = {
       },
     },
     fontFamily: {
-      sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+      sans: ['var(--font-geist-sans)', '-apple-system', 'Segoe UI', 'system-ui', 'sans-serif'],
       // Headlines: Inter Tight, same family as the body, tighter and bolder.
       display: ['var(--font-inter-tight)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
     },
@@ -95,6 +120,8 @@ const config: Config = {
     borderRadius: {
       none: '0',
       sm: '6px',
+      ctl: '9px', // nav + CTA buttons
+      row: '8px', // list rows, avatar tiles
       input: '10px',
       btn: '12px',
       card: '16px',
@@ -125,6 +152,7 @@ const config: Config = {
         // Soft shadow for floating mocks (A5) and the floating nav pill.
         mock: '0 24px 60px -20px rgba(7, 26, 69, 0.45)',
         nav: '0 4px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06)',
+        card: '0 2px 8px rgba(19, 20, 25, 0.06)',
       },
     },
   },

@@ -8,12 +8,12 @@
   }
 
   body {
-    @apply bg-white font-sans text-body-m text-ink-950 antialiased md:text-body;
+    @apply bg-cream font-sans text-body-m text-fg antialiased md:text-body;
   }
 
   /* Focus ring for every interactive element (A5 button states). */
   :focus-visible {
-    outline: 3px solid theme('colors.blue.500');
+    outline: 3px solid theme('colors.brand.DEFAULT');
     outline-offset: 2px;
   }
 

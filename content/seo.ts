@@ -47,8 +47,8 @@ export const seo = {
   },
   pricing: {
     path: '/pricing',
-    title: 'MindX Pricing — Brain Plans + Outcome-Based AI Workers',
-    description: 'MindX Brain from $49 a month. MindX Resolve $0.90 per resolved conversation, $0 when it goes to a human.',
+    title: 'MindX Pricing — Free and Pro',
+    description: 'Free forever with 50 Brain Credits a month, or Pro at $19 a month. Priced by thinking, not by seats.',
   },
   trust: {
     path: '/trust',

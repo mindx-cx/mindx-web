@@ -11,17 +11,17 @@ type FaqItem = { id: string; q: string; a: string };
 export function FAQAccordion({ items }: { items: readonly FaqItem[] }) {
   return (
     <>
-      <div className="divide-y divide-gray-200 rounded-card border border-gray-200 bg-white">
+      <div className="divide-y divide-line rounded-card border border-line bg-white shadow-card">
         {items.map((item) => (
           <details key={item.id} id={`faq-${item.id}`} className="group px-5 md:px-6">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-semibold text-ink-950 [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-semibold text-fg [&::-webkit-details-marker]:hidden">
               {item.q}
               <ChevronDown
-                className="h-5 w-5 shrink-0 text-gray-500 transition-transform group-open:rotate-180"
+                className="h-5 w-5 shrink-0 text-subtle-fg transition-transform group-open:rotate-180"
                 aria-hidden="true"
               />
             </summary>
-            <p className="pb-5 text-ink-700">{withPlaceholders(item.a)}</p>
+            <p className="pb-5 text-muted-fg">{withPlaceholders(item.a)}</p>
           </details>
         ))}
       </div>

@@ -5,8 +5,8 @@ import { ogImage } from '@/lib/og';
 export const dynamic = 'force-static';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Pay for the Brain. Pay workers only for results.';
+export const alt = 'Free forever, or $19 a month. Priced by thinking, not by seats.';
 
 export default function Image() {
-  return ogImage('Pay for the Brain. Pay workers only for results.');
+  return ogImage('Free forever, or $19 a month. Priced by thinking, not by seats.');
 }

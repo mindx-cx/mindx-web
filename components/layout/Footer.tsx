@@ -9,7 +9,7 @@ const linkClass = 'rounded-sm text-small text-gray-300 transition-colors hover:t
 /** Footer (A6, B10.2): four link columns, newsletter, bottom line. */
 export function Footer() {
   return (
-    <footer className="border-t border-navy-700 bg-navy-950 text-white">
+    <footer className="bg-chrome text-white">
       <div className="container-x py-16">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,2fr)]">
           <div>
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-navy-700 pt-6 text-small text-gray-300">
+        <div className="mt-12 border-t border-white/10 pt-6 text-small text-gray-300">
           <p>{footer.copyright}</p>
         </div>
       </div>

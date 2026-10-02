@@ -61,7 +61,7 @@ export function Hero({
   return (
     <section
       className={cn(
-        'relative overflow-hidden pt-36 text-white md:pt-44',
+        'relative overflow-hidden pt-20 text-white md:pt-24',
         size === 'display' ? 'bg-hero pb-24 md:pb-32' : 'bg-hero-page pb-20 md:pb-28',
       )}
     >

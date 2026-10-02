@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Inter_Tight } from 'next/font/google';
+import { Inter_Tight } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
 import type { ReactNode } from 'react';
 import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { AnalyticsProvider } from '@/components/layout/AnalyticsProvider';
@@ -15,13 +16,9 @@ import { organizationLd } from '@/lib/structuredData';
 import { siteUrl } from '@/lib/config';
 import './globals.css';
 
-// Self-hosted by next/font at build time (A2).
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-inter',
-  display: 'swap',
-});
+// Geist is the prototype's face. The `geist` package ships the files, so it is
+// self-hosted like the rest -- a static export must not reach out to a font CDN
+// on first paint.
 
 // Headline face (display, h1, h2, stats).
 const interTight = Inter_Tight({
@@ -39,13 +36,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#071A45',
+  themeColor: '#0C1A3A',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // suppressHydrationWarning: the head script adds classes/attributes to <html> before React loads.
-    <html lang="en" className={`${inter.variable} ${interTight.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${interTight.variable}`} suppressHydrationWarning>
       <head>
         {/* Before first paint: mark JS as on (enables scroll reveal) and apply announcement dismissal. */}
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('js');${announcementScript}` }} />

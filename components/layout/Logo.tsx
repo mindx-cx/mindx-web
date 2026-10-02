@@ -13,8 +13,12 @@ export function Logo({ className, onClick }: { className?: string; onClick?: () 
       className={cn('inline-flex shrink-0 items-center gap-2 rounded-sm text-white', className)}
     >
       {/* The mark is a navy outline on transparent; render it white for dark backgrounds. */}
-      <Image src="/brand/mx-mark.png" alt="" width={32} height={32} priority className="brightness-0 invert" />
-      <span className="whitespace-nowrap text-[22px] font-bold leading-none tracking-tight">MindX AI</span>
+      <Image src="/brand/mx-mark.png" alt="" width={26} height={26} priority className="brightness-0 invert" />
+      {/* The brand dot after the wordmark, as in the prototype: the only piece
+          of brand colour in the nav, so the eye lands on it first. */}
+      <span className="whitespace-nowrap text-[17px] font-bold leading-none tracking-tight">
+        MindX<span className="text-brand">.</span>
+      </span>
     </Link>
   );
 }

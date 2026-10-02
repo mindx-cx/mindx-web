@@ -23,13 +23,12 @@ export function CTABand({
   secondaryCta = ctas.demo,
 }: CTABandProps) {
   return (
-    <Section theme="cta" className="md:py-[140px]">
-      {/* Top padding keeps the text below the light top of the gradient. */}
-      <div className="mx-auto max-w-text pt-16 text-center md:pt-20">
+    <Section theme="chrome" className="md:py-[120px]">
+      <div className="mx-auto max-w-text text-center">
         <h2 className="t-h2">{heading}</h2>
-        {body && <p className="t-body-l mt-4 text-blue-50">{body}</p>}
+        {body && <p className="t-body-l mt-4 text-white/70">{body}</p>}
         <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-          <Button href={primaryCta.href} variant="inverse">
+          <Button href={primaryCta.href} variant="brand" arrow={false}>
             {primaryCta.label}
           </Button>
           {secondaryCta && (

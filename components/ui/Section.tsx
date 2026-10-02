@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
 /** hero and cta are the signature gradients; keep text in their dark part. */
-export type SectionTheme = 'dark' | 'light' | 'gray' | 'hero' | 'cta';
+export type SectionTheme = 'dark' | 'light' | 'gray' | 'hero' | 'cta' | 'cream' | 'chrome';
 
 type SectionProps = {
   theme?: SectionTheme;
@@ -17,6 +17,10 @@ type SectionProps = {
 };
 
 const themes: Record<SectionTheme, string> = {
+  // Prototype v3 surfaces. `cream` is the same colour as the product's
+  // sidebar and `chrome` the same as its top bar, on purpose.
+  cream: 'bg-cream text-fg',
+  chrome: 'bg-chrome text-white',
   dark: 'bg-navy-950 text-white',
   light: 'bg-white text-ink-950',
   gray: 'bg-gray-50 text-ink-950',
