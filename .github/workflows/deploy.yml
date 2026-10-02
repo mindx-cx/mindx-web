@@ -1,9 +1,17 @@
 name: Build site
 
-# Hostinger's Git deployment clones a branch and serves the files in it; it
-# does not run Node, so it cannot build a Next.js app. This builds the static
-# export here and force-pushes the contents of out/ to the `deploy` branch,
-# whose root is the site. Point Hostinger at `deploy`, never at `main`.
+# Builds the static export once and publishes it to BOTH places it needs to be.
+#
+# themindx.com's DNS points at the AWS box, not at Hostinger -- the box's nginx
+# serves /opt/mindx/web at the apex, alongside the API, the webhooks, /app and
+# the admin UI. Deploying only to Hostinger published a site nobody visits:
+# Hostinger reported "Completed" while the apex served the previous day's build.
+#
+# The Hostinger push stays, because that host is still wired up and is where the
+# site would move if the apex is ever pointed back at it.
+#
+# Files reach the box through ECR, not S3: the instance role has
+# AmazonEC2ContainerRegistryReadOnly and no S3 access at all.
 
 on:
   push:
@@ -16,6 +24,12 @@ permissions:
 concurrency:
   group: deploy
   cancel-in-progress: true
+
+env:
+  AWS_REGION: ap-south-1
+  INSTANCE_ID: i-02b71d092066a1c48
+  ENV_NAME: dev
+  SERVICE: mindx-web
 
 jobs:
   build:
@@ -34,10 +48,6 @@ jobs:
 
       - run: npm run build
         env:
-          # Set these as repository variables (Settings -> Secrets and
-          # variables -> Actions -> Variables) to override the defaults
-          # compiled into the source. Only NEXT_PUBLIC_ values reach the
-          # browser bundle, which is the only place they are read now.
           NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
           NEXT_PUBLIC_APP_URL: ${{ vars.NEXT_PUBLIC_APP_URL }}
           NEXT_PUBLIC_LAUNCH_MODE: ${{ vars.NEXT_PUBLIC_LAUNCH_MODE }}
@@ -67,3 +77,102 @@ jobs:
           git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ---- the apex: the AWS box ---------------------------------------
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - id: ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Ship the built site to ECR
+        env:
+          REGISTRY: ${{ steps.ecr.outputs.registry }}
+        run: |
+          # A scratch image that is nothing but the site. It is never run -- the
+          # box only needs something it is allowed to pull, and it can already
+          # pull from ECR.
+          printf 'FROM busybox:stable\nCOPY out/ /site/\n' > Dockerfile.site
+          IMAGE="$REGISTRY/${ENV_NAME}/${SERVICE}"
+          docker build -f Dockerfile.site -t "$IMAGE:${GITHUB_SHA::7}" -t "$IMAGE:latest" .
+          docker push "$IMAGE:${GITHUB_SHA::7}"
+          docker push "$IMAGE:latest"
+
+      # The box stops at 21:00 IST each night, so a push after that would
+      # otherwise fail against a switched-off instance.
+      - name: Start the instance if it is stopped
+        run: |
+          state=$(aws ec2 describe-instances --instance-ids "$INSTANCE_ID" \
+                   --query 'Reservations[0].Instances[0].State.Name' --output text)
+          echo "instance is $state"
+          if [ "$state" != "running" ]; then
+            aws ec2 start-instances --instance-ids "$INSTANCE_ID" >/dev/null
+            aws ec2 wait instance-running --instance-ids "$INSTANCE_ID"
+            for i in $(seq 1 20); do
+              ping=$(aws ssm describe-instance-information \
+                      --filters "Key=InstanceIds,Values=$INSTANCE_ID" \
+                      --query 'InstanceInformationList[0].PingStatus' --output text 2>/dev/null)
+              [ "$ping" = "Online" ] && break
+              sleep 15
+            done
+          fi
+
+      - name: Install it on the box
+        run: |
+          ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+          REG="${ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+          IMAGE="${REG}/${ENV_NAME}/${SERVICE}:${GITHUB_SHA::7}"
+
+          # The previous copy is kept until the new one is verified in place, so
+          # a bad extract is one mv away from being undone.
+          cat > /tmp/install.sh <<EOF
+          set -euo pipefail
+          aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${REG}
+          docker pull ${IMAGE}
+          rm -rf /opt/mindx/web.new && mkdir -p /opt/mindx/web.new
+          C=\$(docker create ${IMAGE})
+          docker cp \$C:/site/. /opt/mindx/web.new/
+          docker rm -f \$C >/dev/null
+          test -f /opt/mindx/web.new/index.html
+          rm -rf /opt/mindx/web.prev
+          mv /opt/mindx/web /opt/mindx/web.prev
+          mv /opt/mindx/web.new /opt/mindx/web
+          docker exec mindx-nginx-1 nginx -s reload || docker restart mindx-nginx-1
+          docker image prune -f >/dev/null
+          echo "installed: \$(ls /opt/mindx/web | wc -l) entries"
+          EOF
+
+          # jq builds the JSON so the script's own quoting cannot break the call.
+          PARAMS=$(jq -Rs '{commands: [.]}' < /tmp/install.sh)
+          ID=$(aws ssm send-command --instance-ids "$INSTANCE_ID" \
+                --document-name AWS-RunShellScript --timeout-seconds 900 \
+                --parameters "$PARAMS" --query 'Command.CommandId' --output text)
+          echo "ssm command $ID"
+
+          for i in $(seq 1 60); do
+            st=$(aws ssm get-command-invocation --command-id "$ID" --instance-id "$INSTANCE_ID" \
+                  --query Status --output text 2>/dev/null || echo Pending)
+            case "$st" in InProgress|Pending|Delayed) sleep 5 ;; *) break ;; esac
+          done
+
+          aws ssm get-command-invocation --command-id "$ID" --instance-id "$INSTANCE_ID" \
+            --query '[Status,StandardOutputContent,StandardErrorContent]' --output text
+          test "$(aws ssm get-command-invocation --command-id "$ID" --instance-id "$INSTANCE_ID" \
+            --query Status --output text)" = "Success"
+
+      - name: Check the apex is actually serving the new build
+        run: |
+          # The point of this job. A deploy that reports success while the live
+          # site is unchanged is the exact failure this file exists to prevent.
+          for i in $(seq 1 10); do
+            if curl -fsS --max-time 20 https://themindx.com/ | grep -q 'KLAVIYO'; then
+              echo "themindx.com is serving the new build"
+              exit 0
+            fi
+            sleep 6
+          done
+          echo "themindx.com did not pick up the new build"
+          exit 1
