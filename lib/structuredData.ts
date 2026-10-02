@@ -9,7 +9,12 @@ export const organizationLd = {
   alternateName: site.name,
   url: siteUrl,
   // CHANGED: the spec's /logo.svg doesn't exist yet; uses the MX icon.
-  logo: `${siteUrl}/brand/mx-mark.png`,
+  // The PNG this pointed at was the old headset mark, and it was deleted
+  // with it -- leaving the organisation's logo in search results and
+  // social cards pointing at a file that is not there. Note that nginx
+  // answers missing paths with the 404 page at status 200, so this broke
+  // silently rather than 404ing where anyone would notice.
+  logo: `${siteUrl}/brand/mx-mark.svg`,
   email: site.contactEmail,
   description: 'MindX is the Ecommerce Brain for Shopify merchants.',
 };
