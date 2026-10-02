@@ -77,9 +77,9 @@ export function MobileMenu() {
               ))}
             </ul>
             <MenuGroup title="Company" items={companyNav} onNavigate={close} />
-            <Link href={ctas.login.href} onClick={close} className="mt-4 block rounded-btn py-2.5 text-body-l-m font-semibold">
+            <a href={ctas.login.href} onClick={close} className="mt-4 block rounded-btn py-2.5 text-body-l-m font-semibold">
               {ctas.login.label}
-            </Link>
+            </a>
           </nav>
 
           <div className="container-x shrink-0 border-t border-navy-700 py-4">

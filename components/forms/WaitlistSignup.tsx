@@ -283,9 +283,9 @@ export function WaitlistSignup({ intent }: { intent?: 'demo' }) {
       </p>
       <p className="text-center text-small text-ink-700">
         {copy.smallPrint} · {copy.signInPrompt}{' '}
-        <Link href={ctas.login.href} className="rounded-sm font-semibold text-blue-600 underline underline-offset-2">
+        <a href={ctas.login.href} className="rounded-sm font-semibold text-blue-600 underline underline-offset-2">
           {copy.signInLabel}
-        </Link>
+        </a>
       </p>
     </form>
   );

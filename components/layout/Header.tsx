@@ -87,9 +87,13 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-1 lg:flex">
-          <Link href={ctas.login.href} className={navLinkClass}>
+          {/* A plain anchor, not next/link: /app is a different application behind the
+          same nginx, not a route in this Next.js site. <Link> client-routes to it
+          and prefetches an RSC payload at /app/signin/index.txt, which does not
+          exist -- the login button 404ed on a file nobody asked for. */}
+          <a href={ctas.login.href} className={navLinkClass}>
             {ctas.login.label}
-          </Link>
+          </a>
           <Button href={ctas.brainScan.href} className="rounded-pill">
             {ctas.brainScan.label}
           </Button>
