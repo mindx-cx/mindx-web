@@ -2,39 +2,45 @@
 // worker story with the Brain: the page now says what MindX notices about a
 // store, not what seats it sells.
 //
-// The page order mirrors YouSpot's, because that order works: show the thing,
-// show it finding something, show the merchant still holding the pen, then
-// answer the four objections. Copy is ours.
+// The order: show the thing, show it finding something, show the merchant
+// still holding the pen, then answer the four objections.
 
 export const brainHero = {
   // Headline, subtitle and trust line come from content/home.ts -- they are
   // Rajesh's words and that file owns them. What lives here is only what the
   // prototype's hero adds: the entity ring.
   /**
-   * The systems a store's context is scattered across. They frame the MX mark
-   * in the hero: the picture is "all of this, in one place", made before the
-   * visitor has read a word.
+   * What the Brain reads, framing the MX mark: "all of this, in one place".
+   * CHANGED 3 Oct 2026: Shopify and the parts of a store it reads, in place of
+   * tool names (Klaviyo, AfterShip, Stripe, Meta Ads) the Brain cannot read
+   * yet, per the audit of the AWS product.
    */
   entities: [
     'SHOPIFY',
-    'GORGIAS',
-    'KLAVIYO',
-    'AFTERSHIP',
-    'STRIPE',
-    'RETURNS',
-    'META ADS',
-    'EMAIL',
+    'ORDERS',
+    'CUSTOMERS',
     'PRODUCTS',
+    'RETURNS',
+    'INVENTORY',
+    'FULFILMENT',
+    'REFUNDS',
+    'DISCOUNTS',
   ],
 } as const;
 
+// CHANGED 3 Oct 2026: honest about what connects today, matching the
+// Integrations page (the Brain reads Shopify; support channels are beta).
 export const integrationStrip = {
-  label: 'Reads from the tools you already run',
-  items: ['Shopify', 'Gorgias', 'Klaviyo', 'AfterShip', 'Stripe', 'Meta Ads'],
+  label: 'Starts with Shopify',
+  live: 'Shopify',
+  liveTag: 'Live',
+  beta: ['Gorgias', 'Zendesk', 'WhatsApp', 'Instagram', 'Messenger'],
+  betaTag: 'Beta: AI replies',
+  more: { label: 'More on the way', href: '/integrations' },
 } as const;
 
 export const buildsItself = {
-  title: 'The second brain builds itself.',
+  title: 'Ask your store anything.',
   body: 'No dashboards to configure, no reports to set up. Connect Shopify and ask in plain English.',
   questions: [
     'How did revenue do last month compared to the month before?',
@@ -46,7 +52,7 @@ export const buildsItself = {
 } as const;
 
 export const draftSection = {
-  title: 'Nothing sends until you do.',
+  title: 'You approve every message.',
   body: 'MindX writes the message, names who it goes to and shows you the evidence. You approve it, edit it, or throw it away. It never acts on your store behind your back.',
   draft: {
     to: '47 customers with orders over 5 days old',
@@ -64,8 +70,22 @@ export const draftSection = {
 export const knowsYourStore = {
   // The heading is composed in the component so the second sentence can carry
   // the brand colour; kept here too for anything that needs it as one string.
-  title: 'Your AI knows the world. MindX knows your store.',
+  title: 'ChatGPT knows ecommerce. MindX knows your store.',
+  lead: 'ChatGPT knows ecommerce.',
+  brand: 'MindX knows your store.',
   body: 'A general model can tell you what a good return rate looks like. MindX can tell you yours, which SKU is driving it, and which customers it cost you — because every number it gives you is computed from your data, not guessed.',
+} as const;
+
+// Replaces the four text steps (Find. Understand. Decide. Act.), which
+// repeated the How it works page; this points there instead (3 Oct 2026).
+export const howTeaser = {
+  title: 'From a connected store to a fix you approve.',
+  steps: [
+    { title: 'Connect', body: 'Shopify, in one click. Read-only to start.' },
+    { title: 'Find', body: 'MindX surfaces what needs your attention.' },
+    { title: 'Act', body: 'See why it matters, then approve the fix.' },
+  ],
+  link: { label: 'See how it works', href: '/brain' },
 } as const;
 
 export const brainFaqTitle = 'Questions merchants ask us';
@@ -74,7 +94,7 @@ export const brainFaq = [
   {
     id: 'what-is-mindx',
     q: 'What is MindX, exactly?',
-    a: 'A brain for your store. It connects to Shopify and the tools around it, keeps one live model of what is happening, and answers questions about it in plain English. It also tells you, unprompted, when something has moved enough to be worth looking at.',
+    a: 'A brain for your store. It connects to your Shopify store, keeps one live model of what is happening, and answers questions about it in plain English. It also tells you, unprompted, when something has moved enough to be worth looking at.',
   },
   {
     id: 'cost',
@@ -89,7 +109,7 @@ export const brainFaq = [
   {
     id: 'replace-apps',
     q: 'Do I need to replace the apps I already use?',
-    a: 'No. MindX reads from them. Your helpdesk, your email tool and your shipping app carry on exactly as they are — MindX is the layer that sees across all of them at once.',
+    a: 'No. MindX starts with Shopify, and your helpdesk, email tool and shipping app carry on exactly as they are. Support channels connect today for AI replies, and the Brain will read more of your tools as those connections arrive.',
   },
 ] as const;
 

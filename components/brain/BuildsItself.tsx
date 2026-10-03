@@ -6,9 +6,9 @@ import { buildsItself } from '@/content/brainHome';
  * The question list. Each row is the prototype's list item: a 36px icon tile,
  * the text, and a trailing hint, on a 36px / 1fr / auto grid.
  */
-export function BuildsItself() {
+export function BuildsItself({ theme = 'cream' }: { theme?: 'cream' | 'cream2' } = {}) {
   return (
-    <Section theme="cream" reveal>
+    <Section theme={theme} className={theme === 'cream2' ? 'border-y border-line' : undefined} reveal>
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center">
         <SectionHeader title={buildsItself.title} body={buildsItself.body} />
         <ul className="space-y-3">

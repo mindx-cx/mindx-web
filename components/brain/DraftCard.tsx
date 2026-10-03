@@ -8,10 +8,10 @@ import { draftSection } from '@/content/brainHome';
  * shown in full, with the recipient count on the button rather than hidden
  * behind it.
  */
-export function DraftCard() {
+export function DraftCard({ theme = 'cream' }: { theme?: 'cream' | 'cream2' } = {}) {
   const { draft } = draftSection;
   return (
-    <Section theme="cream" reveal>
+    <Section theme={theme} className={theme === 'cream2' ? 'border-y border-line' : undefined} reveal>
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center">
         <SectionHeader title={draftSection.title} body={draftSection.body} />
 

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { brainHero } from '@/content/brainHome';
 import { hero } from '@/content/home';
@@ -43,8 +44,10 @@ export function BrainHero() {
         </div>
 
         <div className="relative mx-auto max-w-[760px] text-center">
-          <span className="mx-auto mb-8 flex h-[88px] w-[88px] items-center justify-center rounded-pill bg-brand text-[26px] font-bold tracking-tight text-white shadow-[0_18px_50px_-12px_rgba(0,98,255,0.55)]">
-            MX
+          {/* The brain at the centre of the integrations: the real MX mark, white
+              on the brand circle. */}
+          <span className="mx-auto mb-8 flex h-[88px] w-[88px] items-center justify-center rounded-pill bg-brand shadow-[0_18px_50px_-12px_rgba(0,98,255,0.55)]">
+            <Image src="/brand/mindx-ai-mark-white.svg" alt="" width={52} height={33} className="h-auto w-[52px]" />
           </span>
 
           <h1 className="t-display text-fg">

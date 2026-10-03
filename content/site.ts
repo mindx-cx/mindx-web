@@ -34,7 +34,9 @@ export const ctas = {
   brainScan: isWaitlist
     ? { label: 'Get My Free Brain Scan', href: '/signup' }
     : { label: 'Get My Free Brain Scan', href: '/signup' },
-  demo: { label: 'Book a demo', href: isWaitlist ? '/waitlist?intent=demo' : '/demo' },
+  // CHANGED 3 Oct 2026 (Rajesh): "Book a demo" goes to /signup like the main
+  // CTA, not to the old early-access waitlist page.
+  demo: { label: 'Book a demo', href: isWaitlist ? '/signup' : '/demo' },
   login: { label: 'Log in', href: `${appUrl}/signin` },
   waitlist: 'Join the waitlist',
   apply: 'Apply now',

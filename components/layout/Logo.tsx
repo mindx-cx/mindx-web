@@ -1,23 +1,20 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
-import { MxMark } from './MxMark';
 
-// Uses the existing MX mark from the current site. Swap for public/logo.svg
-// (spec A3) when a vector logo is available.
+// The MindX AI logo (3 Oct 2026): the MX outline monogram and wordmark,
+// traced to SVG from the original artwork. The nav, mobile menu and footer
+// are all on navy, so this is the all-white version; the blue-and-navy
+// version (public/brand/mindx-ai-logo-color.svg) is for light backgrounds.
 export function Logo({ className, onClick }: { className?: string; onClick?: () => void }) {
   return (
     <Link
       href="/"
       onClick={onClick}
       aria-label="MindX AI home"
-      className={cn('inline-flex shrink-0 items-center gap-2 rounded-sm text-white', className)}
+      className={cn('inline-flex shrink-0 items-center rounded-sm', className)}
     >
-      <MxMark className="h-[26px] w-[26px] text-[10px] tracking-tight" />
-      {/* The brand dot after the wordmark, as in the prototype: the only piece
-          of brand colour in the nav, so the eye lands on it first. */}
-      <span className="whitespace-nowrap text-[17px] font-bold leading-none tracking-tight">
-        MindX<span className="text-brand">.</span>
-      </span>
+      <Image src="/brand/mindx-ai-logo-white.svg" alt="MindX AI" width={140} height={26} priority className="h-[26px] w-auto" />
     </Link>
   );
 }

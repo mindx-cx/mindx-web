@@ -393,28 +393,6 @@ export const brainExplanation = {
   body: 'Your store generates thousands of signals across orders, customers, products, fulfillment and more. MindX connects the dots and brings the things worth your attention to the surface.',
 } as const;
 
-export const productLoop = {
-  title: 'Find. Understand. Decide. Act.',
-  steps: [
-    {
-      title: 'Find',
-      body: 'MindX finds what deserves your attention.',
-    },
-    {
-      title: 'Understand',
-      body: 'Ask what happened and why.',
-    },
-    {
-      title: 'Decide',
-      body: 'Choose what should happen next.',
-    },
-    {
-      title: 'Act',
-      body: 'Turn the decision into action.',
-    },
-  ],
-} as const;
-
 export const homeCta = {
   heading: 'See what MindX finds in your store.',
   body: 'Connect your Shopify store and get your first Brain Scan.',

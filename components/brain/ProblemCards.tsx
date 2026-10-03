@@ -14,9 +14,9 @@ const KIND: Record<string, { icon: typeof TrendingDown; fg: string; bg: string }
 
 const FALLBACK = { icon: TrendingDown, fg: 'text-signal-product', bg: 'bg-signal-product/10' };
 
-export function ProblemCards() {
+export function ProblemCards({ theme = 'cream' }: { theme?: 'cream' | 'cream2' } = {}) {
   return (
-    <Section theme="cream" reveal>
+    <Section theme={theme} className={theme === 'cream2' ? 'border-y border-line' : undefined} reveal>
       <SectionHeader title={brainScanDemo.title} body={brainScanDemo.intro} />
       <div className="mt-12 grid gap-4 md:grid-cols-3">
         {brainScanDemo.findings.map((finding) => {
