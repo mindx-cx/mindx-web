@@ -65,6 +65,9 @@ jobs:
         run: |
           test -f out/index.html || { echo "out/index.html missing"; exit 1; }
           test -f out/.htaccess || { echo "out/.htaccess missing - public/.htaccess did not ship"; exit 1; }
+          # A file that names this build, so the live check below can tell the
+          # new site from the old one instead of matching text both contain.
+          echo "${GITHUB_SHA::7}" > out/version.txt
 
       - name: Publish out/ to the deploy branch
         run: |
@@ -137,10 +140,17 @@ jobs:
           docker cp \$C:/site/. /opt/mindx/web.new/
           docker rm -f \$C >/dev/null
           test -f /opt/mindx/web.new/index.html
-          rm -rf /opt/mindx/web.prev
+          # nginx's container bind-mounts /opt/mindx/web, and a bind mount stays
+          # on the directory it was created with. After the renames below a
+          # plain reload kept serving the old copy (3 Oct 2026), so restart
+          # nginx to re-attach, as the app deploys already do, and only then
+          # delete the copy it was serving.
+          rm -rf /opt/mindx/web.old
+          if [ -d /opt/mindx/web.prev ]; then mv /opt/mindx/web.prev /opt/mindx/web.old; fi
           mv /opt/mindx/web /opt/mindx/web.prev
           mv /opt/mindx/web.new /opt/mindx/web
-          docker exec mindx-nginx-1 nginx -s reload || docker restart mindx-nginx-1
+          docker restart mindx-nginx-1 >/dev/null
+          rm -rf /opt/mindx/web.old
           docker image prune -f >/dev/null
           echo "installed: \$(ls /opt/mindx/web | wc -l) entries"
           EOF
@@ -167,12 +177,18 @@ jobs:
         run: |
           # The point of this job. A deploy that reports success while the live
           # site is unchanged is the exact failure this file exists to prevent.
-          for i in $(seq 1 10); do
-            if curl -fsS --max-time 20 https://themindx.com/ | grep -q 'KLAVIYO'; then
-              echo "themindx.com is serving the new build"
+          # It used to grep the home page for text the old build also had, so it
+          # passed while the old site was still live. version.txt names the
+          # build; a missing file falls back to index.html and fails the match.
+          want="${GITHUB_SHA::7}"
+          got=""
+          for i in $(seq 1 20); do
+            got=$(curl -fsS --max-time 20 "https://themindx.com/version.txt?t=$(date +%s)" || true)
+            if [ "$got" = "$want" ]; then
+              echo "themindx.com is serving build $want"
               exit 0
             fi
             sleep 6
           done
-          echo "themindx.com did not pick up the new build"
+          echo "themindx.com did not pick up build $want (it answered: ${got:0:60})"
           exit 1
