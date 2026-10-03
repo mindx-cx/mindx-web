@@ -18,9 +18,9 @@ export const seo = {
   },
   brain: {
     path: '/brain',
-    title: 'MindX Brain — One Live Model of Your Store',
+    title: 'How MindX Works — Connect, Find, Act',
     description:
-      'MindX Brain connects Shopify, your helpdesk, shipping and returns into one live model your AI workers act on.',
+      'Connect your Shopify store. MindX finds what needs your attention, shows you why, and drafts the next step for you to approve.',
   },
   resolve: {
     path: '/workers/resolve',
@@ -58,14 +58,16 @@ export const seo = {
   },
   integrations: {
     path: '/integrations',
-    title: 'MindX Integrations — Shopify, Gorgias, Klaviyo and More',
-    description: 'MindX connects to the tools you already use and replaces none of them.',
+    title: 'MindX Integrations — Shopify, Gorgias, Zendesk and More',
+    description:
+      'MindX starts with Shopify. Connect Gorgias, Zendesk, WhatsApp, Instagram and Messenger for AI support replies, with more tools on the way.',
   },
   about: {
     path: '/about',
     title: 'About MindX AI — The Ecommerce Brain Company',
-    // CHANGED: no team on the About page (decision 29 Sep 2026).
-    description: "We're building the brain every ecommerce business will run on. Here's why we started MindX AI.",
+    // CHANGED (3 Oct 2026): the page is now a letter from both co-founders.
+    description:
+      'Why we built MindX, the Ecommerce Brain for Shopify: a letter from co-founders Rajesh Dayalan and Sharmila Kabilar.',
   },
   designPartners: {
     path: '/signup',

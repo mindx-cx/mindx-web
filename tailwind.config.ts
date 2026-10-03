@@ -25,7 +25,8 @@ const config: Config = {
       // than arriving somewhere else. Values converted from youspot.com's
       // lab() originals, orange rotated to blue.
       chrome: '#0C1A3A', // nav, product top bar, CTA band, footer
-      cream: '#F0F5FB', // page background, product sidebar and main
+      cream: '#F0F5FB', // page background, product main area
+      'cream-2': '#E7EEF7', // a shade under cream: alternate bands, product sidebar
       brand: { DEFAULT: '#0062FF', dark: '#004FCC' }, // logo dot, CTAs, active states
       line: '#D8E4F0', // borders and dividers
       fg: '#131419', // body text

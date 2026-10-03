@@ -51,7 +51,8 @@ export const announcement = {
 export const productNav: NavLink[] = [];
 
 export const mainNav: NavLink[] = [
-  { label: 'Brain', href: '/brain' },
+  // Labelled "How it works" for first-time visitors; the URL stays /brain so links keep working.
+  { label: 'How it works', href: '/brain' },
   { label: 'Integrations', href: '/integrations' },
   // Back in the nav as of the v3 rebuild: /pricing is now Free vs Pro, which
   // is a question a visitor wants answered, rather than the per-resolution
@@ -68,7 +69,7 @@ export const footer = {
     {
       title: 'Product',
       links: [
-        { label: 'MindX Brain', href: '/brain' },
+        { label: 'How it works', href: '/brain' },
         { label: 'Integrations', href: '/integrations' },
       ],
     },
