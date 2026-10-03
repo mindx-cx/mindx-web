@@ -43,7 +43,7 @@ export function Countdown({ isoDate, labels, doneLabel, srLabel }: CountdownProp
             key={label}
             className="flex w-[72px] flex-col items-center rounded-card border border-white/15 bg-white/[.08] py-3 backdrop-blur sm:w-20"
           >
-            <span className="font-display text-h2-m font-bold tabular-nums text-white md:text-h2">
+            <span className="font-display text-h2-m font-medium tabular-nums text-white md:text-h2">
               {values ? String(values[i]).padStart(2, '0') : '--'}
             </span>
             <span className="mt-1 text-xs font-semibold uppercase tracking-wide text-gray-300">{label}</span>

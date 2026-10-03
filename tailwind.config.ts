@@ -93,8 +93,9 @@ const config: Config = {
     },
     fontFamily: {
       sans: ['var(--font-geist-sans)', '-apple-system', 'Segoe UI', 'system-ui', 'sans-serif'],
-      // Headlines: Inter Tight, same family as the body, tighter and bolder.
-      display: ['var(--font-inter-tight)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
+      // Headlines: Newsreader serif, regular weight. Shared with the product's
+      // page titles so the site and the app speak in the same voice.
+      display: ['var(--font-newsreader)', 'Georgia', 'Times New Roman', 'serif'],
     },
     // [size, line-height]. "-m" variants are the mobile sizes from A5.
     fontSize: {

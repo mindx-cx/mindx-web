@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter_Tight } from 'next/font/google';
+import { Newsreader } from 'next/font/google';
 import { GeistSans } from 'geist/font/sans';
 import type { ReactNode } from 'react';
 import { AnalyticsProvider } from '@/components/layout/AnalyticsProvider';
@@ -19,11 +19,13 @@ import './globals.css';
 // self-hosted like the rest -- a static export must not reach out to a font CDN
 // on first paint.
 
-// Headline face (display, h1, h2, stats).
-const interTight = Inter_Tight({
+// Headline face (display, h1, h2, stats): a serif, as in the prototype, used
+// only for headlines; everything else stays Geist. Variable font with its
+// optical-size axis, so large headlines get the display cut.
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-inter-tight',
+  axes: ['opsz'],
+  variable: '--font-newsreader',
   display: 'swap',
 });
 
@@ -41,7 +43,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     // suppressHydrationWarning: the head script adds classes/attributes to <html> before React loads.
-    <html lang="en" className={`${GeistSans.variable} ${interTight.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${newsreader.variable}`} suppressHydrationWarning>
       <head>
         {/* Before first paint: mark JS as on (enables scroll reveal) and apply announcement dismissal. */}
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('js');${announcementScript}` }} />

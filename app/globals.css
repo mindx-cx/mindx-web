@@ -34,14 +34,15 @@
   }
 
   /* Type scale (A5): mobile size first, desktop from md up. */
+  /* Serif headlines read best at regular weight; bold serif looks heavy. */
   .t-display {
-    @apply font-display text-display-m font-bold tracking-tight md:text-display;
+    @apply font-display text-display-m font-normal tracking-[-0.015em] md:text-display;
   }
   .t-h1 {
-    @apply font-display text-h1-m font-bold tracking-tight md:text-h1;
+    @apply font-display text-h1-m font-normal tracking-[-0.015em] md:text-h1;
   }
   .t-h2 {
-    @apply font-display text-h2-m font-bold tracking-tight md:text-h2;
+    @apply font-display text-h2-m font-normal tracking-[-0.01em] md:text-h2;
   }
   .t-h3 {
     @apply text-h3-m font-semibold md:text-h3;
@@ -53,7 +54,7 @@
     @apply text-eyebrow font-bold uppercase;
   }
   .t-stat {
-    @apply font-display text-stat-m font-bold tracking-tight md:text-stat;
+    @apply font-display text-stat-m font-medium tracking-[-0.015em] md:text-stat;
   }
 
   /* Long-form legal text carried over from the current site (LegalPage). */
