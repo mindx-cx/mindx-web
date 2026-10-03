@@ -8,7 +8,7 @@ import { fieldLabels as L, leadForms } from '@/content/forms';
 import { messages, type MessageKey } from '@/content/messages';
 import { helpdeskOptions, ordersOptions } from '@/content/waitlist';
 import { track } from '@/lib/analytics';
-import { appUrl } from '@/lib/config';
+import { appUrl, isWaitlist } from '@/lib/config';
 import { splitName, submitGoogleForm } from '@/lib/googleForms';
 import { Field, Honeypot, SelectInput, TextArea, TextInput } from './fields';
 import { resetTurnstile, Turnstile } from './Turnstile';
@@ -39,6 +39,9 @@ export function LeadForm({ type }: { type: LeadType }) {
     orders: type !== 'brain_scan',
     conversations: type === 'design_partner',
     topProblem: type === 'design_partner',
+    // CHANGED 3 Oct 2026 (Rajesh): the Brain Scan form asks for email and
+    // store URL only.
+    helpdesk: type !== 'brain_scan',
   };
 
   function payload() {
@@ -47,7 +50,7 @@ export function LeadForm({ type }: { type: LeadType }) {
     if (has.orders) base.ordersPerMonth = values.ordersPerMonth || undefined;
     if (has.conversations) base.conversationsPerMonth = values.conversationsPerMonth || undefined;
     if (has.topProblem) base.topProblem = values.topProblem;
-    base.helpdesk = values.helpdesk || undefined;
+    if (has.helpdesk) base.helpdesk = values.helpdesk || undefined;
     return base;
   }
 
@@ -75,17 +78,22 @@ export function LeadForm({ type }: { type: LeadType }) {
       // difference between a real submission and a rejected one.
       if (!honeypot) {
         const { name, ...lead } = data as Record<string, string | undefined>;
-        await submitGoogleForm('designPartner', { ...lead, ...splitName(name) });
+        // Brain Scan leads go to the Waitlist form, which has email and store
+        // URL questions. They used to go to the Design Partner form, which
+        // has no email question unless an env setting adds one.
+        await submitGoogleForm(type === 'brain_scan' ? 'waitlist' : 'designPartner', { ...lead, ...splitName(name) });
       }
 
       if (type === 'brain_scan') {
-        track('brain_scan_form_submit', { helpdesk: values.helpdesk || undefined });
-        track('shopify_connect_start', { page: window.location.pathname });
-        // CHANGED from A9: only the shop goes in the URL; the email is already
-        // saved with the lead and shouldn't sit in URLs and server logs.
-        const shop = checked.data.shopDomain;
-        window.location.assign(`${appUrl}/install?shop=${encodeURIComponent(shop)}`);
-        return;
+        track('brain_scan_form_submit', { mode: isWaitlist ? 'waitlist' : 'live' });
+        // CHANGED 3 Oct 2026. It used to go to /app/install?shop=..., a page
+        // the product doesn't have. Waitlist mode (Shopify app not approved
+        // yet): confirm and stop. Live mode: on to the product's sign-up;
+        // connecting Shopify happens in its onboarding.
+        if (!isWaitlist) {
+          window.location.assign(`${appUrl}/signup`);
+          return;
+        }
       }
       if (type === 'design_partner') {
         track('design_partner_apply', {
@@ -114,6 +122,7 @@ export function LeadForm({ type }: { type: LeadType }) {
       }
       return <Success text={leadForms.demo.noCalendar} />;
     }
+    if (type === 'brain_scan') return <Success text={leadForms.brain_scan.success} />;
     return <Success text={leadForms.design_partner.success} />;
   }
 
@@ -174,6 +183,7 @@ export function LeadForm({ type }: { type: LeadType }) {
             />
           </Field>
         )}
+        {has.helpdesk && (
         <Field
           id={`${id}-helpdesk`}
           label={L.helpdesk}
@@ -189,6 +199,7 @@ export function LeadForm({ type }: { type: LeadType }) {
             error={errors.helpdesk}
           />
         </Field>
+        )}
       </div>
       {has.topProblem && (
         <Field

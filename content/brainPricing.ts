@@ -1,3 +1,4 @@
+import { ctas } from './site';
 // Pricing, prototype v3 (2 Oct 2026). Two plans, priced on Brain capacity
 // rather than seats: a merchant who asks more questions pays more, a merchant
 // who adds a colleague does not.
@@ -29,7 +30,7 @@ export const plans: readonly Plan[] = [
     price: '$0',
     cadence: 'per month, forever',
     for: 'Merchants who want to see what the Brain finds.',
-    cta: { label: 'Get My Free Brain Scan', href: '/signup' },
+    cta: ctas.brainScan,
     featured: false,
     note: 'No credit card.',
     includes: [

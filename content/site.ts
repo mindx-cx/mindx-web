@@ -31,8 +31,12 @@ export const site = {
 // waitlist mode the main CTA is "Get early access" and every CTA, including
 // "Book a demo", opens the waitlist.
 export const ctas = {
+  // CHANGED 3 Oct 2026 (Rajesh): the Shopify app isn't approved yet, so real
+  // stores can't connect. In waitlist mode the CTA is "Get early access" and
+  // /signup collects email + store URL. Set NEXT_PUBLIC_LAUNCH_MODE=live on
+  // approval day to switch back to the Brain Scan and the product sign-up.
   brainScan: isWaitlist
-    ? { label: 'Get My Free Brain Scan', href: '/signup' }
+    ? { label: 'Get early access', href: '/signup' }
     : { label: 'Get My Free Brain Scan', href: '/signup' },
   // CHANGED 3 Oct 2026 (Rajesh): "Book a demo" goes to /signup like the main
   // CTA, not to the old early-access waitlist page.

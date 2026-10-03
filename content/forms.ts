@@ -1,3 +1,4 @@
+import { isWaitlist } from '@/lib/config';
 // Form labels and confirmations (spec B5.4, B9.2, B9.4, B8.4).
 
 export const fieldLabels = {
@@ -16,9 +17,16 @@ export const fieldLabels = {
 
 export const leadForms = {
   brain_scan: {
-    submit: 'Start my free scan',
-    consent:
-      "By continuing you agree to our Terms and Privacy Policy. Scan data is deleted after 30 days if you don't continue.",
+    // CHANGED 3 Oct 2026. Waitlist mode (until Shopify approves the app): the
+    // form saves the lead and confirms. Live mode: it leads on to sign-up.
+    // The old note promised scan data deletion after 30 days, which nothing
+    // enforces yet, so it is gone.
+    submit: isWaitlist ? 'Get early access' : 'Continue',
+    consent: isWaitlist
+      ? "We'll email you when your store can connect. By continuing you agree to our Terms and Privacy Policy."
+      : "Next, you'll create your free MindX account and connect Shopify. By continuing you agree to our Terms and Privacy Policy.",
+    success:
+      "You're on the list. We'll email you as soon as your store can connect, and you'll be among the first to get your Brain Scan.",
   },
   demo: {
     submit: 'Book my demo',
