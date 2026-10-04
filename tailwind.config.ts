@@ -17,6 +17,9 @@ const config: Config = {
       current: 'currentColor',
       white: '#FFFFFF',
 
+      // --- MindX design tokens ------------------------------------------------
+      // Values live in public/brand/mindx-tokens.css (the shared master file,
+      // also copied into the product); these names just point at them.
       // --- Prototype v3 tokens (2 Oct 2026) ---------------------------------
       // A three-colour system: one brand colour paired with a dark and a light
       // of the same temperature. The point is the shared surfaces -- `chrome`
@@ -24,23 +27,23 @@ const config: Config = {
       // AND the product sidebar -- so signing in feels like staying put rather
       // than arriving somewhere else. Values converted from youspot.com's
       // lab() originals, orange rotated to blue.
-      chrome: '#0C1A3A', // nav, product top bar, CTA band, footer
-      cream: '#F0F5FB', // page background, product main area
-      'cream-2': '#E7EEF7', // a shade under cream: alternate bands, product sidebar
-      brand: { DEFAULT: '#0062FF', dark: '#004FCC' }, // logo dot, CTAs, active states
-      line: '#D8E4F0', // borders and dividers
-      fg: '#131419', // body text
-      surface: '#E4EDF8', // avatar tiles, chips, inset fills
-      'muted-bg': '#D5E2F0', // muted fills on cream
-      'muted-fg': '#6B7A94', // secondary text
-      'subtle-fg': '#9AAABF', // tertiary text, placeholder
+      chrome: 'rgb(var(--chrome-rgb) / <alpha-value>)', // nav, product top bar, CTA band, footer
+      cream: 'rgb(var(--cream-rgb) / <alpha-value>)', // page background, product main area
+      'cream-2': 'rgb(var(--cream-2-rgb) / <alpha-value>)', // a shade under cream: alternate bands, product sidebar
+      brand: { DEFAULT: 'rgb(var(--brand-rgb) / <alpha-value>)', dark: 'rgb(var(--brand-dark-rgb) / <alpha-value>)' }, // CTAs, active states
+      line: 'rgb(var(--line-rgb) / <alpha-value>)', // borders and dividers
+      fg: 'rgb(var(--fg-rgb) / <alpha-value>)', // body text
+      surface: 'rgb(var(--surface-rgb) / <alpha-value>)', // avatar tiles, chips, inset fills
+      'muted-bg': 'rgb(var(--muted-bg-rgb) / <alpha-value>)', // muted fills on cream
+      'muted-fg': 'rgb(var(--muted-fg-rgb) / <alpha-value>)', // secondary text
+      'subtle-fg': 'rgb(var(--subtle-fg-rgb) / <alpha-value>)', // tertiary text, placeholder
       // Meaning, not decoration: one colour per kind of problem, so a merchant
       // learns the colour once and reads the card without reading the label.
       signal: {
-        revenue: '#DC2626',
-        fulfilment: '#D97706',
-        product: '#0062FF',
-        live: '#16A34A',
+        revenue: 'rgb(var(--signal-revenue-rgb) / <alpha-value>)',
+        fulfilment: 'rgb(var(--signal-fulfilment-rgb) / <alpha-value>)',
+        product: 'rgb(var(--signal-product-rgb) / <alpha-value>)',
+        live: 'rgb(var(--signal-live-rgb) / <alpha-value>)',
       },
       // Text on light backgrounds: navy-tinted, not black (Atlassian-style).
       ink: {

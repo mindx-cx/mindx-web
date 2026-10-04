@@ -1,0 +1,112 @@
+/*
+ * MindX design tokens, v1 (4 Oct 2026)
+ *
+ * The one source of truth for MindX colours and fonts, shared by the website
+ * (mindx-web) and the product (mindx_service_ai_ui). The rulebook explains
+ * how to use them.
+ *
+ * MASTER COPY: mindx-web/public/brand/mindx-tokens.css, published at
+ *   https://themindx.com/brand/mindx-tokens.css
+ * PRODUCT COPY: mindx_service_ai_ui/src/styles/mindx-tokens.css must be
+ *   identical. The product's "Design tokens" GitHub check compares it with
+ *   the published master and fails if they differ.
+ *
+ * To change a value: edit the master here, push the website, copy this file
+ * byte for byte into the product, push the product.
+ *
+ * Every colour has a hex value and an "-rgb" channel version (for opacity,
+ * e.g. bg-brand/10 in Tailwind 3).
+ */
+
+:root {
+  /* Core three */
+  --chrome: #0C1A3A;          /* navy: website nav, product top bar, footer, CTA band */
+  --chrome-rgb: 12 26 58;
+  --brand: #0062FF;           /* blue: primary buttons, links, active states, logo mark */
+  --brand-rgb: 0 98 255;
+  --brand-dark: #004FCC;      /* blue hover/pressed */
+  --brand-dark-rgb: 0 79 204;
+  --on-brand: #FFFFFF;        /* text and icons on brand-blue fills */
+  --on-brand-rgb: 255 255 255;
+  --cream: #F0F5FB;           /* page background, product main area */
+  --cream-rgb: 240 245 251;
+  --cream-2: #E7EEF7;         /* alternate bands, product sidebar */
+  --cream-2-rgb: 231 238 247;
+
+  /* Neutrals */
+  --card: #FFFFFF;            /* cards, inputs, popovers */
+  --card-rgb: 255 255 255;
+  --fg: #131419;              /* body text and headings */
+  --fg-rgb: 19 20 25;
+  --muted-fg: #6B7A94;        /* secondary text */
+  --muted-fg-rgb: 107 122 148;
+  --subtle-fg: #9AAABF;       /* tertiary text, placeholders */
+  --subtle-fg-rgb: 154 170 191;
+  --line: #D8E4F0;            /* borders and dividers */
+  --line-rgb: 216 228 240;
+  --surface: #E4EDF8;         /* chips, icon tiles, soft buttons */
+  --surface-rgb: 228 237 248;
+  --muted-bg: #D5E2F0;        /* hover and selected fills on cream */
+  --muted-bg-rgb: 213 226 240;
+
+  /* Signals: meaning only, never decoration */
+  --signal-revenue: #DC2626;     /* revenue problems, errors */
+  --signal-revenue-rgb: 220 38 38;
+  --signal-fulfilment: #D97706;  /* orders and delivery, warnings */
+  --signal-fulfilment-rgb: 217 119 6;
+  --signal-product: #0062FF;     /* product findings, information */
+  --signal-product-rgb: 0 98 255;
+  --signal-live: #16A34A;        /* live, connected, success */
+  --signal-live-rgb: 22 163 74;
+
+  /* Type */
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif; /* headlines and page titles only, weight 400 */
+  --font-body: "Geist", -apple-system, "Segoe UI", system-ui, sans-serif; /* everything else */
+
+  /* Shape */
+  --radius-card: 16px;   /* cards */
+  --radius-row: 8px;     /* list rows, inputs, icon tiles */
+  --radius-button: 9px;  /* buttons */
+}
+
+/*
+ * Dark mode: PROPOSED, not yet styled in the product. Applies under a .dark
+ * class (product) or data-theme="dark" (website, not used yet).
+ */
+.dark,
+[data-theme="dark"] {
+  --chrome: #09132C;
+  --chrome-rgb: 9 19 44;
+  --brand: #3D86FF;
+  --brand-rgb: 61 134 255;
+  --brand-dark: #2B72F2;
+  --brand-dark-rgb: 43 114 242;
+  --on-brand: #0B1020;        /* dark text on the lighter dark-mode blue (white fails 4.5:1) */
+  --on-brand-rgb: 11 16 32;
+  --cream: #0B1020;
+  --cream-rgb: 11 16 32;
+  --cream-2: #0F1629;
+  --cream-2-rgb: 15 22 41;
+  --card: #141B2F;
+  --card-rgb: 20 27 47;
+  --fg: #E8EDF7;
+  --fg-rgb: 232 237 247;
+  --muted-fg: #A3B0C8;
+  --muted-fg-rgb: 163 176 200;
+  --subtle-fg: #6F7D97;
+  --subtle-fg-rgb: 111 125 151;
+  --line: #26324F;
+  --line-rgb: 38 50 79;
+  --surface: #1A2A4C;
+  --surface-rgb: 26 42 76;
+  --muted-bg: #223A69;
+  --muted-bg-rgb: 34 58 105;
+  --signal-revenue: #F87171;
+  --signal-revenue-rgb: 248 113 113;
+  --signal-fulfilment: #FBBF24;
+  --signal-fulfilment-rgb: 251 191 36;
+  --signal-product: #60A5FA;
+  --signal-product-rgb: 96 165 250;
+  --signal-live: #4ADE80;
+  --signal-live-rgb: 74 222 128;
+}
