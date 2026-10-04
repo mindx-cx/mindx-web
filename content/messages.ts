@@ -13,7 +13,7 @@ export const messages = {
   demoSuccess: 'Booked! Check your inbox for the calendar invite.',
   // Not in the spec: newsletter uses double opt-in (A9), so the visitor must confirm.
   newsletterSuccess: 'Almost done. Check your inbox to confirm your subscription.',
-  notFound: "This page doesn't exist, but your Brain Scan can.",
+  notFound: "This page doesn't exist.",
 } as const;
 
 export type MessageKey = keyof typeof messages;
