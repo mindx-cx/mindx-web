@@ -18,7 +18,7 @@ const config: Config = {
       white: '#FFFFFF',
 
       // --- MindX design tokens ------------------------------------------------
-      // Values live in public/brand/mindx-tokens.css (the shared master file,
+      // Values live in brand/mindx-tokens.css (the shared master file,
       // also copied into the product); these names just point at them.
       // --- Prototype v3 tokens (2 Oct 2026) ---------------------------------
       // A three-colour system: one brand colour paired with a dark and a light

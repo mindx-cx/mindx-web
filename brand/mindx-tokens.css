@@ -5,11 +5,11 @@
  * (mindx-web) and the product (mindx_service_ai_ui). The rulebook explains
  * how to use them.
  *
- * MASTER COPY: mindx-web/public/brand/mindx-tokens.css, published at
- *   https://themindx.com/brand/mindx-tokens.css
+ * MASTER COPY: mindx-web/brand/mindx-tokens.css (main branch). It is built
+ *   into the website's CSS, not served as a page of its own.
  * PRODUCT COPY: mindx_service_ai_ui/src/styles/mindx-tokens.css must be
  *   identical. The product's "Design tokens" GitHub check compares it with
- *   the published master and fails if they differ.
+ *   the master on GitHub and fails if they differ.
  *
  * To change a value: edit the master here, push the website, copy this file
  * byte for byte into the product, push the product.

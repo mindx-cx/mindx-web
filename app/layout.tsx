@@ -15,7 +15,7 @@ import { organizationLd } from '@/lib/structuredData';
 import { siteUrl } from '@/lib/config';
 // The shared MindX design tokens (colours, fonts, shape). Loaded before the
 // site's own CSS, which reads every colour from them through tailwind.config.
-import '../public/brand/mindx-tokens.css';
+import '../brand/mindx-tokens.css';
 import './globals.css';
 
 // Geist is the prototype's face. The `geist` package ships the files, so it is
