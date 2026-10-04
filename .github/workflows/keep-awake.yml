@@ -1,0 +1,83 @@
+name: Keep AWS dev awake (beta ad night)
+
+# The AWS dev box stops every night at 21:00 IST (a schedule set up in AWS,
+# not in any repo). On the night of the ChatGPT ads test (4-5 Oct 2026) the
+# website must stay up through US daytime, so this checks every 10 minutes
+# and starts the box again if it has been stopped.
+#
+# It expires by itself: outside the window below it does nothing, so it
+# never undoes the nightly shutdown on any other night. Delete this file
+# after the test.
+#
+# GitHub runs scheduled workflows late under load (often 5-15 minutes), so
+# after 21:00 IST the site can be down for that long before this brings it
+# back.
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: keep-awake
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: ap-south-1
+  INSTANCE_ID: i-02b71d092066a1c48
+  # 4 Oct 2026 20:30 IST to 5 Oct 2026 12:00 IST, in UTC.
+  WINDOW_START: "2026-10-04T15:00:00Z"
+  WINDOW_END: "2026-10-05T06:30:00Z"
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inside the ad window?
+        id: window
+        run: |
+          now=$(date -u +%s)
+          start=$(date -u -d "$WINDOW_START" +%s)
+          end=$(date -u -d "$WINDOW_END" +%s)
+          if [ "$now" -ge "$start" ] && [ "$now" -le "$end" ]; then
+            echo "inside=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Outside the ad window; nothing to do."
+            echo "inside=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        if: steps.window.outputs.inside == 'true'
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Start the box if it is stopped
+        if: steps.window.outputs.inside == 'true'
+        run: |
+          state=$(aws ec2 describe-instances --instance-ids "$INSTANCE_ID" \
+                   --query 'Reservations[0].Instances[0].State.Name' --output text)
+          echo "instance is $state"
+          case "$state" in
+            running|pending) exit 0 ;;
+            stopping) aws ec2 wait instance-stopped --instance-ids "$INSTANCE_ID" ;;
+          esac
+          aws ec2 start-instances --instance-ids "$INSTANCE_ID" >/dev/null
+          aws ec2 wait instance-running --instance-ids "$INSTANCE_ID"
+          echo "started; waiting for the SSM agent"
+          for i in $(seq 1 20); do
+            ping=$(aws ssm describe-instance-information \
+                    --filters "Key=InstanceIds,Values=$INSTANCE_ID" \
+                    --query 'InstanceInformationList[0].PingStatus' --output text 2>/dev/null)
+            [ "$ping" = "Online" ] && break
+            sleep 15
+          done
+          # Containers restart by themselves (restart: unless-stopped), but
+          # nginx resolves the other containers' addresses once at startup,
+          # so it is restarted after them, as every deploy does.
+          sleep 30
+          echo '{"commands":["docker restart mindx-nginx-1"]}' > params.json
+          aws ssm send-command --instance-ids "$INSTANCE_ID" \
+            --document-name AWS-RunShellScript --comment "keep-awake: restart nginx" \
+            --parameters file://params.json --query Command.CommandId --output text
