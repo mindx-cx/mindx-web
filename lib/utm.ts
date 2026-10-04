@@ -9,6 +9,7 @@ export type Attribution = {
   utmSource?: string;
   utmMedium?: string;
   utmCampaign?: string;
+  utmContent?: string;
   landingPage?: string;
 };
 
@@ -30,6 +31,7 @@ export function captureAttribution(): void {
     utmSource: params.get('utm_source') ?? undefined,
     utmMedium: params.get('utm_medium') ?? undefined,
     utmCampaign: params.get('utm_campaign') ?? undefined,
+    utmContent: params.get('utm_content') ?? undefined,
     landingPage: window.location.pathname,
   };
   document.cookie = `${COOKIE}=${encodeURIComponent(JSON.stringify(value))}; Max-Age=${MAX_AGE}; Path=/; SameSite=Lax${
@@ -39,4 +41,20 @@ export function captureAttribution(): void {
 
 export function readAttribution(): Attribution {
   return readCookie() ?? { landingPage: window.location.pathname };
+}
+
+/**
+ * The campaign for this visit: the URL's own utm_* values when it has them
+ * (an ad click), otherwise the first-landing ones saved in the cookie. Used by
+ * /beta so a signup is credited to the ad that brought it.
+ */
+export function currentCampaign(): Record<'utm_source' | 'utm_medium' | 'utm_campaign' | 'utm_content', string | undefined> {
+  const params = new URLSearchParams(window.location.search);
+  const saved = readAttribution();
+  return {
+    utm_source: params.get('utm_source') ?? saved.utmSource,
+    utm_medium: params.get('utm_medium') ?? saved.utmMedium,
+    utm_campaign: params.get('utm_campaign') ?? saved.utmCampaign,
+    utm_content: params.get('utm_content') ?? saved.utmContent,
+  };
 }

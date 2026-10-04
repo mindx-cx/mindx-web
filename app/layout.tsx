@@ -7,6 +7,7 @@ import { AttributionCapture } from '@/components/layout/AttributionCapture';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { HideOn } from '@/components/layout/HideOn';
 import { RevealObserver } from '@/components/layout/RevealObserver';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { pageMetadata, seo } from '@/content/seo';
@@ -59,9 +60,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Skip to content
         </a>
         <JsonLd data={organizationLd} />
-        <Header />
+        {/* /beta (the ad landing page) brings its own simple header and footer. */}
+        <HideOn paths={['/beta']}>
+          <Header />
+        </HideOn>
         <main id="main">{children}</main>
-        <Footer />
+        <HideOn paths={['/beta']}>
+          <Footer />
+        </HideOn>
         <CookieBanner />
         <RevealObserver />
         <AttributionCapture />

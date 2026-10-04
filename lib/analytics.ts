@@ -19,7 +19,13 @@ export type AnalyticsEvent =
   | 'pricing_calculator_used'
   | 'integration_search'
   | 'integration_request'
-  | 'faq_open';
+  | 'faq_open'
+  // /beta, the ChatGPT Ads beta page (4 Oct 2026).
+  | 'beta_cta_click'
+  | 'beta_form_started'
+  | 'beta_form_completed'
+  | 'beta_shopify_url_submitted'
+  | 'mindx_beta_signup';
 
 type Props = Record<string, string | number | boolean | undefined>;
 
