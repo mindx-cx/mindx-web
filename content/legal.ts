@@ -42,8 +42,5 @@ export const legalCopy = {
   eyebrow: 'Legal',
   updatedLabel: 'Last updated',
   draftNotice: '[Lawyer to provide the final text before launch.]',
-  // Carried-over policies predate the new pricing and entity naming.
-  reviewNotice:
-    '[Legal review before launch: this text is carried over from the current site. It names "MindX Digital Softwares Inc." and the old Starter/Growth/Scale plans.]',
   questions: 'Questions about this page? Email founders@themindx.com.',
 } as const;

@@ -38,9 +38,9 @@ export const ctas = {
   brainScan: isWaitlist
     ? { label: 'Get early access', href: '/signup' }
     : { label: 'Get My Free Brain Scan', href: '/signup' },
-  // CHANGED 3 Oct 2026 (Rajesh): "Book a demo" goes to /signup like the main
-  // CTA, not to the old early-access waitlist page.
-  demo: { label: 'Book a demo', href: isWaitlist ? '/signup' : '/demo' },
+  // CHANGED 3-4 Oct 2026 (Rajesh): "Book a demo" goes to /signup like the main
+  // CTA. The /demo (Contact) and /faq pages were removed on 4 Oct.
+  demo: { label: 'Book a demo', href: '/signup' },
   login: { label: 'Log in', href: `${appUrl}/signin` },
   waitlist: 'Join the waitlist',
   apply: 'Apply now',
@@ -83,8 +83,6 @@ export const footer = {
       title: 'Company',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Contact', href: '/demo' },
-        { label: 'FAQ', href: '/faq' },
       ],
     },
     {

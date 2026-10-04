@@ -57,50 +57,79 @@
     @apply font-display text-stat-m font-medium tracking-[-0.015em] md:text-stat;
   }
 
-  /* Long-form legal text carried over from the current site (LegalPage). */
+  /* Legal pages (LegalPage). CHANGED 4 Oct 2026: contents in a left column
+     that stays in view on wide screens, numbered sections on the right, serif
+     section headings and a comfortable reading width. The policy HTML is a
+     nav.toc followed by section.doc-section elements. */
   .legal {
-    @apply text-ink-950;
+    @apply text-fg;
   }
   .legal .toc {
-    @apply mb-12 rounded-card border border-gray-200 bg-gray-50 p-6;
+    @apply mb-10 rounded-row bg-cream p-5;
   }
   .legal .toc h3 {
-    @apply t-eyebrow mb-3 text-ink-700;
+    @apply t-eyebrow mb-3 text-muted-fg;
   }
   .legal .toc ol {
-    @apply grid gap-x-8 gap-y-1 text-small sm:grid-cols-2;
+    @apply grid gap-y-1.5 text-[14px] leading-snug sm:grid-cols-2 sm:gap-x-8;
+  }
+  .legal .toc a {
+    @apply text-fg no-underline hover:text-brand;
+  }
+  @media (min-width: 1024px) {
+    .legal {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      column-gap: 56px;
+    }
+    .legal .toc {
+      grid-column: 1;
+      grid-row: 1 / span 40;
+      align-self: start;
+      position: sticky;
+      top: 6rem;
+      max-height: calc(100vh - 8rem);
+      overflow-y: auto;
+      margin-bottom: 0;
+    }
+    .legal .toc ol {
+      grid-template-columns: 1fr;
+    }
+    .legal .doc-section {
+      grid-column: 2;
+    }
   }
   .legal .doc-section {
-    @apply scroll-mt-28 border-t border-gray-200 py-8;
+    @apply max-w-[72ch] scroll-mt-28 border-t border-line py-8 first-of-type:border-t-0 first-of-type:pt-0;
   }
   .legal h2 {
-    @apply t-h3 mb-4;
+    @apply mb-4 font-display text-[26px] font-normal leading-tight text-fg;
   }
   .legal h3 {
-    @apply mb-2 mt-6 font-semibold;
+    @apply mb-2 mt-6 text-[16px] font-semibold text-fg;
   }
   .legal p {
-    @apply mb-4 text-ink-700;
+    @apply mb-4 text-[16px] leading-7 text-fg/80;
   }
   .legal ul,
   .legal .doc-section ol {
-    @apply mb-4 list-disc space-y-1 pl-6 text-ink-700;
+    @apply mb-4 list-disc space-y-1.5 pl-6 text-[16px] leading-7 text-fg/80;
   }
   .legal .doc-section ol {
     @apply list-decimal;
   }
   .legal a {
-    @apply break-words text-blue-600 underline underline-offset-2;
+    @apply break-words text-brand underline underline-offset-2;
   }
   .legal strong {
-    @apply font-semibold text-ink-950;
+    @apply font-semibold text-fg;
   }
   .legal table {
     @apply mb-4 block w-full overflow-x-auto text-small;
   }
   .legal th,
   .legal td {
-    @apply border border-gray-200 px-3 py-2 text-left align-top;
+    @apply border border-line px-3 py-2 text-left align-top;
   }
 }
 

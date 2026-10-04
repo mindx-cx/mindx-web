@@ -74,16 +74,6 @@ export const seo = {
     title: 'MindX Design Partner Program for Shopify Brands',
     description: 'Prove one measurable support outcome in 30 days with founding pricing locked for 12 months.',
   },
-  demo: {
-    path: '/demo',
-    title: 'Book a MindX Demo',
-    description: 'See MindX on your own store in 20 minutes.',
-  },
-  faq: {
-    path: '/faq',
-    title: 'MindX FAQ',
-    description: 'Answers about MindX Brain, MindX Resolve, pricing, setup and data security.',
-  },
 } satisfies Record<string, SeoEntry>;
 
 export function pageMetadata(entry: SeoEntry): Metadata {

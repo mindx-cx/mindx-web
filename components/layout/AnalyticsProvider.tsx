@@ -51,7 +51,7 @@ export function AnalyticsProvider() {
       if (!link) return;
       const href = link.getAttribute('href') ?? '';
       const props = { page: window.location.pathname, position: position(link) };
-      if (href.startsWith('/waitlist?intent=demo') || href === '/demo') track('cta_demo_click', props);
+      if (href.startsWith('/waitlist?intent=demo')) track('cta_demo_click', props);
       else if (href.startsWith('/waitlist') || href.startsWith('/signup')) track('cta_brain_scan_click', props);
     };
     // "toggle" doesn't bubble, so listen in the capture phase.

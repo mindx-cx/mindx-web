@@ -1,14 +1,20 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
-import { HeroBackdrop } from '@/components/sections/Hero';
 import { withPlaceholders } from '@/components/ui/Placeholder';
 import { legalCopy, legalPages, type LegalPageKey } from '@/content/legal';
 
 /**
- * Legal page layout (A8 row 15): navy title band, then plain text. Pages with
- * a source file render the policy carried over from the current site
- * (read at build time; the HTML is our own reviewed content).
+ * Legal page layout. CHANGED 4 Oct 2026 (Rajesh): light cream title like the
+ * rest of the site, then the policy in one white card -- contents on the
+ * left (sticky on wide screens), the numbered sections on the right. The
+ * `.legal` styles in globals.css do the two-column layout.
+ *
+ * Pages with a source file render the policy carried over from the previous
+ * site (read at build time; the HTML is our own reviewed content). That text
+ * still names "MindX Digital Softwares Inc." and the old Starter/Growth/Scale
+ * plans and needs legal review before launch; the note about it used to show
+ * to visitors and now lives only here.
  */
 export function LegalPage({ page, path: routePath }: { page: LegalPageKey; path: string }) {
   const meta = legalPages[page];
@@ -17,33 +23,29 @@ export function LegalPage({ page, path: routePath }: { page: LegalPageKey; path:
   return (
     <>
       <Breadcrumbs name={meta.title} path={routePath} />
-      <section className="relative overflow-hidden bg-navy-950 pb-12 pt-32 text-white md:pb-16 md:pt-40">
-        <HeroBackdrop />
-        <div className="container-x relative max-w-4xl">
-          <p className="t-eyebrow text-mint-400">{legalCopy.eyebrow}</p>
-          <h1 className="t-h1 mt-3">{meta.title}</h1>
+      <section className="bg-cream pb-10 pt-14 md:pb-12 md:pt-20">
+        <div className="container-x max-w-6xl">
+          <p className="t-eyebrow text-muted-fg">{legalCopy.eyebrow}</p>
+          <h1 className="t-h1 mt-3 text-fg">{meta.title}</h1>
           {meta.updated && (
-            <p className="mt-3 text-small text-gray-300">
+            <p className="mt-3 text-small text-muted-fg">
               {legalCopy.updatedLabel}: {meta.updated}
             </p>
           )}
         </div>
       </section>
-      <section className="bg-white py-section-m md:py-16">
-        <div className="container-x max-w-4xl">
+      <section className="bg-cream pb-section-m md:pb-section">
+        <div className="container-x max-w-6xl">
           {html ? (
-            <>
-              <p className="mb-8 text-small text-ink-700">{withPlaceholders(legalCopy.reviewNotice)}</p>
-              <div className="legal" dangerouslySetInnerHTML={{ __html: html }} />
-            </>
+            <div className="legal rounded-card border border-line bg-white p-6 shadow-card md:p-10" dangerouslySetInnerHTML={{ __html: html }} />
           ) : (
-            <div className="rounded-card border border-gray-200 bg-gray-50 p-6 md:p-8">
-              <p className="t-h3">{meta.description}</p>
-              <p className="mt-3 text-ink-700">{meta.purpose}</p>
-              <p className="mt-6">{withPlaceholders(legalCopy.draftNotice)}</p>
+            <div className="rounded-card border border-line bg-white p-6 shadow-card md:p-8">
+              <p className="t-h3 text-fg">{meta.description}</p>
+              <p className="mt-3 text-muted-fg">{meta.purpose}</p>
+              <p className="mt-6 text-fg">{withPlaceholders(legalCopy.draftNotice)}</p>
             </div>
           )}
-          <p className="mt-12 border-t border-gray-200 pt-6 text-small text-ink-700">{legalCopy.questions}</p>
+          <p className="mt-8 text-small text-muted-fg">{legalCopy.questions}</p>
         </div>
       </section>
     </>
