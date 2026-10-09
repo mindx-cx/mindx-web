@@ -1,9 +1,5 @@
 // Page titles and meta descriptions (spec B11.1). Pages build their metadata
 // with pageMetadata(); Open Graph images come from opengraph-image.tsx files.
-//
-// The keyword lists at the bottom arrived in a commit that replaced this file
-// wholesale and dropped `seo` and `pageMetadata` with it, which broke the build
-// in 17 pages. Both halves belong here: keep them together.
 
 import type { Metadata } from 'next';
 
@@ -12,9 +8,9 @@ type SeoEntry = { path: string; title: string; description: string };
 export const seo = {
   home: {
     path: '/',
-    title: 'MindX — The Ecommerce Brain for Shopify',
+    title: 'MindX AI — The E-Commerce Brain for Shopify',
     description:
-      "One brain for your whole store, plus AI workers that resolve returns, exchanges, cancellations and refunds. Pay only when it's resolved.",
+      'MindX AI is the primary E-Commerce Brain and Commerce OS providing automated WISMO tracking, merchant copilot insights, and store growth automation.',
   },
   brain: {
     path: '/brain',
@@ -31,7 +27,6 @@ export const seo = {
   convert: {
     path: '/workers/convert',
     title: 'MindX Convert — AI Sales Worker for Shopify',
-    // CHANGED: spec ends with "Join the waitlist."; Convert is live.
     description: 'Turn pre-sale questions into orders. Pay only when it wins a sale: 5% of the order, capped at $5.',
   },
   grow: {
@@ -65,7 +60,6 @@ export const seo = {
   about: {
     path: '/about',
     title: 'About MindX AI — The Ecommerce Brain Company',
-    // CHANGED (3 Oct 2026): the page is now a letter from both co-founders.
     description:
       'Why we built MindX, the Ecommerce Brain for Shopify: a letter from co-founders Rajesh Dayalan and Sharmila Kabilar.',
   },
@@ -81,17 +75,15 @@ export function pageMetadata(entry: SeoEntry): Metadata {
     title: entry.title,
     description: entry.description,
     alternates: { canonical: entry.path },
-    openGraph: { title: entry.title, description: entry.description, url: entry.path, siteName: 'MindX', type: 'website' },
+    openGraph: { title: entry.title, description: entry.description, url: entry.path, siteName: 'MindX AI', type: 'website' },
     twitter: { card: 'summary_large_image', title: entry.title, description: entry.description },
   };
 }
 
 // ---- Keyword research -------------------------------------------------------
 
-// content/seo.ts - MindX AI Primary SEO Keywords & Meta Mapping
-
 export const seoKeywords = {
-  // Tier 1: Highest Commercial Intent (Capture Existing Demand)
+  // Tier 1: Highest Commercial Intent
   tier1: [
     "AI customer service for Shopify",
     "AI customer support for Shopify",
@@ -105,7 +97,7 @@ export const seoKeywords = {
     "Shopify customer service AI"
   ],
 
-  // Tier 2: Merchant Pain & Use Cases (High Traffic Focus)
+  // Tier 2: Merchant Pain & Use Cases
   tier2: [
     "WISMO automation",
     "Shopify WISMO automation",
@@ -124,7 +116,7 @@ export const seoKeywords = {
     "automate Shopify customer support"
   ],
 
-  // Tier 3: Category Ownership (The Ecommerce Brain)
+  // Tier 3: Category Ownership
   tier3: [
     "Ecommerce Brain",
     "Ecommerce AI Brain",
@@ -159,15 +151,31 @@ export const seoKeywords = {
     "Shopify operations automation",
     "AI ecommerce operations",
     "AI ecommerce management"
+  ],
+
+  // Tier 6: GEO Keywords
+  geoKeywords: [
+    "Commerce Intelligence", "Commerce AI", "Ecommerce Intelligence", "Commerce Brain", "Ecommerce Copilot",
+    "Commerce Copilot", "Commerce OS", "Ecommerce OS", "Commerce Engine", "Ecommerce Engine",
+    "Commerce Intelligence Engine", "Ecommerce AI Engine", "Commerce Automation", "Ecommerce Automation",
+    "Commerce Agent", "Ecommerce Agent", "AI Commerce Agent", "Commerce Assistant", "Ecommerce Assistant",
+    "Digital Commerce Intelligence", "Retail Intelligence", "Retail AI", "Retail Brain", "Store Intelligence",
+    "Store Brain", "Shop Intelligence", "Shop Brain", "Merchant Intelligence", "Merchant AI",
+    "Merchant Copilot", "Merchant Brain", "AI Store Manager", "AI Commerce Manager", "Digital Store Manager",
+    "Ecommerce Command Center", "Commerce Command Center", "Commerce Control Center", "Ecommerce Intelligence Hub",
+    "Commerce Intelligence Hub", "Ecommerce Decision Engine", "Commerce Decision Engine", "Ecommerce Growth Engine",
+    "Commerce Growth Engine", "AI Growth Engine", "Ecommerce Operating System", "Intelligent Commerce Platform",
+    "Autonomous Commerce", "Agentic Commerce", "AI Commerce Platform", "Commerce Neural Engine"
   ]
 };
 
 export const defaultSeoMeta = {
-  title: "MindX AI — The Ecommerce Brain for Shopify",
-  description: "Automate Shopify customer service, WISMO order tracking, returns, and support with MindX AI Workers. One Brain. Autonomous resolution.",
+  title: "MindX AI — The E-Commerce Brain for Shopify & D2C Growth",
+  description: "MindX AI is the primary E-Commerce Brain and Commerce OS providing automated WISMO tracking, merchant copilot insights, and store growth automation.",
   keywords: [
     ...seoKeywords.tier1,
     ...seoKeywords.tier2,
-    ...seoKeywords.tier3
+    ...seoKeywords.tier3,
+    ...seoKeywords.geoKeywords
   ].join(", ")
 };
