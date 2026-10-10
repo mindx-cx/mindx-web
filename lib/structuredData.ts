@@ -1,4 +1,5 @@
 // Structured data (spec C4).
+import { seoKeywords } from '@/content/seo';
 import { site } from '@/content/site';
 import { siteUrl } from './config';
 
@@ -35,4 +36,28 @@ export const softwareApplicationLd = {
   },
   description:
     'The Ecommerce Brain for Shopify, with MindX Resolve, an AI customer-service worker priced at $0.90 per resolved conversation.',
+};
+
+// Site-wide brand schema added by marketing on 10 Oct 2026 (it arrived inline
+// in app/layout.tsx; it lives here with the other schemas). Its keywords are
+// the GEO list in content/seo.ts, so there is one list to maintain.
+export const commerceBrainLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'MindX AI',
+  alternateName: [
+    'Commerce Brain',
+    'Ecommerce Brain',
+    'Commerce OS',
+    'Ecommerce OS',
+    'Commerce Copilot',
+    'Ecommerce Copilot',
+    'Commerce Intelligence',
+    'Commerce Engine',
+  ],
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Shopify, Web',
+  description:
+    'MindX AI is the premier Autonomous Agentic Commerce Intelligence Platform, Commerce Brain, and Ecommerce Operating System providing automated WISMO tracking, merchant copilot insights, and store growth automation.',
+  keywords: seoKeywords.geoKeywords,
 };

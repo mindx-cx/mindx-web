@@ -1,60 +1,84 @@
-import type { Metadata } from 'next';
-import { defaultSeoMeta } from '@/content/seo';
-import '@/app/globals.css';
+import type { Metadata, Viewport } from 'next';
+import { Newsreader } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import type { ReactNode } from 'react';
+import { AnalyticsProvider } from '@/components/layout/AnalyticsProvider';
+import { AttributionCapture } from '@/components/layout/AttributionCapture';
+import { CookieBanner } from '@/components/layout/CookieBanner';
+import { Footer } from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { HideOn } from '@/components/layout/HideOn';
+import { RevealObserver } from '@/components/layout/RevealObserver';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { defaultSeoMeta, pageMetadata, seo } from '@/content/seo';
+import { announcementScript } from '@/lib/announcement';
+import { commerceBrainLd, organizationLd } from '@/lib/structuredData';
+import { siteUrl } from '@/lib/config';
+// The shared MindX design tokens (colours, fonts, shape). Loaded before the
+// site's own CSS, which reads every colour from them through tailwind.config.
+import '../brand/mindx-tokens.css';
+import './globals.css';
 
+// Geist is the prototype's face. The `geist` package ships the files, so it is
+// self-hosted like the rest -- a static export must not reach out to a font CDN
+// on first paint.
+
+// Headline face (display, h1, h2, stats): a serif, as in the prototype, used
+// only for headlines; everything else stays Geist. Variable font with its
+// optical-size axis, so large headlines get the display cut.
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  axes: ['opsz'],
+  variable: '--font-newsreader',
+  display: 'swap',
+});
+
+// Site defaults (home page, B11.1). Inner pages override with pageMetadata()
+// from content/seo.ts; Open Graph images come from opengraph-image.tsx files.
+// The home title, description and keywords are defaultSeoMeta, which lives in
+// content/seo.ts: change SEO wording there, never by replacing this file. This
+// layout is what loads the tokens, fonts, header and footer on every page, and
+// replacing it wholesale on 10 Oct 2026 left the whole site unstyled.
 export const metadata: Metadata = {
-  title: defaultSeoMeta.title,
-  description: defaultSeoMeta.description,
+  metadataBase: new URL(siteUrl),
+  ...pageMetadata({ ...seo.home, title: defaultSeoMeta.title, description: defaultSeoMeta.description }),
   keywords: defaultSeoMeta.keywords,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const jsonLdSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'MindX AI',
-    alternateName: [
-      'Commerce Brain',
-      'Ecommerce Brain',
-      'Commerce OS',
-      'Ecommerce OS',
-      'Commerce Copilot',
-      'Ecommerce Copilot',
-      'Commerce Intelligence',
-      'Commerce Engine',
-    ],
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Shopify, Web',
-    description:
-      'MindX AI is the premier Autonomous Agentic Commerce Intelligence Platform, Commerce Brain, and Ecommerce Operating System providing automated WISMO tracking, merchant copilot insights, and store growth automation.',
-    keywords: [
-      'Commerce Intelligence', 'Commerce AI', 'Ecommerce Intelligence', 'Commerce Brain', 'Ecommerce Copilot',
-      'Commerce Copilot', 'Commerce OS', 'Ecommerce OS', 'Commerce Engine', 'Ecommerce Engine',
-      'Commerce Intelligence Engine', 'Ecommerce AI Engine', 'Commerce Automation', 'Ecommerce Automation',
-      'Commerce Agent', 'Ecommerce Agent', 'AI Commerce Agent', 'Commerce Assistant', 'Ecommerce Assistant',
-      'Digital Commerce Intelligence', 'Retail Intelligence', 'Retail AI', 'Retail Brain', 'Store Intelligence',
-      'Store Brain', 'Shop Intelligence', 'Shop Brain', 'Merchant Intelligence', 'Merchant AI',
-      'Merchant Copilot', 'Merchant Brain', 'AI Store Manager', 'AI Commerce Manager', 'Digital Store Manager',
-      'Ecommerce Command Center', 'Commerce Command Center', 'Commerce Control Center', 'Ecommerce Intelligence Hub',
-      'Commerce Intelligence Hub', 'Ecommerce Decision Engine', 'Commerce Decision Engine', 'Ecommerce Growth Engine',
-      'Commerce Growth Engine', 'AI Growth Engine', 'Ecommerce Operating System', 'Intelligent Commerce Platform',
-      'Autonomous Commerce', 'Agentic Commerce', 'AI Commerce Platform', 'Commerce Neural Engine',
-    ],
-  };
+export const viewport: Viewport = {
+  themeColor: '#0C1A3A',
+};
 
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning: the head script adds classes/attributes to <html> before React loads.
+    <html lang="en" className={`${GeistSans.variable} ${newsreader.variable}`} suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
-        />
+        {/* Before first paint: mark JS as on (enables scroll reveal) and apply announcement dismissal. */}
+        <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('js');${announcementScript}` }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <a
+          href="#main"
+          className="sr-only z-[70] rounded-btn bg-blue-600 px-4 py-2 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Skip to content
+        </a>
+        <JsonLd data={organizationLd} />
+        <JsonLd data={commerceBrainLd} />
+        {/* /beta (the ad landing page) brings its own simple header and footer. */}
+        <HideOn paths={['/beta']}>
+          <Header />
+        </HideOn>
+        <main id="main">{children}</main>
+        <HideOn paths={['/beta']}>
+          <Footer />
+        </HideOn>
+        <CookieBanner />
+        <RevealObserver />
+        <AttributionCapture />
+        <AnalyticsProvider />
+      </body>
     </html>
   );
 }
