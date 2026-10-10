@@ -1,0 +1,286 @@
+1:"$Sreact.fragment"
+3:I[4444,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","875","static/chunks/875-3a98ab33b7606e0a.js","177","static/chunks/app/layout-7121cc6e1f733d6d.js"],"HideOn"]
+4:I[4519,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","875","static/chunks/875-3a98ab33b7606e0a.js","177","static/chunks/app/layout-7121cc6e1f733d6d.js"],"Header"]
+5:I[9766,[],""]
+6:I[8924,[],""]
+13:I[7150,[],""]
+:HL["/_next/static/media/0b78ff376f6b9734-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/84adbee2f2a7cb50-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/8d47359d753bb470.css","style"]
+2:T66c,{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MindX AI","alternateName":["Commerce Brain","Ecommerce Brain","Commerce OS","Ecommerce OS","Commerce Copilot","Ecommerce Copilot","Commerce Intelligence","Commerce Engine"],"applicationCategory":"BusinessApplication","operatingSystem":"Shopify, Web","description":"MindX AI is the premier Autonomous Agentic Commerce Intelligence Platform, Commerce Brain, and Ecommerce Operating System providing automated WISMO tracking, merchant copilot insights, and store growth automation.","keywords":["Commerce Intelligence","Commerce AI","Ecommerce Intelligence","Commerce Brain","Ecommerce Copilot","Commerce Copilot","Commerce OS","Ecommerce OS","Commerce Engine","Ecommerce Engine","Commerce Intelligence Engine","Ecommerce AI Engine","Commerce Automation","Ecommerce Automation","Commerce Agent","Ecommerce Agent","AI Commerce Agent","Commerce Assistant","Ecommerce Assistant","Digital Commerce Intelligence","Retail Intelligence","Retail AI","Retail Brain","Store Intelligence","Store Brain","Shop Intelligence","Shop Brain","Merchant Intelligence","Merchant AI","Merchant Copilot","Merchant Brain","AI Store Manager","AI Commerce Manager","Digital Store Manager","Ecommerce Command Center","Commerce Command Center","Commerce Control Center","Ecommerce Intelligence Hub","Commerce Intelligence Hub","Ecommerce Decision Engine","Commerce Decision Engine","Ecommerce Growth Engine","Commerce Growth Engine","AI Growth Engine","Ecommerce Operating System","Intelligent Commerce Platform","Autonomous Commerce","Agentic Commerce","AI Commerce Platform","Commerce Neural Engine"]}0:{"P":null,"b":"XjfgQscX1UMccP4ukyTf5","p":"","c":["","privacy",""],"i":false,"f":[[["",{"children":["(legal)",{"children":["privacy",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8d47359d753bb470.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_8adcd2 __variable_47c7a6","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"document.documentElement.classList.add('js');try{if(localStorage.getItem('mx_announcement_dismissed')==='founding-2026-v2')document.documentElement.setAttribute('data-ann-dismissed','')}catch(e){}"}}]}],["$","body",null,{"children":[["$","a",null,{"href":"#main","className":"sr-only z-[70] rounded-btn bg-blue-600 px-4 py-2 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4","children":"Skip to content"}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"MindX AI\",\"alternateName\":\"MindX\",\"url\":\"https://themindx.com\",\"logo\":\"https://themindx.com/brand/mindx-ai-icon-512.png\",\"email\":\"founders@themindx.com\",\"description\":\"MindX is the Ecommerce Brain for Shopify merchants.\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","$L3",null,{"paths":["/beta"],"children":["$","$L4",null,{}]}],["$","main",null,{"id":"main","children":["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","section",null,{"className":"flex min-h-[70vh] items-center bg-cream py-24 text-fg","children":["$","div",null,{"className":"container-x","children":["$","div",null,{"className":"mx-auto flex max-w-[640px] flex-col items-center text-center","children":[["$","p",null,{"className":"t-eyebrow text-muted-fg","children":"Page not found"}],"$L7","$L8","$L9"]}]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],"$La","$Lb","$Lc","$Ld","$Le"]}]]}]]}],{"children":["(legal)","$Lf",{"children":["privacy","$L10",{"children":["__PAGE__","$L11",{},null,false]},null,false]},null,false]},null,false],"$L12",false]],"m":"$undefined","G":["$13",[]],"s":false,"S":true}
+14:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","974","static/chunks/app/page-358b636d113106dd.js"],""]
+15:I[1356,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","974","static/chunks/app/page-358b636d113106dd.js"],"Image"]
+16:I[6474,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","875","static/chunks/875-3a98ab33b7606e0a.js","177","static/chunks/app/layout-7121cc6e1f733d6d.js"],"CookieSettingsLink"]
+17:I[4995,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","875","static/chunks/875-3a98ab33b7606e0a.js","177","static/chunks/app/layout-7121cc6e1f733d6d.js"],"CookieBanner"]
+18:I[2562,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","875","static/chunks/875-3a98ab33b7606e0a.js","177","static/chunks/app/layout-7121cc6e1f733d6d.js"],"RevealObserver"]
+19:I[4552,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","875","static/chunks/875-3a98ab33b7606e0a.js","177","static/chunks/app/layout-7121cc6e1f733d6d.js"],"AttributionCapture"]
+1a:I[898,["619","static/chunks/619-ba102abea3e3d0e4.js","356","static/chunks/356-335c699cd4cf7b7b.js","875","static/chunks/875-3a98ab33b7606e0a.js","177","static/chunks/app/layout-7121cc6e1f733d6d.js"],"AnalyticsProvider"]
+1e:I[4431,[],"ViewportBoundary"]
+20:I[4431,[],"MetadataBoundary"]
+21:"$Sreact.suspense"
+7:["$","h1",null,{"className":"t-h1 mt-3","children":"This page doesn't exist."}]
+8:["$","p",null,{"className":"t-body-l mt-5 text-muted-fg","children":"It may have moved. Try the home page."}]
+9:["$","div",null,{"className":"mt-8 flex flex-col items-center gap-3 sm:flex-row","children":[["$","$L14",null,{"href":"/","className":"inline-flex items-center justify-center gap-2 whitespace-nowrap transition-[filter,background-color] duration-150 disabled:pointer-events-none disabled:opacity-40 rounded-ctl bg-brand px-7 py-3.5 text-[15px] font-bold leading-5 text-white hover:bg-brand-dark","children":["Go to the home page",false]}],["$","$L14",null,{"href":"/signup","className":"inline-flex items-center justify-center whitespace-nowrap rounded-ctl bg-surface px-7 py-3.5 text-[15px] font-semibold leading-5 text-fg transition-colors duration-150 hover:bg-muted-bg","children":"Get early access"}]]}]
+a:["$","$L3",null,{"paths":["/beta"],"children":["$","footer",null,{"className":"bg-chrome text-white","children":["$","div",null,{"className":"container-x py-16","children":[["$","div",null,{"className":"grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,2fr)]","children":[["$","div",null,{"children":[["$","$L14",null,{"href":"/","onClick":"$undefined","aria-label":"MindX AI home","className":"inline-flex shrink-0 items-center rounded-sm","children":["$","$L15",null,{"src":"/brand/mindx-ai-logo-white.svg","alt":"MindX AI","width":140,"height":26,"priority":true,"className":"h-[26px] w-auto"}]}],["$","p",null,{"className":"mt-4 max-w-sm text-small text-gray-300","children":"The Ecommerce Brain for Shopify merchants."}],["$","p",null,{"className":"mt-1 max-w-sm text-small text-gray-500","children":"Find. Understand. Decide. Act."}]]}],["$","div",null,{"className":"grid grid-cols-2 gap-8 md:grid-cols-4","children":[["$","div","Product",{"children":[["$","h2",null,{"className":"t-eyebrow text-white","children":"Product"}],["$","ul",null,{"className":"mt-4 space-y-3","children":[["$","li","How it works",{"children":["$","$L14",null,{"href":"/brain","className":"rounded-sm text-small text-gray-300 transition-colors hover:text-white","children":"How it works"}]}],["$","li","Integrations",{"children":["$","$L14",null,{"href":"/integrations","className":"rounded-sm text-small text-gray-300 transition-colors hover:text-white","children":"Integrations"}]}]]}]]}],["$","div","Company",{"children":[["$","h2",null,{"className":"t-eyebrow text-white","children":"Company"}],["$","ul",null,{"className":"mt-4 space-y-3","children":[["$","li","About",{"children":["$","$L14",null,{"href":"/about","className":"rounded-sm text-small text-gray-300 transition-colors hover:text-white","children":"About"}]}]]}]]}],["$","div","Legal",{"children":[["$","h2",null,{"className":"t-eyebrow text-white","children":"Legal"}],["$","ul",null,{"className":"mt-4 space-y-3","children":[["$","li","Terms of Service",{"children":["$","$L14",null,{"href":"/terms","className":"rounded-sm text-small text-gray-300 transition-colors hover:text-white","children":"Terms of Service"}]}],["$","li","Privacy Policy",{"children":["$","$L14",null,{"href":"/privacy","className":"rounded-sm text-small text-gray-300 transition-colors hover:text-white","children":"Privacy Policy"}]}],["$","li","Cookie settings",{"children":["$","$L16",null,{"label":"Cookie settings","className":"rounded-sm text-small text-gray-300 transition-colors hover:text-white"}]}]]}]]}]]}]]}],["$","div",null,{"className":"mt-12 border-t border-white/10 pt-6 text-small text-gray-300","children":["$","p",null,{"children":"© 2026 MindX Digital Softwares Inc. All rights reserved."}]}]]}]}]}]
+b:["$","$L17",null,{}]
+c:["$","$L18",null,{}]
+d:["$","$L19",null,{}]
+e:["$","$L1a",null,{}]
+f:["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+10:["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+1b:T49e6,<nav class="toc" aria-label="Table of contents">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#s1">1. Introduction</a></li>
+      <li><a href="#s2">2. Data Privacy Framework</a></li>
+      <li><a href="#s3">3. Information We Collect</a></li>
+      <li><a href="#s4">4. How We Use Your Information</a></li>
+      <li><a href="#s5">5. Cookies and Tracking</a></li>
+      <li><a href="#s6">6. Sharing of Information</a></li>
+      <li><a href="#s7">7. International Data Transfers</a></li>
+      <li><a href="#s8">8. Data Retention</a></li>
+      <li><a href="#s9">9. Data Security</a></li>
+      <li><a href="#s10">10. Your Privacy Rights</a></li>
+      <li><a href="#s11">11. Complaints and Inquiries</a></li>
+      <li><a href="#s12">12. Independent Recourse</a></li>
+      <li><a href="#s13">13. Enforcement Powers</a></li>
+      <li><a href="#s14">14. Binding Arbitration</a></li>
+      <li><a href="#s15">15. Legal Compliance</a></li>
+      <li><a href="#s16">16. Children's Privacy</a></li>
+      <li><a href="#s17">17. Third-Party Links</a></li>
+      <li><a href="#s18">18. Automated Decision-Making</a></li>
+      <li><a href="#s19">19. Do Not Track</a></li>
+      <li><a href="#s20">20. Changes to This Policy</a></li>
+      <li><a href="#s21">21. Our Role as Data Processor</a></li>
+      <li><a href="#s22">22. Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <section class="doc-section" id="s1">
+    <h2>1. Introduction</h2>
+    <p>MindX Digital Softwares Inc. ("MindX AI," "we," "our," or "us") values and respects your privacy. This Privacy Policy describes how we collect, use, share, and safeguard your personal data when you use our websites, applications, integrations, products and services (collectively, the "Services").</p>
+    <p>We comply with applicable privacy laws, including:</p>
+    <ul>
+      <li>General Data Protection Regulation (EU) 2016/679 (GDPR)</li>
+      <li>UK GDPR &amp; Data Protection Act 2018</li>
+      <li>California Consumer Privacy Act (CCPA) as amended by CPRA</li>
+      <li>Brazilian General Data Protection Law (LGPD)</li>
+      <li>Canadian Personal Information Protection and Electronic Documents Act (PIPEDA)</li>
+      <li>Australian Privacy Act 1988</li>
+      <li>Other global privacy regulations where we operate</li>
+    </ul>
+    <p>By using our Services, you agree to the practices described in this Policy.</p>
+    <h3>Two categories of data — and our different roles</h3>
+    <p>This Policy covers two distinct types of data, and MindX AI's responsibilities differ for each:</p>
+    <ul>
+      <li><strong>Website &amp; Account Data</strong> – information about visitors to our websites and about the merchants and businesses that hold a MindX AI account. For this data MindX AI acts as a data controller, as described in Sections 3–7.</li>
+      <li><strong>End‑Customer Conversation Data</strong> – the messages, and related data, of shoppers and end‑users who interact with an AI chatbot that one of our customers has deployed on their own store or channels. For this data, our customer (the merchant) is the data controller and MindX AI acts solely as a data processor, processing it only on the merchant's documented instructions in order to provide the Services.</li>
+    </ul>
+    <p>Where this Policy describes advertising, marketing, analytics or profiling, those activities relate to Website &amp; Account Data only. We do not use End‑Customer Conversation Data for advertising, and we do not use it to train AI models that serve other customers. The safeguards that apply to End‑Customer Conversation Data are set out in Section 21.</p>
+  </section>
+
+  <section class="doc-section" id="s2">
+    <h2>2. Data Privacy Framework (DPF) Compliance</h2>
+    <p>MindX Digital Softwares Inc. complies with the EU‑U.S. Data Privacy Framework (EU‑U.S. DPF), the UK Extension to the EU‑U.S. DPF, and the Swiss‑U.S. Data Privacy Framework (Swiss‑U.S. DPF) as set forth by the U.S. Department of Commerce. MindX Digital Softwares Inc. has certified to the U.S. Department of Commerce that it adheres to the EU‑U.S. DPF Principles with regard to the processing of personal data received from the European Union and the United Kingdom in reliance on the EU‑U.S. DPF and the UK Extension to the EU‑U.S. DPF. MindX Digital Softwares Inc. has certified to the U.S. Department of Commerce that it adheres to the Swiss‑U.S. DPF Principles with regard to the processing of personal data received from Switzerland in reliance on the Swiss‑U.S. DPF. If there is any conflict between the terms in this privacy policy and the EU‑U.S. DPF Principles and/or the Swiss‑U.S. DPF Principles, the Principles shall govern.</p>
+    <p>To learn more about the Data Privacy Framework (DPF) program, and to view our certification, please visit <a href="https://www.dataprivacyframework.gov/" target="_blank" rel="noopener">https://www.dataprivacyframework.gov/</a>.</p>
+  </section>
+
+  <section class="doc-section" id="s3">
+    <h2>3. Information We Collect</h2>
+    <h3>Information you provide</h3>
+    <ul>
+      <li>Name, surname, job title and company information</li>
+      <li>Email address, phone number and contact preferences</li>
+      <li>Billing and payment details (processed by trusted third‑party providers)</li>
+      <li>Store addresses and e‑commerce platform data (Shopify, WooCommerce, Magento, etc.)</li>
+    </ul>
+    <h3>Information collected automatically</h3>
+    <ul>
+      <li>Log data (IP address, browser, operating system, device identifiers)</li>
+      <li>Usage data (clickstream, time spent, pages viewed, referral links)</li>
+      <li>Chat transcripts and interaction data. Where these are generated by shoppers interacting with a customer's chatbot, they are End‑Customer Conversation Data that we process as a processor on the customer's behalf (see Sections 1 and 21).</li>
+      <li>Approximate geolocation (derived from IP address)</li>
+      <li>Advertising identifiers (cookies, pixels, UTM parameters)</li>
+    </ul>
+    <h3>Information from third parties</h3>
+    <ul>
+      <li>E‑commerce platforms connected to your account</li>
+      <li>Marketing platforms (Google, Meta, LinkedIn, TikTok, etc.)</li>
+      <li>Analytics and CRM providers</li>
+      <li>Partners and resellers</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="s4">
+    <h2>4. How We Use Your Information</h2>
+    <p>We use data for the following purposes under lawful bases of contract performance, legitimate interest, consent and legal obligation:</p>
+    <ul>
+      <li><strong>Service provision</strong> – to deliver, operate and maintain our Services.</li>
+      <li><strong>Account management</strong> – to onboard customers, verify identity and provide customer support.</li>
+      <li><strong>Service improvement</strong> – to analyze interactions and improve the quality, safety and performance of the Services. Each customer's chatbot answers only from that customer's own configured knowledge base and data, which is logically isolated per account; one customer's data is never exposed in another customer's conversations. We do not use End‑Customer Conversation Data to train shared or foundation AI models.</li>
+      <li><strong>Analytics and insights</strong> – to understand usage patterns, trends and performance.</li>
+      <li><strong>Advertising and marketing</strong> – to deliver personalized content, email campaigns, retargeting and measure ad effectiveness. These activities use Website &amp; Account Data only and never End‑Customer Conversation Data.</li>
+      <li><strong>Compliance and security</strong> – to detect fraud, enforce Terms of Service and comply with legal obligations.</li>
+      <li><strong>Research and development</strong> – to develop new features and enhance user experience.</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="s5">
+    <h2>5. Cookies and Tracking</h2>
+    <p>We use cookies, pixels, tags and similar technologies for:</p>
+    <ul>
+      <li>Conversion tracking and campaign optimization</li>
+      <li>Website performance and session management</li>
+      <li>Analytics (Google Analytics, Mixpanel, Amplitude)</li>
+      <li>Advertising and retargeting (Google Ads, Meta Pixel, LinkedIn Ads, TikTok Ads)</li>
+    </ul>
+    <p>You can manage cookie settings via your browser or through our Cookie Preferences Tool. For EU/UK users, no non‑essential cookies are deployed without consent.</p>
+  </section>
+
+  <section class="doc-section" id="s6">
+    <h2>6. Sharing of Information and Onward Transfer Liability</h2>
+    <p>We do not sell personal data. We share limited data with trusted providers, including:</p>
+    <ul>
+      <li>Cloud infrastructure: Amazon Web Services (AWS), Google Cloud</li>
+      <li>Analytics: Google Analytics, Mixpanel, Amplitude</li>
+      <li>Advertising: Meta, Google Ads, LinkedIn, TikTok</li>
+      <li>CRM/Marketing: HubSpot, Intercom, Customer.io</li>
+      <li>Automation: Zapier, Segment</li>
+      <li>Payments: Stripe, PayPal and other processors</li>
+      <li>Compliance &amp; Security: Anti‑fraud and security monitoring tools</li>
+    </ul>
+    <p>Each third‑party provider is bound by confidentiality and data processing agreements. When transferring personal data to a third party acting as our agent, MindX Digital Softwares Inc. remains responsible under the DPF Principles if that agent processes such personal data in a manner inconsistent with the Principles, unless we prove that we are not responsible for the event giving rise to the damage.</p>
+    <p>End‑Customer Conversation Data is treated differently. The advertising, analytics and marketing partners listed above receive Website &amp; Account Data only. We do not share End‑Customer Conversation Data with advertising networks, ad exchanges or data brokers, and we do not use it for cross‑site retargeting or to build advertising profiles. End‑Customer Conversation Data is shared only with the limited infrastructure and AI sub‑processors strictly necessary to deliver the chatbot, each engaged under a data processing agreement and permitted to process the data solely on documented instructions. A current list of sub‑processors is available on request.</p>
+  </section>
+
+  <section class="doc-section" id="s7">
+    <h2>7. International Data Transfers</h2>
+    <p>As a U.S.-based company, data may be transferred internationally.</p>
+    <ul>
+      <li>For EU/EEA/UK customers, transfers are based on Standard Contractual Clauses (SCCs) and UK Addendum where applicable.</li>
+      <li>For Swiss customers, transfers follow the Swiss Federal Act on Data Protection (FADP).</li>
+      <li>For other jurisdictions, we apply equivalent safeguards.</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="s8">
+    <h2>8. Data Retention</h2>
+    <p>We keep data only as long as necessary for the purposes outlined in this Policy:</p>
+    <ul>
+      <li>Account and billing data: retained for 7 years (legal obligation).</li>
+      <li>Chat logs and End‑Customer Conversation Data: retained for the period configured by the relevant customer (controller) and anonymized or deleted thereafter, unless longer retention is required for security, legal or operational needs. Deletion requests for this data are handled as described in Section 21.</li>
+      <li>Marketing data: retained until you opt out or withdraw consent.</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="s9">
+    <h2>9. Data Security</h2>
+    <p>We implement industry‑leading security measures:</p>
+    <ul>
+      <li>Encryption (in transit and at rest)</li>
+      <li>Role‑based access control</li>
+      <li>Multi‑factor authentication for internal systems</li>
+      <li>Regular audits, monitoring and penetration testing</li>
+    </ul>
+    <p>While no system is 100% secure, we continuously improve safeguards.</p>
+  </section>
+
+  <section class="doc-section" id="s10">
+    <h2>10. Your Privacy Rights and Choices</h2>
+    <p>Depending on your jurisdiction, you may have the following rights:</p>
+    <ul>
+      <li>Right of access – to obtain a copy of your personal data and information about how we process it.</li>
+      <li>Right to correction or deletion – to have inaccurate information corrected or deleted when permitted by law.</li>
+      <li>Right to restriction – to limit processing under certain circumstances.</li>
+      <li>Right to portability – to request a copy of your personal data in a structured, machine‑readable format.</li>
+      <li>Right to object or withdraw consent – to object to processing based on legitimate interests or withdraw consent at any time where consent is the legal basis.</li>
+    </ul>
+    <h3>Rights under the Data Privacy Framework</h3>
+    <ul>
+      <li>Individuals have the right to access their personal data and to correct, amend or delete information where it is inaccurate or processed in violation of the DPF Principles.</li>
+      <li>Individuals also have the right to opt out of the disclosure of their personal data to third parties, or the use of their data for purposes materially different from those for which it was originally collected or subsequently authorized.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at <a href="mailto:support@themindx.ai">support@themindx.ai</a>.</p>
+  </section>
+
+  <section class="doc-section" id="s11">
+    <h2>11. Complaints and Inquiries</h2>
+    <p>In compliance with the EU‑U.S. DPF, the UK Extension to the EU‑U.S. DPF and the Swiss‑U.S. DPF, MindX Digital Softwares Inc. commits to resolve DPF Principles‑related complaints about our collection and use of your personal information. EU, UK and Swiss individuals with inquiries or complaints should first contact us at:</p>
+    <p>Email: <a href="mailto:support@themindx.ai">support@themindx.ai</a></p>
+  </section>
+
+  <section class="doc-section" id="s12">
+    <h2>12. Independent Recourse Mechanism</h2>
+    <p>In compliance with the EU‑U.S. DPF, the UK Extension to the EU‑U.S. DPF and the Swiss‑U.S. DPF, MindX Digital Softwares Inc. commits to cooperate and comply with the advice of the EU data protection authorities (DPAs), the UK Information Commissioner's Office (ICO) and the Swiss Federal Data Protection and Information Commissioner (FDPIC) with regard to unresolved complaints concerning our handling of personal data received in reliance on the DPF. This recourse is provided free of charge to the individual.</p>
+  </section>
+
+  <section class="doc-section" id="s13">
+    <h2>13. Investigatory and Enforcement Powers</h2>
+    <p>MindX Digital Softwares Inc. is subject to the investigatory and enforcement powers of the U.S. Federal Trade Commission (FTC).</p>
+  </section>
+
+  <section class="doc-section" id="s14">
+    <h2>14. Binding Arbitration</h2>
+    <p>Under certain conditions, and after exhausting other available remedies, individuals may invoke binding arbitration for complaints regarding DPF compliance that are not resolved by other DPF mechanisms. MindX Digital Softwares Inc. is obligated to arbitrate claims and follow the terms as set forth in Annex I of the DPF Principles. For more information, please visit <a href="https://www.dataprivacyframework.gov/" target="_blank" rel="noopener">https://www.dataprivacyframework.gov/</a>.</p>
+  </section>
+
+  <section class="doc-section" id="s15">
+    <h2>15. Legal Compliance and Disclosure to Authorities</h2>
+    <p>We may disclose personal data in response to lawful requests by public authorities, including to meet national security or law enforcement requirements. We also may disclose data when required by law, regulation, court order or to enforce our Terms of Service.</p>
+  </section>
+
+  <section class="doc-section" id="s16">
+    <h2>16. Children's Privacy</h2>
+    <p>Our Services are not intended for individuals under 16. We do not knowingly collect personal data from minors. If we discover such data, we will delete it immediately.</p>
+  </section>
+
+  <section class="doc-section" id="s17">
+    <h2>17. Third‑Party Links</h2>
+    <p>Our Services may contain links to external websites. We are not responsible for the privacy practices of third parties.</p>
+  </section>
+
+  <section class="doc-section" id="s18">
+    <h2>18. Automated Decision‑Making &amp; Profiling</h2>
+    <p>We may use automated tools, including AI algorithms, to personalize recommendations, trigger marketing campaigns and assess engagement. Significant decisions impacting individuals are subject to human oversight where required by law.</p>
+  </section>
+
+  <section class="doc-section" id="s19">
+    <h2>19. Do Not Track &amp; Opt‑Out Mechanisms</h2>
+    <p>We honor Do Not Track (DNT) signals where legally required. You can opt out of targeted advertising via the Network Advertising Initiative (NAI) or Digital Advertising Alliance (DAA) opt‑out pages.</p>
+  </section>
+
+  <section class="doc-section" id="s20">
+    <h2>20. Changes to This Policy</h2>
+    <p>We may update this Policy periodically. Major updates will be communicated via email or in‑app notifications.</p>
+  </section>
+
+  <section class="doc-section" id="s21">
+    <h2>21. Our Role as a Data Processor &amp; Data Processing Agreement (DPA)</h2>
+    <p>When we provide the chatbot and related Services to a business customer, that customer determines the purposes and means of processing End‑Customer Conversation Data and is the data controller; MindX AI acts as a data processor. In that capacity we commit to:</p>
+    <ul>
+      <li>Process End‑Customer Conversation Data only on the customer's documented instructions and solely to provide the Services;</li>
+      <li>Not use that data for our own purposes, including advertising or training shared or foundation AI models;</li>
+      <li>Keep each customer's data logically isolated so it is never exposed in another customer's conversations;</li>
+      <li>Impose confidentiality and equivalent data‑protection obligations on every sub‑processor, and make the current sub‑processor list available on request;</li>
+      <li>Apply Standard Contractual Clauses (and the UK Addendum) to international transfers, as described in Section 7;</li>
+      <li>Assist the customer in responding to data‑subject requests and, on termination, delete or return the data subject to legal retention requirements.</li>
+    </ul>
+    <p>Business customers may enter into a Data Processing Agreement (DPA) with us. To request our DPA, contact <a href="mailto:support@themindx.ai">support@themindx.ai</a>.</p>
+  </section>
+
+  <div class="contact-box" id="s22">
+    <h2>22. Contact Us</h2>
+    <p>MindX Digital Softwares Inc.</p>
+    <p>1111B S Governors Ave, STE 23511, Dover, DE 19904</p>
+    <p>Email: <a href="mailto:support@themindx.ai">support@themindx.ai</a></p>
+  </div>11:["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://themindx.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Privacy Policy\",\"item\":\"https://themindx.com/privacy\"}]}"}}],["$","section",null,{"className":"bg-cream pb-10 pt-14 md:pb-12 md:pt-20","children":["$","div",null,{"className":"container-x max-w-6xl","children":[["$","p",null,{"className":"t-eyebrow text-muted-fg","children":"Legal"}],["$","h1",null,{"className":"t-h1 mt-3 text-fg","children":"Privacy Policy"}],["$","p",null,{"className":"mt-3 text-small text-muted-fg","children":["Last updated",": ","24 June 2026"]}]]}]}],["$","section",null,{"className":"bg-cream pb-section-m md:pb-section","children":["$","div",null,{"className":"container-x max-w-6xl","children":[["$","div",null,{"className":"legal rounded-card border border-line bg-white p-6 shadow-card md:p-10","dangerouslySetInnerHTML":{"__html":"$1b"}}],"$L1c"]}]}]],null,"$L1d"]}]
+12:["$","$1","h",{"children":[null,[["$","$L1e",null,{"children":"$L1f"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$L20",null,{"children":["$","div",null,{"hidden":true,"children":["$","$21",null,{"fallback":null,"children":"$L22"}]}]}]]}]
+23:I[4431,[],"OutletBoundary"]
+25:I[5278,[],"AsyncMetadataOutlet"]
+1c:["$","p",null,{"className":"mt-8 text-small text-muted-fg","children":"Questions about this page? Email founders@themindx.com."}]
+1d:["$","$L23",null,{"children":["$L24",["$","$L25",null,{"promise":"$@26"}]]}]
+1f:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0C1A3A"}]]
+24:null
+28:I[622,[],"IconMark"]
+27:T82d,AI customer service for Shopify, AI customer support for Shopify, Shopify AI customer service, AI support agent for Shopify, Shopify customer service automation, Shopify customer support automation, AI agent for Shopify, Shopify AI agent, AI chatbot for Shopify customer service, Shopify customer service AI, WISMO automation, Shopify WISMO automation, Where is my order automation, Shopify order tracking automation, AI order tracking Shopify, Shopify returns automation, AI returns management Shopify, Shopify refund automation, Shopify exchange automation, Shopify order management automation, Shopify order change automation, Shopify order cancellation automation, AI product questions Shopify, Shopify customer service automation AI, automate Shopify customer support, Ecommerce Brain, Ecommerce AI Brain, AI brain for ecommerce, AI operating system for ecommerce, Ecommerce intelligence platform, Ecommerce intelligence software, AI platform for ecommerce, AI infrastructure for ecommerce, AI automation platform for ecommerce, Ecommerce automation platform, Commerce Intelligence, Commerce AI, Ecommerce Intelligence, Commerce Brain, Ecommerce Copilot, Commerce Copilot, Commerce OS, Ecommerce OS, Commerce Engine, Ecommerce Engine, Commerce Intelligence Engine, Ecommerce AI Engine, Commerce Automation, Ecommerce Automation, Commerce Agent, Ecommerce Agent, AI Commerce Agent, Commerce Assistant, Ecommerce Assistant, Digital Commerce Intelligence, Retail Intelligence, Retail AI, Retail Brain, Store Intelligence, Store Brain, Shop Intelligence, Shop Brain, Merchant Intelligence, Merchant AI, Merchant Copilot, Merchant Brain, AI Store Manager, AI Commerce Manager, Digital Store Manager, Ecommerce Command Center, Commerce Command Center, Commerce Control Center, Ecommerce Intelligence Hub, Commerce Intelligence Hub, Ecommerce Decision Engine, Commerce Decision Engine, Ecommerce Growth Engine, Commerce Growth Engine, AI Growth Engine, Ecommerce Operating System, Intelligent Commerce Platform, Autonomous Commerce, Agentic Commerce, AI Commerce Platform, Commerce Neural Engine26:{"metadata":[["$","title","0",{"children":"Privacy Policy — MindX"}],["$","meta","1",{"name":"description","content":"How MindX collects, uses and protects personal data."}],["$","meta","2",{"name":"keywords","content":"$27"}],["$","link","3",{"rel":"canonical","href":"https://themindx.com/privacy/"}],["$","meta","4",{"property":"og:title","content":"Privacy Policy — MindX"}],["$","meta","5",{"property":"og:description","content":"How MindX collects, uses and protects personal data."}],["$","meta","6",{"property":"og:url","content":"https://themindx.com/privacy/"}],["$","meta","7",{"property":"og:site_name","content":"MindX AI"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"Privacy Policy — MindX"}],["$","meta","11",{"name":"twitter:description","content":"How MindX collects, uses and protects personal data."}],["$","link","12",{"rel":"icon","href":"/icon.png?eeb6655c3543b02c","type":"image/png","sizes":"512x512"}],["$","$L28","13",{}]],"error":null,"digest":"$undefined"}
+22:"$26:metadata"
