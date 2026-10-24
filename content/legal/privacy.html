@@ -22,7 +22,8 @@
       <li><a href="#s19">19. Do Not Track</a></li>
       <li><a href="#s20">20. Changes to This Policy</a></li>
       <li><a href="#s21">21. Our Role as Data Processor</a></li>
-      <li><a href="#s22">22. Contact Us</a></li>
+      <li><a href="#s22">22. MindX Brain (Shopify App)</a></li>
+      <li><a href="#s23">23. Contact Us</a></li>
     </ol>
   </nav>
 
@@ -238,8 +239,32 @@
     <p>Business customers may enter into a Data Processing Agreement (DPA) with us. To request our DPA, contact <a href="mailto:support@themindx.ai">support@themindx.ai</a>.</p>
   </section>
 
-  <div class="contact-box" id="s22">
-    <h2>22. Contact Us</h2>
+  <section class="doc-section" id="s22">
+    <h2>22. MindX Brain (Shopify App)</h2>
+    <p>MindX Brain is our app for Shopify merchants. It is installed from the Shopify App Store and runs inside the merchant's Shopify admin. For the store data it reads, the merchant is the data controller and MindX AI acts as a data processor, as described in Section 21.</p>
+    <h3>What the app reads</h3>
+    <ul>
+      <li>With the merchant's permission, MindX Brain reads the store's orders, products, fulfilments and customer totals through Shopify's API. Its access is read-only: it never changes the store.</li>
+      <li>From customer records it reads only the customer ID, the date the customer was created, the number of orders and the amount spent. It does not read customer names, email addresses, phone numbers or postal addresses.</li>
+    </ul>
+    <h3>Why we use it</h3>
+    <p>Only to answer the merchant's questions about their own store and to find problems in it, such as falling sales or orders waiting to ship. We never sell this data, never share it with other merchants, never use it for advertising and never use it to train AI models.</p>
+    <h3>What we store and where</h3>
+    <ul>
+      <li>The merchant's account, the Shopify connection (access tokens, encrypted with AES-256-GCM), a copy of the product catalogue, and the app's findings, conversations and credit history. Orders are read live from Shopify and are not stored.</li>
+      <li>This data is hosted on Amazon Web Services in Mumbai, India (ap-south-1) and is encrypted at rest and in transit. AI answers are generated with Amazon Bedrock, which does not store prompts or use them to train models.</li>
+    </ul>
+    <h3>Deletion</h3>
+    <ul>
+      <li>When the merchant uninstalls the app, its access to the store ends and the access tokens are deleted immediately.</li>
+      <li>When Shopify sends its shop data erasure request (48 hours after uninstall), we delete the store's data listed above. Backups that contain it expire within 7 days.</li>
+      <li>Customer data erasure and data access requests sent to us by Shopify are completed within 30 days.</li>
+    </ul>
+    <p>Questions about MindX Brain and privacy: <a href="mailto:support@themindx.ai">support@themindx.ai</a>.</p>
+  </section>
+
+  <div class="contact-box" id="s23">
+    <h2>23. Contact Us</h2>
     <p>MindX Digital Softwares Inc.</p>
     <p>1111B S Governors Ave, STE 23511, Dover, DE 19904</p>
     <p>Email: <a href="mailto:support@themindx.ai">support@themindx.ai</a></p>

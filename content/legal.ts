@@ -18,7 +18,7 @@ export const legalPages: Record<
   privacy: {
     title: 'Privacy Policy',
     description: 'How MindX collects, uses and protects personal data.',
-    updated: '24 June 2026',
+    updated: '24 October 2026',
     file: 'privacy.html',
   },
   dpa: {
