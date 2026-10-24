@@ -12,7 +12,7 @@ export const legalPages: Record<
   terms: {
     title: 'Terms of Service',
     description: 'The terms that govern your use of MindX.',
-    updated: 'October 28, 2025',
+    updated: 'October 24, 2026',
     file: 'terms.html',
   },
   privacy: {
