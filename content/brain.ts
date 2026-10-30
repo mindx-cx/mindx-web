@@ -92,7 +92,7 @@ export const howFaq = [
     q: 'Does the Brain read my support tickets?',
     a: "Not yet. Today the Brain reads Shopify. Your helpdesk and messaging channels connect for AI support replies, and the Brain will read those conversations next.",
   },
-  { id: 'how-cost', q: 'What does it cost?', a: 'MindX Free is $0 with 50 Brain Credits a month. MindX Pro is $19 a month.' },
+  { id: 'how-cost', q: 'What does it cost?', a: 'MindX Free is $0 with 100 credits a month. Pro is $10 a month for 1,000 credits, Max $50 for 5,000 and Ultra $100 for 10,000. One answered question is one credit.' },
 ] as const;
 
 export const howCta = {

@@ -1,13 +1,14 @@
 import { ctas } from './site';
-// Pricing, prototype v3 (2 Oct 2026). Two plans, priced on Brain capacity
-// rather than seats: a merchant who asks more questions pays more, a merchant
-// who adds a colleague does not.
+// Pricing, 30 Oct 2026 (owner's plans, while MindX Brain is in testing): Free, Pro, Max and Ultra,
+// the same plans and credits as the app's Billing page. One answered question is one credit; every
+// plan has every feature, so the cards differ by credits only. Nothing here promises a feature the
+// Brain does not have today.
 
 export const brainPricingHero = {
   eyebrow: 'Pricing',
-  title: 'Priced by thinking, not by seats.',
+  title: 'Start free. Pay only for the answers you use.',
   subtitle:
-    'One question costs one credit. Invite whoever you like at no extra cost — the bill follows how much work the Brain does, not how many people watch it.',
+    'One answered question is one credit. Every plan has every MindX feature; the plans differ only in how many credits you get each month.',
 } as const;
 
 export type Plan = {
@@ -28,45 +29,68 @@ export const plans: readonly Plan[] = [
     id: 'free',
     name: 'Free',
     price: '$0',
-    cadence: 'per month, forever',
-    for: 'Merchants who want to see what the Brain finds.',
+    cadence: 'per month',
+    for: 'For trying MindX on your own store.',
     cta: ctas.brainScan,
     featured: false,
     note: 'No credit card.',
     includes: [
-      '50 Brain Credits a month',
-      'Connect your Shopify store',
-      'A free Brain Scan',
-      'The 3 things worth your attention',
-      'Ask MindX questions in plain English',
-      'Basic business insights',
+      '100 credits each month',
+      'Every MindX feature, nothing locked',
+      'No plan or card needed to start',
+      'Every number shows the orders behind it',
     ],
   },
   {
     id: 'pro',
     name: 'Pro',
-    price: '$19',
+    price: '$10',
     cadence: 'per month',
-    for: 'Merchants who want MindX working on the business every day.',
-    cta: { label: 'Start with MindX Pro', href: '/signup?plan=pro' },
+    for: 'For stores that check in every day.',
+    cta: { label: 'Start with Pro', href: '/signup?plan=pro' },
     featured: true,
     includes: [
+      '1,000 credits each month',
       'Everything in Free',
-      'Continuous monitoring, not just on demand',
-      'Deeper investigations with evidence',
-      'Cross-system analysis',
-      'Business recommendations',
-      'Approval workflows',
-      'AI actions, once you approve them',
-      'More Brain Credits',
-      'Priority support',
+      'Ask, find and explain on your Shopify data',
+      'Read-only: MindX never changes your store',
+    ],
+  },
+  {
+    id: 'max',
+    name: 'Max',
+    price: '$50',
+    cadence: 'per month',
+    for: 'For busy stores with many questions.',
+    cta: { label: 'Start with Max', href: '/signup?plan=max' },
+    featured: false,
+    includes: [
+      '5,000 credits each month',
+      'Everything in Pro',
+      'Room for the whole month, every day',
+      'Read-only: MindX never changes your store',
+    ],
+  },
+  {
+    id: 'ultra',
+    name: 'Ultra',
+    price: '$100',
+    cadence: 'per month',
+    for: 'For the busiest stores.',
+    cta: { label: 'Start with Ultra', href: '/signup?plan=ultra' },
+    featured: false,
+    includes: [
+      '10,000 credits each month',
+      'Everything in Max',
+      'The most credits, for heavy daily use',
+      'Read-only: MindX never changes your store',
     ],
   },
 ] as const;
 
 export const creditsNote = {
-  title: 'What is a Brain Credit?',
-  body: 'One question, one credit. A follow-up in the same conversation is part of the same question. An investigation that reads several systems costs more, and MindX tells you how much before it starts — you never find out after the fact.',
+  title: 'What is a credit?',
+  body: "One answered question uses one credit. Greetings, follow-up choices and questions MindX can't answer are free. Your plan's credits renew every month; extra credits you buy carry over until you use them.",
 } as const;
 
 export const brainPricingFaqTitle = 'Pricing questions';
@@ -75,21 +99,21 @@ export const brainPricingFaq = [
   {
     id: 'credits-run-out',
     q: 'What happens when I run out of credits?',
-    a: 'MindX stops and tells you. It does not quietly bill you for more. You can wait for the monthly reset or move up a plan.',
+    a: 'MindX stops and tells you. It never quietly bills you for more. Buy extra credits, move up a plan, or wait for your credits to renew next month.',
   },
   {
     id: 'seats',
     q: 'Do you charge per user?',
-    a: 'No. Invite your whole team. The price follows how much the Brain is asked to do, which is the thing that actually costs us money to run.',
+    a: 'No. The price follows how many questions MindX answers, not how many people use it.',
   },
   {
     id: 'cancel',
     q: 'Can I cancel?',
-    a: 'Any time, from inside the product. You keep access until the end of the period you have already paid for.',
+    a: 'Any time, from Billing inside MindX. You move to the Free plan and keep 100 credits a month.',
   },
   {
     id: 'shopify-billing',
     q: 'How am I billed?',
-    a: 'If you installed MindX from the Shopify App Store, it goes on your Shopify invoice. If you signed up directly, we take card payment. You are never billed through both.',
+    a: 'Through Shopify, on your Shopify invoice. You approve every charge on Shopify\'s own page, and you can change your plan at any time.',
   },
 ] as const;

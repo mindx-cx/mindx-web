@@ -42,8 +42,8 @@ export const seo = {
   },
   pricing: {
     path: '/pricing',
-    title: 'MindX Pricing — Free and Pro',
-    description: 'Free forever with 50 Brain Credits a month, or Pro at $19 a month. Priced by thinking, not by seats.',
+    title: 'MindX Pricing — Free, Pro, Max and Ultra',
+    description: 'Start free with 100 credits a month. Pro $10, Max $50, Ultra $100 a month. One answered question is one credit.',
   },
   trust: {
     path: '/trust',

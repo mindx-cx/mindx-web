@@ -4,14 +4,14 @@ import { plans } from '@/content/brainPricing';
 import { cn } from '@/lib/cn';
 
 /**
- * Two plans, side by side. Pro is marked by a brand border and a label rather
- * than by being bigger -- a card that physically dwarfs the free one makes the
- * free plan look like a consolation prize, and the free plan is the one we
- * actually want people to start on.
+ * Four plans, side by side: Free, Pro, Max and Ultra. Pro is marked by a brand
+ * border and a label rather than by being bigger -- a card that physically
+ * dwarfs the free one makes the free plan look like a consolation prize, and
+ * the free plan is the one we actually want people to start on.
  */
 export function PlanCards() {
   return (
-    <div className="mx-auto grid max-w-[920px] gap-4 md:grid-cols-2">
+    <div className="mx-auto grid max-w-[1200px] gap-4 md:grid-cols-2 lg:grid-cols-4">
       {plans.map((plan) => (
         <article
           key={plan.id}
@@ -29,7 +29,7 @@ export function PlanCards() {
           <h3 className="text-h3 font-semibold text-fg">{plan.name}</h3>
           <p className="mt-1 text-small text-muted-fg">{plan.for}</p>
 
-          <p className="mt-6 flex items-baseline gap-2">
+          <p className="mt-6 flex items-baseline gap-2 whitespace-nowrap">
             <span className="text-stat font-bold tracking-tight text-fg">{plan.price}</span>
             <span className="text-small text-subtle-fg">{plan.cadence}</span>
           </p>

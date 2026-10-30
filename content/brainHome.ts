@@ -99,7 +99,7 @@ export const brainFaq = [
   {
     id: 'cost',
     q: 'What does it cost?',
-    a: 'There is a free plan with 50 Brain Credits a month — one question costs one credit — and no card. Pro is $19 a month for continuous monitoring, deeper investigations and approval workflows. Pricing is based on how much thinking you use, not how many seats you have.',
+    a: 'There is a free plan with 100 credits a month and no card; one answered question is one credit. Pro is $10 a month for 1,000 credits, Max $50 for 5,000 and Ultra $100 for 10,000. Every plan has every feature; you pay for the answers you use, not for seats.',
   },
   {
     id: 'data',

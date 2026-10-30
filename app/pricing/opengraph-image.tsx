@@ -5,8 +5,8 @@ import { ogImage } from '@/lib/og';
 export const dynamic = 'force-static';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Free forever, or $19 a month. Priced by thinking, not by seats.';
+export const alt = 'Start free. Pro $10, Max $50, Ultra $100 a month.';
 
 export default function Image() {
-  return ogImage('Free forever, or $19 a month. Priced by thinking, not by seats.');
+  return ogImage('Start free. Pro $10, Max $50, Ultra $100 a month.');
 }

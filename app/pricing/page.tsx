@@ -16,12 +16,12 @@ import { softwareApplicationLd } from '@/lib/structuredData';
 export const metadata = pageMetadata(seo.pricing);
 
 /**
- * Pricing, prototype v3. Two plans and one idea: you pay for thinking, not for
- * seats.
+ * Pricing (30 Oct 2026): Free, Pro, Max and Ultra, the same plans as the app.
+ * One answered question is one credit.
  *
  * The old page sold four AI Workers with per-resolution pricing and a savings
  * calculator. Those components are untouched and still serve /workers -- but a
- * merchant arriving at /pricing today is choosing between Free and Pro, and
+ * merchant arriving at /pricing today is choosing between the Brain's plans, and
  * making them read a worker price table first was asking them to price a
  * product we are not currently selling them.
  */
@@ -44,7 +44,7 @@ export default function PricingPage() {
       </Section>
 
       <Section theme="cream" className="pt-0 md:pt-0" reveal>
-        <div className="mx-auto max-w-[920px] rounded-card border border-line bg-white p-6 shadow-card">
+        <div className="mx-auto max-w-[1200px] rounded-card border border-line bg-white p-6 shadow-card">
           <h2 className="text-h3 font-semibold text-fg">{creditsNote.title}</h2>
           <p className="mt-3 text-muted-fg">{creditsNote.body}</p>
         </div>
