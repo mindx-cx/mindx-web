@@ -1,0 +1,63 @@
+# Apache rules for the static export, served by Hostinger.
+#
+# Everything in public/ is copied into out/, so this file ends up at the site
+# root. It replaces the redirects() block that used to live in
+# next.config.mjs -- static export has no server to run that.
+
+RewriteEngine On
+
+# --- The product lives on AWS ------------------------------------------------
+# themindx.com now points at the AWS box, where /app serves the product and
+# this marketing site serves everything else. Hostinger still answers for
+# anyone whose DNS has not caught up, and it has no /app -- so a merchant who
+# clicked "Log in" got this site's 404 and no way forward.
+#
+# This bounces them to the one hostname that resolves to AWS everywhere.
+# 302, not 301: once DNS has settled this rule should stop firing, and a
+# permanent redirect would be cached in browsers long after it was removed.
+RewriteCond %{REQUEST_URI} ^/app(/|$)
+RewriteRule ^app(/.*)?$ https://app.themindx.com/app$1 [R=302,L]
+
+
+# --- Legacy URLs -------------------------------------------------------------
+# The old themindx.ai site, and the Shopify App Store listing, link to these.
+Redirect 301 /index.html /
+Redirect 301 /privacy-policy.html /privacy/
+Redirect 301 /terms-of-service.html /terms/
+
+# --- Removed pages -----------------------------------------------------------
+Redirect 301 /brain-scan /signup/
+Redirect 301 /waitlist /signup/
+
+# --- Clean URLs --------------------------------------------------------------
+# trailingSlash: true means each route is a directory holding index.html, so
+# Apache finds them on its own. This only adds the missing slash.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+# --- 404 ---------------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# --- Caching -----------------------------------------------------------------
+# Next fingerprints everything under /_next/static, so those are safe to cache
+# forever. HTML must not be, or a deploy takes a day to reach anyone.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
