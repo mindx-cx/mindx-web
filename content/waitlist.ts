@@ -19,7 +19,7 @@ export const waitlistPage = {
   countdownLabels: ['Days', 'Hours', 'Min', 'Sec'],
   countdownDone: 'MindX is opening now.',
   perks: [
-    'Early access to MindX Brain, Resolve and Convert',
+    'Early access to MindX AI, Resolve and Convert',
     'Your free Brain Scan the day we open',
     'Founding merchant pricing, locked for 12 months [confirm]',
   ],

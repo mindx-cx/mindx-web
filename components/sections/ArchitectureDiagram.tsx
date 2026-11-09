@@ -32,12 +32,12 @@ const workerY = [120, 220, 320];
 const converge = (y: number) => 220 + (y - 220) * 0.55;
 
 /**
- * Spec A7 ArchitectureDiagram: tools → MindX Brain (5 chips) → workers, with a
+ * Spec A7 ArchitectureDiagram: tools → MindX AI (5 chips) → workers, with a
  * loop back into the Brain. Data "flows" along the lines (CSS dash animation,
  * off with reduced motion). Stacks vertically below md.
  */
 export function ArchitectureDiagram({ tools, brainChips, caption }: DiagramProps) {
-  const label = `Diagram: ${tools.join(', ')} feed MindX Brain (${brainChips.join(', ')}), which powers ${workers
+  const label = `Diagram: ${tools.join(', ')} feed MindX AI (${brainChips.join(', ')}), which powers ${workers
     .map((w) => w.name)
     .join(', ')}. ${caption}`;
 
@@ -108,7 +108,7 @@ export function ArchitectureDiagram({ tools, brainChips, caption }: DiagramProps
         />
         <rect x={BRAIN_X} y={BRAIN_Y} width={BRAIN_W} height={BRAIN_H} rx={22} className="fill-navy-950" />
         <text x={BRAIN_X + BRAIN_W / 2} y={BRAIN_Y + 44} textAnchor="middle" className="fill-white text-[22px] font-bold">
-          MindX Brain
+          MindX AI
         </text>
         {brainChips.map((chip, i) => {
           const y = BRAIN_Y + 72 + i * 62;
@@ -167,7 +167,7 @@ export function ArchitectureDiagram({ tools, brainChips, caption }: DiagramProps
         </ul>
         <ArrowDown className="mx-auto my-3 h-5 w-5 text-blue-600" aria-hidden="true" />
         <div className="rounded-card bg-navy-950 p-5 text-white ring-2 ring-mint-400/50 ring-offset-2 ring-offset-gray-50">
-          <p className="text-center text-body-l-m font-bold">MindX Brain</p>
+          <p className="text-center text-body-l-m font-bold">MindX AI</p>
           <ul className="mt-4 space-y-2">
             {brainChips.map((chip) => (
               <li key={chip} className="flex items-center gap-3 rounded-btn border border-white/10 bg-navy-850 px-3 py-2 text-small">

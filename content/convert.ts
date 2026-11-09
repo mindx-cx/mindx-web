@@ -7,7 +7,7 @@ export const convertHero = {
   eyebrow: 'MindX Convert · AI sales worker',
   title: 'Turn questions into sales',
   subtitle:
-    'Many support conversations are really pre-sale questions. Convert answers them with the right product, size and offer, using everything MindX Brain knows about the shopper. You pay only when it wins a sale: 5% of the order, capped at $5.',
+    'Many support conversations are really pre-sale questions. Convert answers them with the right product, size and offer, using everything MindX AI knows about the shopper. You pay only when it wins a sale: 5% of the order, capped at $5.',
 } as const;
 
 // DRAFT
@@ -29,7 +29,7 @@ export const convertFlow = {
   intro: 'A basic chatbot links to a FAQ page. Convert closes the question:',
   steps: [
     { title: 'Understand', body: 'Understands what the shopper wants and what is holding them back' },
-    { title: 'Check', body: 'Checks product, stock, reviews and policies in MindX Brain' },
+    { title: 'Check', body: 'Checks product, stock, reviews and policies in MindX AI' },
     { title: 'Recommend', body: 'Recommends the right product and size, with the reason' },
     { title: 'Add to cart', body: 'Adds it to the cart when the shopper says yes' },
     { title: 'Record', body: 'Records the sale in your outcome ledger' },
@@ -49,7 +49,7 @@ export const convertRules = {
 
 export const convertPricing = {
   // From spec B6.3.
-  text: '5% of the order, capped at $5, only when Convert wins a sale. Plus your MindX Brain plan from $49 a month.',
+  text: '5% of the order, capped at $5, only when Convert wins a sale. Plus your MindX AI plan from $49 a month.',
   link: { label: 'See pricing', href: '/pricing' },
 } as const;
 
@@ -75,7 +75,7 @@ export const convertFaq = [
   {
     id: 'with-resolve',
     q: 'Does Convert work with Resolve?',
-    a: 'Yes. Both use MindX Brain, so a shopper who asks about sizing and later asks about delivery gets one consistent answer.',
+    a: 'Yes. Both use MindX AI, so a shopper who asks about sizing and later asks about delivery gets one consistent answer.',
   },
 ];
 

@@ -42,7 +42,7 @@ const swatches = [
 ] as const;
 
 const workerFamily: { id: WorkerId; name: string; role: string }[] = [
-  { id: 'brain', name: 'MindX Brain', role: 'Blue · the platform' },
+  { id: 'brain', name: 'MindX AI', role: 'Blue · the platform' },
   { id: 'resolve', name: 'MindX Resolve', role: 'Teal · customer service' },
   { id: 'convert', name: 'MindX Convert', role: 'Orange · sales' },
   { id: 'grow', name: 'MindX Grow', role: 'Purple · marketing' },

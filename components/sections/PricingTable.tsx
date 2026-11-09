@@ -9,7 +9,7 @@ import { ctas } from '@/content/site';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
 
-/** MindX Brain plans (A7 PricingTable): 4 cards, Growth highlighted, monthly/annual toggle. */
+/** MindX AI plans (A7 PricingTable): 4 cards, Growth highlighted, monthly/annual toggle. */
 export function PricingTable() {
   const [annual, setAnnual] = useState(false);
 

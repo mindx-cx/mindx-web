@@ -26,7 +26,7 @@ export const resolveFlow = {
   intro: 'A basic AI chat tells a customer to wait for an agent. Resolve works like your best team member:',
   steps: [
     { title: 'Understand', body: 'Understands the request and who is asking' },
-    { title: 'Check', body: 'Checks the order, shipment, policy and customer history in MindX Brain' },
+    { title: 'Check', body: 'Checks the order, shipment, policy and customer history in MindX AI' },
     { title: 'Decide', body: 'Decides the right action inside your rules' },
     { title: 'Act', body: 'Acts in Shopify and your other tools' },
     { title: 'Verify', body: 'Verifies the change actually happened' },
@@ -75,7 +75,7 @@ export const resolveChannels = {
 } as const;
 
 export const resolvePricing = {
-  text: '$0.90 per resolved conversation. $0 when it goes to a human. Plus your MindX Brain plan from $49 a month.',
+  text: '$0.90 per resolved conversation. $0 when it goes to a human. Plus your MindX AI plan from $49 a month.',
   link: { label: 'See pricing', href: '/pricing' },
 } as const;
 

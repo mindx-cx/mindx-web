@@ -49,7 +49,7 @@ export const heroDemo = {
       steps: [
         { kind: 'message', from: 'customer', text: 'Hi! The jacket I ordered is too small. Can I return it?' },
         { kind: 'action', text: 'Read order #1043', system: 'Shopify' },
-        { kind: 'action', text: 'Checked policy: 30-day free exchange', system: 'MindX Brain' },
+        { kind: 'action', text: 'Checked policy: 30-day free exchange', system: 'MindX AI' },
         { kind: 'action', text: 'Checked stock: size L, 12 available', system: 'Shopify' },
         {
           kind: 'message',
@@ -79,7 +79,7 @@ export const heroDemo = {
       steps: [
         { kind: 'message', from: 'customer', text: "Does the Alpine Jacket run small? I'm usually a size M." },
         { kind: 'action', text: 'Read product: Alpine Jacket', system: 'Shopify' },
-        { kind: 'action', text: 'Checked size chart and reviews', system: 'MindX Brain' },
+        { kind: 'action', text: 'Checked size chart and reviews', system: 'MindX AI' },
         { kind: 'action', text: 'Checked stock: size L, ships today', system: 'Shopify' },
         {
           kind: 'message',
@@ -101,13 +101,13 @@ export const heroDemo = {
       id: 'brain',
       worker: 'brain',
       tab: 'Ask the Brain',
-      workerName: 'MindX Brain',
+      workerName: 'MindX AI',
       header: 'Ask MindX · Your store',
       mode: 'Ask',
       steps: [
         { kind: 'message', from: 'merchant', text: 'Why did refunds go up last week, and what did it cost me?' },
         { kind: 'action', text: 'Read 7 days of refunds', system: 'Shopify' },
-        { kind: 'action', text: 'Matched refunds to conversations', system: 'MindX Brain' },
+        { kind: 'action', text: 'Matched refunds to conversations', system: 'MindX AI' },
         {
           kind: 'chart',
           title: 'Refund reasons, last 7 days',
@@ -123,7 +123,7 @@ export const heroDemo = {
           from: 'worker',
           text: "Refunds rose 18%. 62% were 'size too small' on the Alpine Jacket, after last week's new supplier batch. Cost: $3,420 in refunds. Resolve also turned 41 more requests into exchanges, keeping $3,650 in sales. Suggested fix: update the size chart and flag the batch to your supplier. Approve?",
         },
-        { kind: 'action', text: 'Drafted size chart update', system: 'MindX Brain' },
+        { kind: 'action', text: 'Drafted size chart update', system: 'MindX AI' },
         { kind: 'approval' },
       ],
       result: ['Refunds +18%', '$3,420 refunded', '$3,650 kept by exchanges'],
@@ -208,7 +208,7 @@ export type WorkerCard = {
 
 export const meetMindx = {
   title: 'One brain. Every tool. AI workers on top.',
-  body: 'MindX Brain builds one live model of your business from the tools you already use. AI Workers use it to do real jobs, and every job they finish makes the Brain smarter.',
+  body: 'MindX AI builds one live model of your business from the tools you already use. AI Workers use it to do real jobs, and every job they finish makes the Brain smarter.',
   // Spec A7 ArchitectureDiagram labels.
   diagram: {
     tools: ['Shopify', 'Helpdesk', 'Shipping', 'Returns', 'Email and ads'],
@@ -282,7 +282,7 @@ export const resolveInAction = {
   link: { label: 'See everything Resolve can do', href: '/workers/resolve' },
   steps: [
     'Understands the request and who is asking',
-    'Checks the order, shipment, policy and customer history in MindX Brain',
+    'Checks the order, shipment, policy and customer history in MindX AI',
     'Decides the right action inside your rules',
     'Acts in Shopify and your other tools',
     'Verifies the change actually happened',
@@ -312,7 +312,7 @@ export const brainScanCallout = {
 
 export const pricingTeaser = {
   title: 'Pay for the Brain. Pay workers only for results.',
-  body: 'MindX Brain starts at $49 a month. MindX Resolve costs $0.90 per resolved conversation, and nothing when a conversation goes to a human.',
+  body: 'MindX AI starts at $49 a month. MindX Resolve costs $0.90 per resolved conversation, and nothing when a conversation goes to a human.',
   link: { label: 'See pricing', href: '/pricing' },
 } as const;
 

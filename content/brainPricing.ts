@@ -1,5 +1,5 @@
 import { ctas } from './site';
-// Pricing, 30 Oct 2026 (owner's plans, while MindX Brain is in testing): Free, Pro, Max and Ultra,
+// Pricing, 30 Oct 2026 (owner's plans, while MindX AI is in testing): Free, Pro, Max and Ultra,
 // the same plans and credits as the app's Billing page. One answered question is one credit; every
 // plan has every feature, so the cards differ by credits only. Nothing here promises a feature the
 // Brain does not have today.

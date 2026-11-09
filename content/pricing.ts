@@ -50,7 +50,7 @@ export const pricingHero = {
   eyebrow: 'Pricing',
   title: 'Pay for the Brain. Pay workers only for results.',
   subtitle:
-    'A simple monthly plan for MindX Brain. MindX Resolve costs $0.90 per resolved conversation, and nothing when it goes to a human.',
+    'A simple monthly plan for MindX AI. MindX Resolve costs $0.90 per resolved conversation, and nothing when it goes to a human.',
   monthly: 'Monthly',
   annual: 'Annual',
   annualSave: 'save 15% [confirm the discount]',
@@ -62,7 +62,7 @@ export const pricingHero = {
 
 // ADDED: headings for B6.2 / B6.3 (the spec gives tables only).
 export const pricingSections = {
-  plansTitle: 'MindX Brain plans',
+  plansTitle: 'MindX AI plans',
   workersTitle: 'AI Worker pricing',
   workersSubtitle: 'On top of any plan.',
   workerColumns: ['Worker', 'Price', 'You pay when', 'Status'],
@@ -111,7 +111,7 @@ export const calculatorCopy = {
   conversations: 'Conversations per month',
   share: 'Share Resolve handles',
   humanCost: 'Your cost per human conversation',
-  plan: 'MindX Brain plan',
+  plan: 'MindX AI plan',
   bill: 'Your MindX bill',
   human: 'Human cost for the same work',
   savings: 'You save each month',
