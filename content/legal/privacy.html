@@ -113,6 +113,7 @@
     <p>We do not sell personal data. We share limited data with trusted providers, including:</p>
     <ul>
       <li>Cloud infrastructure: Amazon Web Services (AWS), Google Cloud</li>
+      <li>AI service providers: companies that run the AI models behind the answers in our Services, under contract (for MindX AI, see Section 22)</li>
       <li>Analytics: Google Analytics, Mixpanel, Amplitude</li>
       <li>Advertising: Meta, Google Ads, LinkedIn, TikTok</li>
       <li>CRM/Marketing: HubSpot, Intercom, Customer.io</li>
@@ -131,6 +132,7 @@
       <li>For EU/EEA/UK customers, transfers are based on Standard Contractual Clauses (SCCs) and UK Addendum where applicable.</li>
       <li>For Swiss customers, transfers follow the Swiss Federal Act on Data Protection (FADP).</li>
       <li>For other jurisdictions, we apply equivalent safeguards.</li>
+      <li>For MindX AI (Section 22), store data is stored in India and may be processed by AI service providers in other countries, including the United States.</li>
     </ul>
   </section>
 
@@ -138,7 +140,8 @@
     <h2>8. Data Retention</h2>
     <p>We keep data only as long as necessary for the purposes outlined in this Policy:</p>
     <ul>
-      <li>Account and billing data: retained for 7 years (legal obligation).</li>
+      <li>Account and billing data: retained for 7 years (legal obligation). For the MindX AI Shopify app, Shopify bills the merchant, the MindX account created for the store is deleted when Shopify sends its shop data erasure request, and MindX keeps only the billing and audit records listed in Section 22.</li>
+      <li>MindX AI store data: kept while the app is installed and deleted when Shopify sends its shop data erasure request, 48 hours after the app is uninstalled. Store updates sent by Shopify are kept for no more than 7 days. See Section 22.</li>
       <li>Chat logs and End‑Customer Conversation Data: retained for the period configured by the relevant customer (controller) and anonymized or deleted thereafter, unless longer retention is required for security, legal or operational needs. Deletion requests for this data are handled as described in Section 21.</li>
       <li>Marketing data: retained until you opt out or withdraw consent.</li>
     </ul>
@@ -244,21 +247,48 @@
     <p>MindX AI is our app for Shopify merchants. It is installed from the Shopify App Store and runs inside the merchant's Shopify admin. For the store data it reads, the merchant is the data controller and MindX AI acts as a data processor, as described in Section 21.</p>
     <h3>What the app reads</h3>
     <ul>
-      <li>With the merchant's permission, MindX AI reads the store's orders, products, fulfilments and customer totals through Shopify's API. Its access is read-only: it never changes the store.</li>
-      <li>From customer records it reads only the customer ID, the date the customer was created, the number of orders and the amount spent. It does not read customer names, email addresses, phone numbers or postal addresses.</li>
+      <li>With the merchant's permission, MindX AI reads the store's orders, refunds, fulfilments, products and customer totals through Shopify's API. Its access is read-only: it never changes the store.</li>
+      <li>From customer records it reads only the customer ID, the dates the record was created and last updated, the number of orders and the amount spent. It does not read customer names, email addresses, phone numbers or postal addresses.</li>
+      <li>It also reads the store's own details: its name, web address, contact email, currency, time zone and Shopify plan.</li>
+      <li>Shopify sends MindX an update each time an order, refund, fulfilment or product in the store is created or changed.</li>
     </ul>
     <h3>Why we use it</h3>
-    <p>Only to answer the merchant's questions about their own store and to find problems in it, such as falling sales or orders waiting to ship. We never sell this data, never share it with other merchants, never use it for advertising and never use it to train AI models.</p>
-    <h3>What we store and where</h3>
+    <p>Only to answer the merchant's questions about their own store and to find problems in it, such as falling sales or orders waiting to ship. The store's name and contact email are also used to set up the store's MindX account and to send the store owner emails about the app, such as billing notices. We never sell this data, never share it with other merchants, never use it for advertising and never use it to train AI models.</p>
+    <h3>What we store, where and for how long</h3>
     <ul>
-      <li>The merchant's account, the Shopify connection (access tokens, encrypted with AES-256-GCM), a copy of the product catalogue, and the app's findings, conversations and credit history. Orders are read live from Shopify and are not stored.</li>
-      <li>This data is hosted on Amazon Web Services in Mumbai, India (ap-south-1) and is encrypted at rest and in transit. AI answers are generated with Amazon Bedrock, which does not store prompts or use them to train models.</li>
+      <li><strong>The store's MindX account.</strong> When the app is first opened, MindX creates an account for the store from its name, web address and contact email, and links the store owner's MindX login to it, creating one if needed.</li>
+      <li><strong>The Shopify connection.</strong> The store's access tokens, encrypted with AES-256-GCM.</li>
+      <li><strong>Store updates, for up to 7 days.</strong> Each update Shopify sends about an order, refund, fulfilment or product is kept encrypted until MindX has read it. It is deleted within 7 days of arriving, together with Shopify's IDs for the record and for the customer it names.</li>
+      <li><strong>Store memory.</strong> To compare periods and explain what changed, MindX may keep the store's order, refund, fulfilment, product and customer-total records, and the figures behind its answers and findings, in the store's own store memory. Store memory holds no customer names, email addresses, phone numbers or postal addresses.</li>
+      <li><strong>The app's own work.</strong> The merchant's questions and the app's answers, its findings and the merchant's decisions on them, notifications, settings, a copy of the product catalogue, and billing records: the plan, the number of answers used in each billing cycle, and the credits bought and used.</li>
+      <li>Apart from the store updates, this data is kept while the app is installed and is deleted as described under "Deletion" below. It is stored on Amazon Web Services in Mumbai, India (ap-south-1), and is encrypted at rest and in transit.</li>
+    </ul>
+    <h3>AI service providers and other recipients</h3>
+    <ul>
+      <li>To write the app's answers and explanations, MindX sends the merchant's question and the store data needed to answer it to AI service providers. They process it only on MindX's behalf, under contract, and may process it outside India, including in the United States.</li>
+      <li>AI service providers may not use this data to train their models. They may keep it only for a limited time, as their contract allows, for example to monitor for abuse.</li>
+      <li>Emails from the app to the store owner, such as billing notices, are sent through our email provider.</li>
     </ul>
     <h3>Deletion</h3>
     <ul>
-      <li>When the merchant uninstalls the app, its access to the store ends and the access tokens are deleted immediately.</li>
-      <li>When Shopify sends its shop data erasure request (48 hours after uninstall), we delete the store's data listed above. Backups that contain it expire within 7 days.</li>
-      <li>Customer data erasure and data access requests sent to us by Shopify are completed within 30 days.</li>
+      <li>When the merchant uninstalls the app, its access to the store ends, and the access tokens, including the copy used by MindX's AI tools, are deleted immediately.</li>
+      <li>Shopify sends its shop data erasure request 48 hours after the app is uninstalled. MindX then deletes the store's data listed above: the installation and the Shopify connection, any store updates still kept, the store memory, the copy of the product catalogue, and the app's conversations, findings, decisions, notifications, settings, feedback, credit balance and question history.</li>
+      <li>MindX also deletes the MindX account it created for the store when the app was installed: the account, its members, logins and sign-in tokens, and its onboarding data. The store owner's MindX login is deleted too, unless that person also uses another MindX workspace.</li>
+      <li>If the store was linked to a MindX account that existed before the app was installed, that account is kept: only its link to the store and the store's data are deleted. If the app is installed again before Shopify's erasure request arrives, the account is kept.</li>
+      <li>Backups that contain deleted data expire within 7 days.</li>
+    </ul>
+    <h3>What MindX keeps after deletion</h3>
+    <ul>
+      <li>The store's billing records: its plan, the number of answers used in each billing cycle, and the credits bought, used and forfeited. Apps installed from the Shopify App Store are billed by Shopify, so these records hold no payment details.</li>
+      <li>The app's audit log (which user did what, and when), including the line that records the erasure.</li>
+      <li>A record of each privacy request Shopify sent, with Shopify's IDs and the customer's email address and phone number only as one-way hashes.</li>
+      <li>These records hold no question text and no customer names. They are kept as the record of what was billed and what was done (see Section 8).</li>
+    </ul>
+    <h3>Requests about one customer</h3>
+    <ul>
+      <li>When Shopify sends a customer data erasure request, MindX removes that customer from everything the app keeps for the store: findings about them, mentions of them in conversations and question history, their records in store memory, and store updates that name them. The store's orders are kept as the store's records, without the link to the customer.</li>
+      <li>When Shopify sends a customer data request, MindX gathers what the app holds about that customer and emails it to the store owner at the store's email address in Shopify.</li>
+      <li>Both are carried out automatically and retried until they are complete, within 30 days.</li>
     </ul>
     <p>Questions about MindX AI and privacy: <a href="mailto:support@themindx.ai">support@themindx.ai</a>.</p>
   </section>
