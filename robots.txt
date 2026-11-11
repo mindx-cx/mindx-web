@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /styleguide
+
+Sitemap: https://themindx.com/sitemap.xml
