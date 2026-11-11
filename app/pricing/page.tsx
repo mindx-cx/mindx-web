@@ -20,7 +20,8 @@ export const metadata = pageMetadata(seo.pricing);
  * One answered question is one credit.
  *
  * The old page sold four AI Workers with per-resolution pricing and a savings
- * calculator. Those components are untouched and still serve /workers -- but a
+ * calculator. Those components are untouched (the /workers pages that used them
+ * were removed on 11 Nov 2026) -- but a
  * merchant arriving at /pricing today is choosing between the Brain's plans, and
  * making them read a worker price table first was asking them to price a
  * product we are not currently selling them.

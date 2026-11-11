@@ -33,13 +33,15 @@ On this machine the system Node is 18, so local preview uses a portable Node 22 
 | Route | Notes |
 |---|---|
 | `/` | Home: rotating headline, auto-playing worker demos, inbox, Brain diagram, ledger, calculator |
-| `/brain`, `/workers/resolve`, `/workers/convert`, `/workers/grow` | Product pages (Grow has its waitlist form) |
-| `/waitlist` | Early access: countdown to 9 Nov 2026, 2-step signup; `?intent=demo` for demo requests |
+| `/brain` | Product page ("How it works") |
 | `/pricing` | Plans with monthly/annual toggle, worker pricing, calculator, founding offer |
-| `/trust`, `/integrations`, `/about`, `/design-partners`, `/faq` | Company and trust pages (no Careers page) |
-| `/brain-scan`, `/demo` | Live-mode pages; redirect to `/waitlist` in waitlist mode |
+| `/integrations`, `/about` | Company pages (no Careers page) |
+| `/brain-scan`, `/demo` | Live-mode pages; redirect to `/signup` in waitlist mode |
 | `/terms`, `/privacy` | Carried over from the current site; old `.html` URLs redirect here |
-| `/dpa`, `/subprocessors`, `/acceptable-use` | Shells waiting for the lawyer's text |
+
+Removed on 11 Nov 2026 because they showed draft text that did not match the Terms and Privacy Policy:
+`/workers/resolve`, `/workers/convert`, `/workers/grow`, `/waitlist`, `/trust`, `/dpa`, `/subprocessors`,
+`/acceptable-use`. A DPA is available on request at support@themindx.ai.
 
 Also: `sitemap.xml`, `robots.txt`, `llms.txt`, per-page Open Graph images, JSON-LD (Organization, SoftwareApplication, BreadcrumbList, FAQPage), a 404 page, and `/styleguide` (internal, not indexed).
 
@@ -90,7 +92,7 @@ PostHog (`NEXT_PUBLIC_POSTHOG_KEY`) loads only after the visitor clicks "Accept 
 - **Header** is the current site's floating pill nav.
 - **Naming**: keep "MindX · The Ecommerce Brain" (founder decision). The competitor EcomBrain (ecombrain.io) uses a similar name; worth a trademark check before launch.
 - **MindX Convert is live**, not "coming 2027". Its page copy is marked `DRAFT` pending product confirmation.
-- **Waitlist launch mode**: while `NEXT_PUBLIC_LAUNCH_MODE=waitlist` (default), main CTAs read "Get early access" and open `/waitlist`; "Book a demo" joins the waitlist as a demo request. Set `live` at launch (9 Nov 2026) to restore the spec's CTAs and turn off the redirects.
+- **Waitlist launch mode**: while `NEXT_PUBLIC_LAUNCH_MODE=waitlist` (default), main CTAs read "Get early access" and open `/signup`; "Book a demo" opens `/signup` too. Set `live` at launch (9 Nov 2026) to restore the spec's CTAs and turn off the redirects.
 - **Brain Scan redirect** sends only `?shop=` to the app install flow, not the email (the email is already saved with the lead).
 - **Log in** links to `app.themindx.ai/signin` (the app's real path).
 - **Integration statuses** reflect the product code (Shopify, Gorgias, Zendesk and five messaging channels live), not the spec's planned list.

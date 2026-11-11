@@ -29,7 +29,7 @@ export const showPlaceholders = process.env.NEXT_PUBLIC_SHOW_PLACEHOLDERS === 't
 /**
  * Launch mode (decision 29 Sep 2026).
  * - "waitlist" (default): every main CTA reads "Get early access" and opens
- *   /waitlist; "Book a demo" joins the waitlist as a demo request.
+ *   /signup; "Book a demo" opens /signup too (/waitlist was removed 11 Nov 2026).
  * - "live": CTAs follow the spec ("Get your free Brain Scan" → /brain-scan, /demo).
  */
 export const launchMode: 'waitlist' | 'live' = process.env.NEXT_PUBLIC_LAUNCH_MODE === 'live' ? 'live' : 'waitlist';

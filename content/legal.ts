@@ -1,9 +1,13 @@
 // Legal pages (spec B10.3). Privacy Policy and Terms of Service carry over the
 // text published on the current themindx.ai site (content/legal/*.html) so
-// nothing linked from the Shopify App Store breaks. The other three need a
-// lawyer's text before launch.
+// nothing linked from the Shopify App Store breaks.
+//
+// CHANGED 11 Nov 2026: the /dpa, /subprocessors and /acceptable-use pages
+// were removed. They only showed draft placeholders. The Terms (7.1) and the
+// Privacy Policy (section 21) say a DPA is available on request at
+// support@themindx.ai.
 
-export type LegalPageKey = 'terms' | 'privacy' | 'dpa' | 'subprocessors' | 'acceptable-use';
+export type LegalPageKey = 'terms' | 'privacy';
 
 export const legalPages: Record<
   LegalPageKey,
@@ -20,21 +24,6 @@ export const legalPages: Record<
     description: 'How MindX collects, uses and protects personal data.',
     updated: '10 November 2026',
     file: 'privacy.html',
-  },
-  dpa: {
-    title: 'Data Processing Agreement',
-    description: 'The data processing terms for merchants using MindX.',
-    purpose: 'Merchants will ask for it.',
-  },
-  subprocessors: {
-    title: 'Subprocessors',
-    description: 'The third parties that help MindX run the service.',
-    purpose: 'Lists the AI and hosting providers that process data for MindX.',
-  },
-  'acceptable-use': {
-    title: 'Acceptable Use Policy',
-    description: 'What merchants may not use MindX for.',
-    purpose: 'Sets out what merchants may not use MindX for.',
   },
 };
 

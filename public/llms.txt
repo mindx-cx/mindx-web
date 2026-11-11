@@ -8,7 +8,7 @@ returns, exchanges and refunds inside merchant-set rules, verifies each action
 and logs it. MindX Convert, the AI sales worker, answers pre-sale questions and
 recommends the right product.
 
-MindX opens to all merchants on November 9, 2026. Early access: https://themindx.ai/waitlist
+MindX opens to all merchants on November 9, 2026.
 
 ## Pricing
 - MindX AI: Starter $49/mo, Growth $199/mo, Pro $499/mo, Enterprise custom
@@ -18,9 +18,5 @@ MindX opens to all merchants on November 9, 2026. Early access: https://themindx
 
 ## Key pages
 - [MindX AI](https://themindx.ai/brain)
-- [MindX Resolve](https://themindx.ai/workers/resolve)
-- [MindX Convert](https://themindx.ai/workers/convert)
-- [Early access](https://themindx.ai/waitlist)
 - [Pricing](https://themindx.ai/pricing)
-- [Trust & security](https://themindx.ai/trust)
 - [Integrations](https://themindx.ai/integrations)

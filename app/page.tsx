@@ -25,8 +25,8 @@ import { brainExplanation, homeCta } from '@/content/home';
  * Layout and design tokens are the prototype's; the words are the ones Rajesh
  * wrote in content/home.ts, which stays the single owner of them. The old
  * worker-led page (Resolve / Convert / Grow, the savings calculator, the
- * outcome ledger) is gone from here -- those components still serve /workers,
- * so nothing is deleted.
+ * outcome ledger) is gone from here. The /workers pages that used those
+ * components were removed on 11 Nov 2026; the components are kept.
  */
 export default function HomePage() {
   return (

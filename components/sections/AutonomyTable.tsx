@@ -21,7 +21,8 @@ function Steps({ filled, total }: { filled: number; total: number }) {
 
 /**
  * Autonomy levels (A7 AutonomyTable) with a stepped visual that fills up as
- * the level rises. Used with 3 levels on /workers/resolve and 6 on /trust.
+ * the level rises. Was used on /workers/resolve and /trust (both removed on
+ * 11 Nov 2026); no page uses it now.
  */
 export function AutonomyTable({ caption, columns, levels }: AutonomyTableProps) {
   const total = levels.length;
