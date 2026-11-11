@@ -16,13 +16,13 @@ export const legalPages: Record<
   terms: {
     title: 'Terms of Service',
     description: 'The terms that govern your use of MindX.',
-    updated: 'October 24, 2026',
+    updated: '11 November 2026',
     file: 'terms.html',
   },
   privacy: {
     title: 'Privacy Policy',
     description: 'How MindX collects, uses and protects personal data.',
-    updated: '10 November 2026',
+    updated: '11 November 2026',
     file: 'privacy.html',
   },
 };
